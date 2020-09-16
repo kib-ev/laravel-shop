@@ -10,18 +10,22 @@
             <li><a href="index.html">Home</a> <span class="divider">/</span></li>
             <li class="active"> SHOPPING CART</li>
         </ul>
-        <h3> SHOPPING CART [ <small>3 Item(s) </small>]<a href="products.html" class="btn btn-large pull-right"><i
-                    class="icon-arrow-left"></i> Continue Shopping </a></h3>
+        <h3>
+            SHOPPING CART [ <small>3 Item(s) </small>]
+            <a href="products.html" class="btn btn-large pull-right">
+                <i class="icon-arrow-left"></i> Continue Shopping
+            </a>
+        </h3>
         <hr class="soft"/>
         <table class="table table-bordered">
             <tr>
-                <th> I AM ALREADY REGISTERED</th>
+                <th>{{ __('ui.'.'already registered') }}</th>
             </tr>
             <tr>
                 <td>
                     <form class="form-horizontal">
                         <div class="control-group">
-                            <label class="control-label" for="inputUsername">{{ __('ui.'.'Username') }}</label>
+                            <label class="control-label" for="inputUsername">{{ __('ui.'.'username') }}</label>
                             <div class="controls">
                                 <input type="text" id="inputUsername" placeholder="{{ __('ui.'.'E-mail address') }}">
                             </div>
@@ -35,13 +39,13 @@
                         <div class="control-group">
                             <div class="controls">
                                 <button type="submit" class="btn">{{ __('ui.'.'Sign in') }}</button>
-                                {{ __('ui.'.'OR') }}
-                                <a href="register.html" class="btn">{{ __('ui.'.'Register') }}</a>
+                                {{ __('ui.'.'or') }}
+                                <a href="{{ route('register') }}" class="btn">{{ __('ui.'.'Register') }}</a>
                             </div>
                         </div>
                         <div class="control-group">
                             <div class="controls">
-                                <a href="forgetpass.html" style="text-decoration:underline">Forgot password ?</a>
+                                <a href="{{ route('password.request') }}" style="text-decoration:underline">{{ __('ui.'.'forgot password?') }}</a>
                             </div>
                         </div>
                     </form>
@@ -63,7 +67,7 @@
             </thead>
             <tbody>
             <tr>
-                <td><img width="60" src="themes/images/products/4.jpg" alt=""/></td>
+                <td><img width="60" src="/themes/images/products/4.jpg" alt=""/></td>
                 <td>MASSA AST<br/>Color : black, Material : metal</td>
                 <td>
                     <div class="input-append"><input class="span1" style="max-width:34px" placeholder="1"
@@ -79,7 +83,7 @@
                 <td>$110.00</td>
             </tr>
             <tr>
-                <td><img width="60" src="themes/images/products/8.jpg" alt=""/></td>
+                <td><img width="60" src="/themes/images/products/8.jpg" alt=""/></td>
                 <td>MASSA AST<br/>Color : black, Material : metal</td>
                 <td>
                     <div class="input-append"><input class="span1" style="max-width:34px" placeholder="1" size="16"
@@ -95,7 +99,7 @@
                 <td>$8.00</td>
             </tr>
             <tr>
-                <td><img width="60" src="themes/images/products/3.jpg" alt=""/></td>
+                <td><img width="60" src="/themes/images/products/3.jpg" alt=""/></td>
                 <td>MASSA AST<br/>Color : black, Material : metal</td>
                 <td>
                     <div class="input-append"><input class="span1" style="max-width:34px" placeholder="1" size="16"

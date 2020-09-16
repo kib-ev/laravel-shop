@@ -6,10 +6,8 @@
 
 @section('content')
     <div class="span9">
-        <ul class="breadcrumb">
-            <li><a href="index.html">Home</a> <span class="divider">/</span></li>
-            <li class="active">Products Name</li>
-        </ul>
+        @include('public.pages.includes.breadcrumbs')
+
         <h3>Products Name <small class="pull-right">{{ __('ui.'.'products are available', ['total' => @$products->total()]) }}</small></h3>
         <hr class="soft"/>
         <p>
@@ -22,9 +20,9 @@
             <div class="control-group">
                 <label class="control-label alignL">Sort By </label>
                 <select>
-                    <option>Priduct name A - Z</option>
-                    <option>Priduct name Z - A</option>
-                    <option>Priduct Stoke</option>
+                    <option>Product name A - Z</option>
+                    <option>Product name Z - A</option>
+                    <option>Product Stoke</option>
                     <option>Price Lowest first</option>
                 </select>
             </div>
@@ -52,7 +50,7 @@
             </div>
         </div>
 
-        <a href="compair.html" class="btn btn-large pull-right">Compair Product</a>
+        <a href="/compair.html" class="btn btn-large pull-right">Compair Product</a>
         <div class="pagination">
             {{ @$products->withQueryString()->onEachSide(2)->links() }}
         </div>

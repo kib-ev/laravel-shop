@@ -10,7 +10,7 @@
             <li><a href="index.html">Home</a> <span class="divider">/</span></li>
             <li class="active">Forget password?</li>
         </ul>
-        <h3>FORGET YOUR PASSWORD?</h3>
+        <h3> FORGET YOUR PASSWORD?</h3>
         <hr class="soft"/>
 
         <div class="row">
@@ -20,15 +20,24 @@
                     Please enter the email address for your account. A verification code will be sent to you. Once you
                     have received the verification code, you will be able to choose a new password for your
                     account.<br/><br/><br/>
-                    <form>
-                        <div class="control-group">
-                            <label class="control-label" for="inputEmail1">E-mail address</label>
-                            <div class="controls">
-                                <input class="span3" type="text" id="inputEmail1" placeholder="Email">
-                            </div>
+
+                    @if (session('status'))
+                        <div class="mb-4 font-medium text-sm text-green-600">
+                            {{ session('status') }}
                         </div>
+                    @endif
+
+                    <form method="POST" action="{{ route('password.email') }}">
+                        @csrf
+                        <label class="control-label" for="inputEmail1"> {{ __('ui.'.'E-mail address') }}</label>
                         <div class="controls">
-                            <button type="submit" class="btn block">Submit</button>
+                            <input name="email" class="span3" type="text" id="inputEmail1" placeholder="Email">
+                        </div>
+
+                        <div class="control-group">
+                            <button type="submit" class="btn block">
+                                {{ __('ui.'.'Submit') }}
+                            </button>
                         </div>
                     </form>
                 </div>

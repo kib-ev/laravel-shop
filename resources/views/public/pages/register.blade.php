@@ -25,6 +25,46 @@
                 <button type="button" class="close" data-dismiss="alert">×</button>
                 <strong>Lorem Ipsum is simply</strong> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
              </div> -->
+
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
+
+                <div>
+                    <x-jet-label value="Name"/>
+                    <x-jet-input class="block mt-1 w-full" type="text" name="name" :value="old('name')" required
+                                 autofocus autocomplete="name"/>
+                </div>
+
+                <div class="mt-4">
+                    <x-jet-label value="Email"/>
+                    <x-jet-input class="block mt-1 w-full" type="email" name="email" :value="old('email')" required/>
+                </div>
+
+                <div class="mt-4">
+                    <x-jet-label value="Password"/>
+                    <x-jet-input class="block mt-1 w-full" type="password" name="password" required
+                                 autocomplete="new-password"/>
+                </div>
+
+                <div class="mt-4">
+                    <x-jet-label value="Confirm Password"/>
+                    <x-jet-input class="block mt-1 w-full" type="password" name="password_confirmation" required
+                                 autocomplete="new-password"/>
+                </div>
+
+                <div class="flex items-center justify-end mt-4">
+
+                    <x-jet-button class="ml-4">
+                        {{ __('Register') }}
+                    </x-jet-button>
+                    &nbsp;
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                        {{ __('Already registered?') }}
+                    </a>
+
+                </div>
+            </form>
+
             <form class="form-horizontal">
                 <h4>Your personal information</h4>
                 <div class="control-group">

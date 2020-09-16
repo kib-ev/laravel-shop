@@ -5,15 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Page;
 use Illuminate\Http\Request;
 
-class PageController extends Controller
-{
+class PageController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         //
     }
 
@@ -22,8 +20,7 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -33,8 +30,7 @@ class PageController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
 
@@ -44,8 +40,7 @@ class PageController extends Controller
      * @param \App\Models\Page $page
      * @return \Illuminate\Http\Response
      */
-    public function show(Page $page)
-    {
+    public function show(Page $page) {
         //
     }
 
@@ -55,8 +50,7 @@ class PageController extends Controller
      * @param \App\Models\Page $page
      * @return \Illuminate\Http\Response
      */
-    public function edit(Page $page)
-    {
+    public function edit(Page $page) {
         //
     }
 
@@ -67,8 +61,7 @@ class PageController extends Controller
      * @param \App\Models\Page $page
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Page $page)
-    {
+    public function update(Request $request, Page $page) {
         //
     }
 
@@ -78,8 +71,7 @@ class PageController extends Controller
      * @param \App\Models\Page $page
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Page $page)
-    {
+    public function destroy(Page $page) {
         //
     }
 

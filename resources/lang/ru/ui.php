@@ -15,13 +15,20 @@ return [
 
     'Add to cart' => 'В корзину',
     'Find' => 'Найти',
-    'Username' => 'Логин',
+    'username' => 'Логин',
     'E-mail address' => 'E-mail',
     'Password' => 'Пароль',
-    'Sign in' => 'Вход',
-    'OR' => 'ИЛИ',
-    'Register' => 'Регистрация',
+    'Sign in' => 'Войти',
+    'or' => 'или',
+    'Register' => 'Зарегистрировать',
     'items in stock' => ':count шт на складе',
-    'products are available' => ':total товаров доступно'
+    'products are available' => ':total товаров доступно',
+    'welcome' => 'Добро пожаловать!',
+    'guest' => 'Гость',
+    'Home' => 'Главная',
+    'qty.' => 'Кол-во',
+    'forgot password?' => 'Забыли пароль?',
+    'already registered' => 'У меня уже есть аккаунт',
+
 
 ];

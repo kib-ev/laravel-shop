@@ -6,11 +6,8 @@
 
 @section('content')
     <div class="span9">
-        <ul class="breadcrumb">
-            <li><a href="index.html">Home</a> <span class="divider">/</span></li>
-            <li><a href="products.html">Products</a> <span class="divider">/</span></li>
-            <li class="active">product Details</li>
-        </ul>
+        @include('public.pages.includes.breadcrumbs')
+
         <div class="row">
             <div id="gallery" class="span3">
                 <?php // TODO: large image ?>
@@ -68,7 +65,7 @@
                             <span class="price-new">{{ $product->price }}</span>
                         </label>
                         <div class="controls">
-                            <input type="number" class="span1" placeholder="Qty."/>
+                            <input type="number" class="span1" placeholder="{{ __('ui.'.'qty.') }}" min="1"/>
                             <button type="submit" class="btn btn-large btn-primary pull-right">
                                 {{ __('ui.'.'Add to cart') }}
                             </button>

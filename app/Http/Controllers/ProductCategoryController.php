@@ -5,15 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
-class ProductCategoryController extends Controller
-{
+class ProductCategoryController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         //
     }
 
@@ -22,64 +20,61 @@ class ProductCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ProductCategory  $productCategory
+     * @param \App\Models\ProductCategory $productCategory
      * @return \Illuminate\Http\Response
      */
-    public function show(ProductCategory $productCategory)
-    {
-        //
+    public function show(ProductCategory $productCategory) {
+        return view('public.pages.products', [
+            'category' => $productCategory,
+            'products' => $productCategory->products()->paginate(6),
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ProductCategory  $productCategory
+     * @param \App\Models\ProductCategory $productCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProductCategory $productCategory)
-    {
+    public function edit(ProductCategory $productCategory) {
         //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ProductCategory  $productCategory
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\ProductCategory $productCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductCategory $productCategory)
-    {
+    public function update(Request $request, ProductCategory $productCategory) {
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ProductCategory  $productCategory
+     * @param \App\Models\ProductCategory $productCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductCategory $productCategory)
-    {
+    public function destroy(ProductCategory $productCategory) {
         //
     }
 }

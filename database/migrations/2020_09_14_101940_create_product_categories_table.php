@@ -15,13 +15,22 @@ class CreateProductCategoriesTable extends Migration
     {
         Schema::create('product_categories', function (Blueprint $table) {
             $table->id();
-            $table->id('parent_id')->default('0');
+            $table->bigInteger('parent_id')->default('0');
             $table->string('name', 255);
             $table->string('image_path', 255)->default('');
             $table->text('excerpt');
-            $table->text('content');
+            $table->text('description');
             $table->timestamps();
             $table->softDeletes();
+
+            // foreign keys // TODO: add foreign key
+//            Schema::table('products', function ($table) {
+//                $table->foreign('category_id')
+//                    ->references('id')
+//                    ->on('product_categories');
+//                // ->onDelete('cascade');
+//            });
+
         });
     }
 

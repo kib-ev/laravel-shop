@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name', 255);
             $table->string('model', 255)->default('');
             $table->string('article', 255)->default('');
+            $table->bigInteger('category_id')->unsigned()->nullable()->default(null);
             $table->string('image_path', 255)->default('');
             $table->text('excerpt');
             $table->text('description');

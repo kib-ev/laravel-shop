@@ -1,7 +1,14 @@
 <div id="header">
     <div class="container">
         <div id="welcomeLine" class="row">
-            <div class="span6">Welcome!<strong> User</strong></div>
+            <div class="span6">
+                {{ __('ui.'.'welcome') }}
+                @if(!auth()->id())
+                    <a href="/login"><strong>{{ __('ui.'.'guest') }}</strong></a>
+                @else
+                    <strong>{{ auth()->user()->name }}</strong>
+                @endif
+            </div>
             <div class="span6">
                 <div class="pull-right" style="font-size: 12px;">
 
@@ -31,8 +38,8 @@
                 <span class="icon-bar"></span>
             </a>
             <div class="navbar-inner">
-                <a class="brand" href="index.html"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
-                <form class="form-inline navbar-search" method="post" action="products.html">
+                <a class="brand" href="/"><img src="/themes/images/logo.png" alt="Bootsshop"/></a>
+                <form class="form-inline navbar-search" method="post" action="/products">
                     <input id="srchFld" class="srchTxt" type="text"/>
                     <select class="srchTxt">
                         <option>All</option>
@@ -45,9 +52,9 @@
                     <button type="submit" id="submitButton" class="btn btn-primary">{{ __('ui.'.'Find') }}</button>
                 </form>
                 <ul id="topMenu" class="nav pull-right">
-                    <li class=""><a href="special_offer.html">Specials Offer</a></li>
-                    <li class=""><a href="delivery.html">Delivery</a></li>
-                    <li class=""><a href="contact.html">Contact</a></li>
+                    <li class=""><a href="/special_offer.html">Specials Offer</a></li>
+                    <li class=""><a href="/delivery.html">Delivery</a></li>
+                    <li class=""><a href="/contact.html">Contact</a></li>
                     <li class="">
                         <a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span
                                 class="btn btn-large btn-success">{{ __('ui.'.'Sign in') }}</span></a>

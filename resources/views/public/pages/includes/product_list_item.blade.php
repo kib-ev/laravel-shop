@@ -8,7 +8,11 @@
         <div class="span4">
             <h4>{{ $product->name }}</h4>
             <hr class="soft"/>
-            {{--        <h5>{{ $product->name }}</h5>--}}
+            <h5>
+                <a href="{{ route('product-categories.show', $product->category->id) }}">
+                    {{ $product->category->name }}
+                </a>
+            </h5>
             <p>
                 {{ $product->excerpt }}
             </p>

@@ -15,13 +15,18 @@ return [
 
     'Add to cart' => 'Add to cart',
     'Find' => 'Go',
-    'Username' => 'Username',
+    'username' => 'Username',
     'E-mail address' => 'E-mail address',
     'Password' => 'Password',
     'Sign in' => 'Sign in',
-    'OR' => 'ИЛИ',
+    'or' => 'OR',
     'Register' => 'Register Now!',
     'items in stock' => ':count items in stock',
-    'products are available' => ':total products are available'
-
+    'products are available' => ':total products are available',
+    'welcome' => 'Welcome!',
+    'guest' => 'Guest',
+    'Home' => 'Home',
+    'qty.' => 'Qty.',
+    'forgot password?' => 'Forgot password?',
+    'already registered' => 'I am already registered',
 ];

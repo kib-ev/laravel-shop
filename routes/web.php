@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,25 +49,25 @@ Route::get('products', function () {
 Route::get('faq.html', function () {
     return view('public.pages.faq');
 });
-Route::get('register.html', function () {
-    return view('public.pages.register');
-});
+
 Route::get('legal_notice.html', function () {
     return view('public.pages.legal_notice');
 });
+
 Route::get('product_details.html', function () {
     return view('public.pages.product_details');
 });
 
 Route::get('login.html', function () {
-    return view('public.pages.login');
+    return redirect()->to('/login');
 });
 Route::get('product_summary.html', function () {
     return view('public.pages.product_summary');
 });
-Route::get('fogetpass.html', function () {
-    return view('public.pages.reset_pass');
+Route::get('forgetpass.html', function () {
+    return redirect()->to('/forgot-password');
 });
+
 Route::get('compair.html', function () {
     return view('public.pages.compare');
 });
@@ -80,6 +81,9 @@ Route::resource('products', ProductController::class)->only([
     'index', 'show'
 ]);
 
+Route::resource('product-categories', ProductCategoryController::class)->only([
+    'index', 'show'
+]);
 
 // redirect
 Route::get('products.html', function () {
@@ -87,5 +91,7 @@ Route::get('products.html', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->to('/');
+    //return view('dashboard');
 })->name('dashboard');
+

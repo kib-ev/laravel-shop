@@ -30,7 +30,7 @@
                         We always stay in touch with the latest fashion tendencies - that is why our
                         goods are so popular and we have a great number of faithful customers all over the country.
                     </p>
-                    <img src="themes/images/products/1.jpg" alt=""/>
+                    <img src="/themes/images/products/1.jpg" alt=""/>
                     <form class="form-horizontal qtyFrm">
                         <h3> $222.00</h3><br/>
                         <a href="product_details.html" class="btn btn-large btn-primary"> Add to <i
@@ -44,7 +44,7 @@
                         We always stay in touch with the latest fashion tendencies - that is why our
                         goods are so popular and we have a great number of faithful customers all over the country.
                     </p>
-                    <img src="themes/images/products/3.jpg" alt=""/>
+                    <img src="/themes/images/products/3.jpg" alt=""/>
 
                     <form class="form-horizontal qtyFrm">
                         <h3> $190.00</h3>
@@ -82,6 +82,6 @@
             </tr>
             </tbody>
         </table>
-        <a href="products.html" class="btn btn-large pull-right">Back Products Page</a>
+        <a href="/products" class="btn btn-large pull-right">Back Products Page</a>
     </div>
 @endsection
