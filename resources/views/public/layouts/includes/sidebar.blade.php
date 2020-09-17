@@ -13,7 +13,9 @@
     <ul id="sideManu" class="nav nav-tabs nav-stacked">
         @foreach($categories->filter(function ($item) { return $item->parent_id == 0; }) as $category)
             <li class="subMenu">
-                <a>{{ strtoupper($category->name) }} [{{ count($category->products) }}]</a>
+                <a>{{ strtoupper($category->name) }} [{{ $category->childrenCategories->sum(function($item) {
+                        return count($item->products);
+                    }) }}]</a>
 
                 @if($category->childrenCategories)
                     @foreach($category->childrenCategories as $childrenCategory)

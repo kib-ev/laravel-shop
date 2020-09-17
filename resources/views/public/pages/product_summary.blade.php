@@ -13,7 +13,7 @@
         <h3>
             SHOPPING CART [ <small>3 Item(s) </small>]
             <a href="products.html" class="btn btn-large pull-right">
-                <i class="icon-arrow-left"></i> Continue Shopping
+                <i class="icon-arrow-left"></i> {{ __('ui.'.'continue shopping') }}
             </a>
         </h3>
         <hr class="soft"/>
@@ -182,7 +182,7 @@
                 </td>
             </tr>
         </table>
-        <a href="products.html" class="btn btn-large"><i class="icon-arrow-left"></i> Continue Shopping </a>
-        <a href="login.html" class="btn btn-large pull-right">Next <i class="icon-arrow-right"></i></a>
+        <a href="/products" class="btn btn-large"><i class="icon-arrow-left"></i> {{ __('ui.'.'continue shopping') }}</a>
+        <a href="/login" class="btn btn-large pull-right">{{ __('ui.'.'next step') }} <i class="icon-arrow-right"></i></a>
     </div>
 @endsection

@@ -25,10 +25,13 @@ return [
     'products are available' => ':total товаров доступно',
     'welcome' => 'Добро пожаловать!',
     'guest' => 'Гость',
-    'Home' => 'Главная',
+    'home' => 'Главная',
     'qty.' => 'Кол-во',
     'forgot password?' => 'Забыли пароль?',
     'already registered' => 'У меня уже есть аккаунт',
-
+    'delivery' => 'Доставка',
+    'contacts' => 'Контакты',
+    'continue shopping' => 'Вернуться в магазин',
+    'next step' => 'Дальше',
 
 ];

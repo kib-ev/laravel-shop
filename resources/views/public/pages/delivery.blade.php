@@ -7,10 +7,10 @@
 @section('content')
     <div class="span9">
         <ul class="breadcrumb">
-            <li><a href="index.html">{{ __('ui.'.'Home') }}</a><span class="divider">/</span></li>
-            <li class="active">{{ __('ui.'.'Delivery') }}</li>
+            <li><a href="index.html">{{ __('ui.'.'home') }}</a><span class="divider">/</span></li>
+            <li class="active">{{ __('ui.'.'delivery') }}</li>
         </ul>
-        <h3>{{ __('ui.'.'Delivery') }}</h3>
+        <h3>{{ __('ui.'.'delivery') }}</h3>
         <hr class="soft"/>
         <div class="justify">
             <h5>Lorem ipsum dolor sit amet</h5><br/>

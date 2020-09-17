@@ -65,7 +65,7 @@
                             <span class="price-new">{{ $product->price }}</span>
                         </label>
                         <div class="controls">
-                            <input type="number" class="span1" placeholder="{{ __('ui.'.'qty.') }}" min="1"/>
+                            <input type="number" class="span1" placeholder="{{ __('ui.'.'qty.') }}" min="1" value="1"/>
                             <button type="submit" class="btn btn-large btn-primary pull-right">
                                 {{ __('ui.'.'Add to cart') }}
                             </button>

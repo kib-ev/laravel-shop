@@ -25,8 +25,12 @@ return [
     'products are available' => ':total products are available',
     'welcome' => 'Welcome!',
     'guest' => 'Guest',
-    'Home' => 'Home',
+    'home' => 'Home',
     'qty.' => 'Qty.',
     'forgot password?' => 'Forgot password?',
     'already registered' => 'I am already registered',
+    'delivery' => 'Delivery',
+    'contacts' => 'Contacts',
+    'continue shopping' => 'Continue Shopping',
+    'next step' => 'Next',
 ];

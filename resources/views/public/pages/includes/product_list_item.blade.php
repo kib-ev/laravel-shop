@@ -30,8 +30,8 @@
                     <input type="checkbox"> Adds product to compair
                 </label><br/>
 
-                <a href="product_details.html" class="btn btn-large btn-primary">{{ __('ui.'.'Add to cart') }}</a>
-                <a href="product_details.html" class="btn btn-large"><i class="icon-zoom-in"></i></a>
+                <a href="{{ route('products.show', $product->id) }}" class="btn btn-large btn-primary">{{ __('ui.'.'Add to cart') }}</a>
+                <a href="{{ route('products.show', $product->id) }}" class="btn btn-large"><i class="icon-zoom-in"></i></a>
 
             </form>
         </div>

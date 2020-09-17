@@ -1,5 +1,5 @@
 <ul class="breadcrumb">
-    <li><a href="/">{{ __('ui.'.'Home') }}</a> <span class="divider">/</span></li>
+    <li><a href="/">{{ __('ui.'.'home') }}</a> <span class="divider">/</span></li>
 
     @if(isset($category))
         <li class="active">{{ $category->name }}</li>
