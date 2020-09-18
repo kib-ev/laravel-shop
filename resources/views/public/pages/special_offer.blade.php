@@ -7,7 +7,7 @@
 @section('content')
     <div class="span9">
         <ul class="breadcrumb">
-            <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+            <li><a href="/">Home</a> <span class="divider">/</span></li>
             <li class="active">Special offers</li>
         </ul>
         <h4> 20% Discount Special offer<small class="pull-right"> 40 products are available </small></h4>

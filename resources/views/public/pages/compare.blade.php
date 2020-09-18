@@ -7,7 +7,7 @@
 @section('content')
     <div class="span9">
         <ul class="breadcrumb">
-            <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+            <li><a href="/">Home</a> <span class="divider">/</span></li>
             <li class="active">Products Compairsition</li>
         </ul>
         <h3> Products Compairsition <small class="pull-right"> 2 products are compaired </small></h3>

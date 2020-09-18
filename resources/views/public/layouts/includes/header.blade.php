@@ -57,8 +57,8 @@
                 </form>
                 <ul id="topMenu" class="nav pull-right">
                     <li class=""><a href="/special_offer.html">Specials Offer</a></li>
-                    <li class=""><a href="/delivery.html">{{ __('ui.'.'delivery') }}</a></li>
-                    <li class=""><a href="/contact.html">{{ __('ui.'.'contacts') }}</a></li>
+                    <li class=""><a href="/delivery">{{ __('ui.'.'delivery') }}</a></li>
+                    <li class=""><a href="/contacts">{{ __('ui.'.'contacts') }}</a></li>
                 </ul>
             </div>
         </div>

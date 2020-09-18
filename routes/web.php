@@ -19,18 +19,15 @@ Route::get('/', function () {
     $products = \App\Models\Product::paginate(6);
     return view('public.pages.index', compact('products'));
 });
-Route::get('/index.html', function () {
-    return redirect()->to('/');
-});
 
 // default pages
-Route::get('contact.html', function () {
+Route::get('contacts', function () {
     return view('public.pages.contact');
 });
 Route::get('about', function () {
     return view('public.pages.about');
 });
-Route::get('delivery.html', function () {
+Route::get('delivery', function () {
     return view('public.pages.delivery');
 });
 Route::get('payment', function () {
@@ -95,3 +92,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     //return view('dashboard');
 })->name('dashboard');
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
+    return view('admin.index');
+});
