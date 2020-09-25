@@ -33,5 +33,8 @@ return [
     'contacts' => 'Контакты',
     'continue shopping' => 'Вернуться в магазин',
     'next step' => 'Дальше',
+    'products' => 'Каталог',
+    'special offer' => 'Скидки',
+
 
 ];

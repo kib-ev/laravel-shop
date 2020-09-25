@@ -56,7 +56,7 @@
                     <button type="submit" id="submitButton" class="btn btn-primary">{{ __('ui.'.'Find') }}</button>
                 </form>
                 <ul id="topMenu" class="nav pull-right">
-                    <li class=""><a href="/special_offer.html">Specials Offer</a></li>
+                    <li class=""><a href="/special_offer">{{ __('ui.'.'special offer') }}</a></li>
                     <li class=""><a href="/delivery">{{ __('ui.'.'delivery') }}</a></li>
                     <li class=""><a href="/contacts">{{ __('ui.'.'contacts') }}</a></li>
                 </ul>

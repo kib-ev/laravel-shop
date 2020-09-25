@@ -36,8 +36,8 @@ Route::get('payment', function () {
 Route::get('blog', function () {
     return view('public.pages.blog');
 });
-Route::get('special_offer.html', function () {
-    $products = \App\Models\Product::paginate(6);
+Route::get('special_offer', function () {
+    $products = \App\Models\Product::where('price_old', '!=', 0)->paginate(6);
     return view('public.pages.special_offer', compact('products'));
 });
 Route::get('products', function () {
@@ -95,4 +95,29 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
     return view('admin.index');
+});
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('test', function () {
+//        return (new \App\Classes\Parser\WebParser())->run();
+
+       $cats =\App\Models\ProductCategory::where('parent_id', 0)->get();
+
+       $catsWithSubCats = $cats->filter(function ($item) {
+           return $item->childrenCategories()->get()->count();
+       });
+       foreach($catsWithSubCats as $cat) {
+           foreach($cat->products()->get() as $product) {
+               $product->delete();
+           }
+       }
+
+       dd($cats, $catsWithSubCats);
+
+        $products = \App\Models\Product::where('name', 'Угол для мокрых штукатурок 3м.')->get();
+
+
+    });
+
 });

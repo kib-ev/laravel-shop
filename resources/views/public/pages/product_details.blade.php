@@ -16,7 +16,7 @@
                          alt="Fujifilm FinePix S2950 Digital Camera"/>
                 </a>
 
-                <div id="differentview" class="moreOptopm carousel slide">
+                <div id="differentview" class="moreOptopm carousel slide" style="display: none;">
                     <div class="carousel-inner">
                         <div class="item active">
                             <a href="/themes/images/products/large/f1.jpg">
@@ -42,7 +42,7 @@
                     -->
                 </div>
 
-                <div class="btn-toolbar">
+                <div class="btn-toolbar" style="display: none;">
                     <div class="btn-group">
                         <span class="btn"><i class="icon-envelope"></i></span>
                         <span class="btn"><i class="icon-print"></i></span>
@@ -54,15 +54,15 @@
                 </div>
             </div>
             <div class="span6">
-                <h3>Fujifilm FinePix S2950 Digital Camera </h3>
-                <small>- (14MP, 18x Optical Zoom) 3-inch LCD</small>
+                <h3>{{ $product->name }}</h3>
+                <small style="display: none;">- (14MP, 18x Optical Zoom) 3-inch LCD</small>
                 <hr class="soft"/>
                 <form class="form-horizontal qtyFrm">
                     <div class="control-group">
                         <label class="control-label">
 
-                            <span class="price-old" style="color: #999;text-decoration: line-through;">{{ $product->price_old }}</span>
-                            <span class="price-new">{{ $product->price }}</span>
+                            <span class="price-old" style="color: #999;text-decoration: line-through;">{{ $product->price_old }}{{ $product->price_old ? 'р.' : '' }}</span>
+                            <span class="price-new">{{ $product->price }}р.</span>
                         </label>
                         <div class="controls">
                             <input type="number" class="span1" placeholder="{{ __('ui.'.'qty.') }}" min="1" value="1"/>
@@ -73,9 +73,9 @@
                     </div>
                 </form>
 
-                <hr class="soft"/>
-                <h4>{{ __('ui.'.'items in stock', ['count' => $product->count]) }}</h4>
-                <form class="form-horizontal qtyFrm pull-right">
+                <hr class="soft" style="display: none;">
+                <h4 style="display: none;">{{ __('ui.'.'items in stock', ['count' => $product->count]) }}</h4>
+                <form class="form-horizontal qtyFrm pull-right" style="display: none;">
                     <div class="control-group">
                         <label class="control-label"><span>Color</span></label>
                         <div class="controls">
