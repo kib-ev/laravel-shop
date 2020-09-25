@@ -8,7 +8,12 @@
     <div class="span9">
         @include('public.pages.includes.breadcrumbs')
 
-        <h3>Products Name <small class="pull-right">{{ __('ui.'.'products are available', ['total' => @$products->total()]) }}</small></h3>
+        <h3>
+            @include('public.pages.includes.title')
+            <small class="pull-right">
+                {{ __('ui.'.'products are available', ['total' => @$products->total()]) }}
+            </small>
+        </h3>
         <hr class="soft"/>
         <p>
             Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with

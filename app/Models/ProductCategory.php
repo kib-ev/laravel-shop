@@ -5,15 +5,39 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductCategory extends Model {
+class ProductCategory extends Model
+{
 
     use HasFactory;
 
-    public function products($deep = 1) {
+    protected $guarded = ['id'];
+
+    public function products($deep = 1)
+    {
         return $this->hasMany(Product::class, 'category_id', 'id');
     }
 
-    public function childrenCategories($deep = 1) {
+    public function childrenCategories($deep = 1)
+    {
         return $this->hasMany(ProductCategory::class, 'parent_id', 'id');
+    }
+
+    public function hasChildren()
+    {
+        return count($this->childrenCategories()->get());
+    }
+
+    public function productsCount($deep = 1)
+    {
+        $ownProductsCount = $this->products->count();
+
+        if ($deep == 0) {
+            $childrenCatProductsCount = $this->childrenCategories()->get()->sum(function ($item) {
+                return $item->products->count();
+            });
+            return $ownProductsCount + $childrenCatProductsCount;
+        }
+
+        return $ownProductsCount;
     }
 }

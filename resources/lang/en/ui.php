@@ -33,4 +33,6 @@ return [
     'contacts' => 'Contacts',
     'continue shopping' => 'Continue Shopping',
     'next step' => 'Next',
+    'products' => 'Products',
+    'special offer' => 'Special offer',
 ];

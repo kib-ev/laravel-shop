@@ -10,7 +10,7 @@
             <li><a href="/">Home</a> <span class="divider">/</span></li>
             <li class="active">Special offers</li>
         </ul>
-        <h4> 20% Discount Special offer<small class="pull-right"> 40 products are available </small></h4>
+        <h4>{{ __('ui.'.'special offer') }} <small class="pull-right"> 40 products are available </small></h4>
         <hr class="soft"/>
         <form class="form-horizontal span6">
             <div class="control-group">
