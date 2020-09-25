@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder {
             'remember_token' => Str::random(10),
         ]);
 
-        User::factory(5)->create();
-        ProductCategory::factory(20)->create();
-        Product::factory(125)->create();
+//        User::factory(5)->create();
+//        ProductCategory::factory(20)->create();
+//        Product::factory(125)->create();
     }
 }
