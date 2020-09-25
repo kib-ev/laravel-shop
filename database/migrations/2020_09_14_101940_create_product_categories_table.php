@@ -18,7 +18,7 @@ class CreateProductCategoriesTable extends Migration
             $table->bigInteger('parent_id')->default('0');
             $table->string('name', 255);
             $table->string('image_path', 255)->default('');
-            $table->string('parser_link', 255)->unique();
+            $table->string('parser_link', 255)->default('');
             $table->text('excerpt')->nullable()->default(null); // TODO: find fix for linux default('')
             $table->text('description')->nullable()->default(null);
             $table->timestamps();
