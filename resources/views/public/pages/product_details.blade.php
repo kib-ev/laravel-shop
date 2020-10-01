@@ -57,15 +57,17 @@
                 <h3>{{ $product->name }}</h3>
                 <small style="display: none;">- (14MP, 18x Optical Zoom) 3-inch LCD</small>
                 <hr class="soft"/>
-                <form class="form-horizontal qtyFrm">
+                <form class="form-horizontal qtyFrm" method="post" action="{{ route('api.carts.products.add', $product->id) }}">
+                    @csrf
+                    <input type="hidden" name="redirect" value="{{ url()->current() }}">
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <div class="control-group">
                         <label class="control-label">
-
                             <span class="price-old" style="color: #999;text-decoration: line-through;">{{ $product->price_old }}{{ $product->price_old ? 'р.' : '' }}</span>
                             <span class="price-new">{{ $product->price }}р.</span>
                         </label>
                         <div class="controls">
-                            <input type="number" class="span1" placeholder="{{ __('ui.'.'qty.') }}" min="1" value="1"/>
+                            <input name="count" type="number" class="span1" placeholder="{{ __('ui.'.'qty.') }}" min="1" value="1"/>
                             <button type="submit" class="btn btn-large btn-primary pull-right">
                                 {{ __('ui.'.'Add to cart') }}
                             </button>

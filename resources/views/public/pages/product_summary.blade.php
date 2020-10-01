@@ -8,10 +8,10 @@
     <div class="span9">
         <ul class="breadcrumb">
             <li><a href="/">Home</a> <span class="divider">/</span></li>
-            <li class="active"> SHOPPING CART</li>
+            <li class="active"> SHOPPING CART </li>
         </ul>
         <h3>
-            SHOPPING CART [ <small>3 Item(s) </small>]
+            SHOPPING CART [ <small>{{ cart()->products->count() }} Item(s) </small>]
             <a href="products.html" class="btn btn-large pull-right">
                 <i class="icon-arrow-left"></i> {{ __('ui.'.'continue shopping') }}
             </a>
@@ -45,7 +45,8 @@
                         </div>
                         <div class="control-group">
                             <div class="controls">
-                                <a href="{{ route('password.request') }}" style="text-decoration:underline">{{ __('ui.'.'forgot password?') }}</a>
+                                <a href="{{ route('password.request') }}"
+                                   style="text-decoration:underline">{{ __('ui.'.'forgot password?') }}</a>
                             </div>
                         </div>
                     </form>
@@ -66,6 +67,53 @@
             </tr>
             </thead>
             <tbody>
+
+            @foreach(cart()->products as $product)
+                <tr>
+                    <td>
+                        <img width="60" src="{{ asset($product->image_path) }}" alt=""/>
+                    </td>
+                    <td>{{ $product->name }}<br/><!-- Color : black, Material : metal--></td>
+                    <td>
+                        <div class="input-append">
+                            <input value="{{ $product->pivot->count }}"
+                                   style="max-width:34px" placeholder="1" class="span1"
+                                   id="appendedInputButtons" size="16" type="text">
+
+                            <form action="{{ route('api.carts.products.pivot.update', $product->pivot->id) }}" method="post" style="display: inline;">
+                                @csrf
+                                <input type="hidden" name="redirect" value="{{ url()->current() }}">
+                                <input type="hidden" name="count" value="{{ $product->pivot->count - 1 }}">
+                                <button class="btn" type="submit">
+                                    <i class="icon-minus"></i>
+                                </button>
+                            </form>
+
+                            <form action="{{ route('api.carts.products.pivot.update', $product->pivot->id) }}" method="post" style="display: inline;">
+                                @csrf
+                                <input type="hidden" name="redirect" value="{{ url()->current() }}">
+                                <input type="hidden" name="count" value="{{ $product->pivot->count + 1 }}">
+                                <button class="btn" type="submit">
+                                    <i class="icon-plus"></i>
+                                </button>
+                            </form>
+
+                            <form action="{{ route('api.carts.products.pivot.remove', $product->pivot->id) }}" method="post" style="display: inline;">
+                                @csrf
+                                <input type="hidden" name="redirect" value="{{ url()->current() }}">
+                                <button class="btn btn-danger" type="submit">
+                                    <i class="icon-remove icon-white"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                    <td>{{ $product->summary_price > 0 ? $product->summary_price : '--' }}</td>
+                    <td>{{ $product->summary_discount > 0 ? $product->summary_discount : '--' }}</td>
+                    <td>{{ $product->summary_tax > 0 ? $product->summary_tax : '--' }}</td>
+                    <td>{{ $product->summary_total > 0 ? $product->summary_total : '--' }}</td>
+                </tr>
+            @endforeach
+            <!--
             <tr>
                 <td><img width="60" src="/themes/images/products/4.jpg" alt=""/></td>
                 <td>MASSA AST<br/>Color : black, Material : metal</td>
@@ -114,22 +162,23 @@
                 <td>$15.00</td>
                 <td>$110.00</td>
             </tr>
+            -->
 
             <tr>
                 <td colspan="6" style="text-align:right">Total Price:</td>
-                <td> $228.00</td>
+                <td>{{ cart()->summary_price }}</td>
             </tr>
             <tr>
                 <td colspan="6" style="text-align:right">Total Discount:</td>
-                <td> $50.00</td>
+                <td>{{ cart()->summary_discount }}</td>
             </tr>
             <tr>
                 <td colspan="6" style="text-align:right">Total Tax:</td>
-                <td> $31.00</td>
+                <td>{{ cart()->summary_tax }}</td>
             </tr>
             <tr>
-                <td colspan="6" style="text-align:right"><strong>TOTAL ($228 - $50 + $31) =</strong></td>
-                <td class="label label-important" style="display:block"><strong> $155.00 </strong></td>
+                <td colspan="6" style="text-align:right"><strong>TOTAL ({{ cart()->summary_price }} - {{ cart()->summary_discount }} + {{ cart()->summary_tax }}) =</strong></td>
+                <td class="label label-important" style="display:block"><strong>{{ cart()->summary_total }}</strong></td>
             </tr>
             </tbody>
         </table>
@@ -182,7 +231,9 @@
                 </td>
             </tr>
         </table>
-        <a href="/products" class="btn btn-large"><i class="icon-arrow-left"></i> {{ __('ui.'.'continue shopping') }}</a>
-        <a href="/login" class="btn btn-large pull-right">{{ __('ui.'.'next step') }} <i class="icon-arrow-right"></i></a>
+        <a href="/products" class="btn btn-large"><i class="icon-arrow-left"></i> {{ __('ui.'.'continue shopping') }}
+        </a>
+        <a href="/login" class="btn btn-large pull-right">{{ __('ui.'.'next step') }} <i
+                class="icon-arrow-right"></i></a>
     </div>
 @endsection

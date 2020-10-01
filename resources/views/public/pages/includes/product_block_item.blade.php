@@ -16,7 +16,8 @@
                 </p>
                 <h4 style="text-align:center">
                     <a class="btn" href="{{ route('products.show', $product->id) }}"><i class="icon-zoom-in"></i></a>
-                    <a class="btn btn-primary" href="#">
+                    <a class="btn btn-primary"
+                       href="{{ route('api.carts.products.add', ['product_id' => $product->id, 'redirect' => url()->current()]) }}">
                         {{--                    <i class="icon-shopping-cart" style="vertical-align: middle;"></i> --}}
                         {{ __('ui.'.'Add to cart') }}
                     </a>

@@ -16,21 +16,23 @@
             <div class="span6">
                 <div class="pull-right" style="font-size: 12px;">
 
-                    <a href="product_summary.html"><span class="">Fr</span></a>
-                    <a href="product_summary.html"><span class="">Es</span></a>
+                    <a href="#"><span class="">Fr</span></a>
+                    <a href="#"><span class="">Es</span></a>
                     <span class="btn btn-mini">En</span>
                     <span>&nbsp;</span>
 
-                    <a href="product_summary.html"><span>EUR</span></a>
-                    <a href="product_summary.html"><span>USD</span></a>
+                    <a href="#"><span>EUR</span></a>
+                    <a href="#"><span>USD</span></a>
                     <span class="btn btn-mini">BYN</span>
                     <span>&nbsp;</span>
 
-                    <a href="product_summary.html">
+                    <!--<a href="{{ url('product_summary.html') }}">
                         <span class="btn btn-mini btn-primary">
-                            <i class="icon-shopping-cart icon-white"></i> [ 3 ] Items in your cart
+                            <i class="icon-shopping-cart icon-white"></i> [ {{ cart()->products->count() }} ] Items in your cart
                         </span>
-                    </a>
+
+                        <span class="alert-danger">cart_id:{{ cart()->id }}</span>
+                    </a>-->
                 </div>
             </div>
         </div>

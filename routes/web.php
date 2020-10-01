@@ -58,9 +58,9 @@ Route::get('product_details.html', function () {
 Route::get('login.html', function () {
     return redirect()->to('/login');
 });
-Route::get('product_summary.html', function () {
-    return view('public.pages.product_summary');
-});
+
+Route::get('product_summary.html', [\App\Http\Controllers\PageController::class, 'productSummaryPage']);
+
 Route::get('forgetpass.html', function () {
     return redirect()->to('/forgot-password');
 });
@@ -114,9 +114,6 @@ Route::prefix('admin')->group(function () {
        }
 
        dd($cats, $catsWithSubCats);
-
-        $products = \App\Models\Product::where('name', 'Угол для мокрых штукатурок 3м.')->get();
-
 
     });
 

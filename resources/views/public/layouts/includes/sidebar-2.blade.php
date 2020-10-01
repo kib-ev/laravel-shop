@@ -78,6 +78,12 @@
 </style>
 
 <div id="sidebar" class="span3">
+    <div class="well well-small"><a id="myCart" href="{{ url('product_summary.html') }}">
+            <img src="{{ asset('/themes/images/ico-cart.png') }}" alt="cart">
+            {{ cart()->products->count() }} Items in your cart <span class="badge badge-warning pull-right">{{ cart()->summary_total }}</span>
+        </a>
+    </div>
+
     <ul class="sidebar-menu">
         @foreach($categories->filter(function ($item) { return $item->parent_id == 0; }) as $category)
             <li class="treeview">
