@@ -15,10 +15,17 @@
             </div>
             <div class="span6">
                 <div class="pull-right" style="font-size: 12px;">
-
-                    <a href="#"><span class="">Fr</span></a>
-                    <a href="#"><span class="">Es</span></a>
-                    <span class="btn btn-mini">En</span>
+                    @if(\Illuminate\Support\Facades\App::getLocale() == 'ru')
+                        <span class="btn btn-mini">Ru</span>
+                        <a href="?lang=en">
+                            <span class="">En</span>
+                        </a>
+                    @else
+                        <a href="?lang=ru">
+                            <span class="">Ru</span>
+                        </a>
+                        <span class="btn btn-mini">En</span>
+                    @endif
                     <span>&nbsp;</span>
 
                     <a href="#"><span>EUR</span></a>
