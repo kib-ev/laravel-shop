@@ -4,8 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Session;
 
 class SetLocale
 {
@@ -21,12 +19,13 @@ class SetLocale
         if($request->has('lang')) {
             $lang = $request->get('lang');
             if (in_array($lang, config('app.available_locales'))) {
-                Session::put('lang', $lang);
+                session()->put('lang', $lang);
             } else {
-                Session::put('lang', config('app.locale'));
+                session()->put('lang', config('app.locale'));
             }
+            return redirect()->to($request->url());
         }
-        App::setLocale(Session::get('lang'));
+        app()->setLocale(session()->get('lang'));
         return $next($request);
     }
 }
