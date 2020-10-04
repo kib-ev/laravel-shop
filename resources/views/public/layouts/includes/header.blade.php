@@ -15,21 +15,33 @@
             </div>
             <div class="span6">
                 <div class="pull-right" style="font-size: 12px;">
+
                     @foreach(config('app.available_locales') as $locale)
                         @if(app()->getLocale() == $locale)
                             <span class="btn btn-mini btn-primary">{{ strtoupper($locale) }}</span>
                         @else
-                            <a href="{{ set_locale_url($locale) }}"><span class="btn btn-mini">{{ strtoupper($locale) }}</span></a>
+                            <a href="{{ set_locale_url($locale) }}">
+                                <span class="btn btn-mini">{{ strtoupper($locale) }}</span>
+                            </a>
                         @endif
                     @endforeach
-                    <span>&nbsp;</span>
 
-                    <a href="#"><span>EUR</span></a>
-                    <a href="#"><span>USD</span></a>
-                    <span class="btn btn-mini">BYN</span>
+                    <?php /**
                     <span>&nbsp;</span>
+                    @foreach(['byn', 'rub', 'usd'] as $currency)
+                        @if(session()->get('currency') == $currency)
+                            <span class="btn btn-mini btn-primary">{{ strtoupper($currency) }}</span>
+                        @else
+                            <a href="{{ set_currency_url($currency) }}">
+                                <span class="btn btn-mini">{{ strtoupper($currency) }}</span>
+                            </a>
+                        @endif
+                    @endforeach
 
-                    <!--<a href="{{ url('product_summary.html') }}">
+                    <span>&nbsp;</span>
+                     */ ?>
+
+                <!--<a href="{{ url('product_summary.html') }}">
                         <span class="btn btn-mini btn-primary">
                             <i class="icon-shopping-cart icon-white"></i> [ {{ cart()->products->count() }} ] Items in your cart
                         </span>
