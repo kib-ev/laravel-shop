@@ -24,7 +24,7 @@ class Cart extends Model
     public static function getFromSession() {
         if(session()->has('cart_id')) {
             $cart = Cart::with('products')->find(session()->get('cart_id'));
-            $cart->addSummary();
+            $cart->updateSummary();
         } else {
             $cart = Cart::create();
             session()->put('cart_id', $cart->id);
@@ -32,7 +32,7 @@ class Cart extends Model
         return $cart;
     }
 
-    public function addSummary() {
+    public function updateSummary() {
         foreach ($this->products as $product) {
             $product->summary_price = $product->pivot->price * $product->pivot->count;
             $product->summary_discount = $product->pivot->discount * $product->pivot->count;
