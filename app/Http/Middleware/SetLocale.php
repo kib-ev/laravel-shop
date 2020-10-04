@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class SetLocale
 {
+    public static $parameterName = 'lang';
+
     /**
      * Handle an incoming request.
      *
@@ -16,16 +18,24 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->has('lang')) {
-            $lang = $request->get('lang');
+        if($request->has(SetLocale::$parameterName)) {
+            $lang = $request->get(SetLocale::$parameterName);
             if (in_array($lang, config('app.available_locales'))) {
-                session()->put('lang', $lang);
+                session()->put(SetLocale::$parameterName, $lang);
             } else {
-                session()->put('lang', config('app.locale'));
+                session()->put(SetLocale::$parameterName, config('app.locale'));
             }
-            return redirect()->to($request->url());
+            // remove ?lang=xx parameter from route
+            $params = $request->all();
+            unset($params[SetLocale::$parameterName]);
+            $append = http_build_query($params) ? '?'.http_build_query($params) : '';
+            return redirect()->to($request->url() . $append);
         }
-        app()->setLocale(session()->get('lang'));
+        app()->setLocale(session()->get(SetLocale::$parameterName));
         return $next($request);
+    }
+
+    public static function set_locale_url($locale) {
+        return request()->fullUrlWithQuery([SetLocale::$parameterName => $locale]);
     }
 }

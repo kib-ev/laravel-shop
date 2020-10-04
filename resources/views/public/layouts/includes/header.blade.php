@@ -15,17 +15,13 @@
             </div>
             <div class="span6">
                 <div class="pull-right" style="font-size: 12px;">
-                    @if(\Illuminate\Support\Facades\App::getLocale() == 'ru')
-                        <span class="btn btn-mini">Ru</span>
-                        <a href="?lang=en">
-                            <span class="">En</span>
-                        </a>
-                    @else
-                        <a href="?lang=ru">
-                            <span class="">Ru</span>
-                        </a>
-                        <span class="btn btn-mini">En</span>
-                    @endif
+                    @foreach(config('app.available_locales') as $locale)
+                        @if(app()->getLocale() == $locale)
+                            <span class="btn btn-mini btn-primary">{{ strtoupper($locale) }}</span>
+                        @else
+                            <a href="{{ set_locale_url($locale) }}"><span class="btn btn-mini">{{ strtoupper($locale) }}</span></a>
+                        @endif
+                    @endforeach
                     <span>&nbsp;</span>
 
                     <a href="#"><span>EUR</span></a>
