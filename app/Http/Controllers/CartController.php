@@ -21,20 +21,18 @@ class CartController extends Controller
         $product = Product::findOrFail($productId);
         $discount = 0.00;
 
-        $this->cart->products()->save($product, [
+        $this->cart->products()->attach($product, [
             'count' => $request->get('count') ?? 1,
             'price' => $product->price,
             'discount' => $discount,
             'tax' => ($product->price - $discount) * 0.00 // TODO tax
         ]);
-
         return $this->cart;
     }
 
     public function removeProduct(Request $request, $pivotId) // api method
     {
         $this->cart->products()->wherePivot('id', $pivotId)->detach();
-
         return $this->cart;
     }
 

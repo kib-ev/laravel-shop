@@ -7,33 +7,36 @@
 @section('content')
     <div class="span9">
         <ul class="breadcrumb">
-            <li><a href="/">Home</a> <span class="divider">/</span></li>
-            <li class="active"> SHOPPING CART </li>
+            <li><a href="{{ url('/') }}">@lang('ui.home')</a> <span class="divider">/</span></li>
+            <li class="active"> @lang('ui.shopping cart') </li>
         </ul>
         <h3>
-            SHOPPING CART [ <small>{{ cart()->products->count() }} Item(s) </small>]
+            @lang('ui.shopping cart') [ <small>{{ cart()->products->count() }} Item(s) </small>]
             <a href="products.html" class="btn btn-large pull-right">
-                <i class="icon-arrow-left"></i> {{ __('ui.'.'continue shopping') }}
+                <i class="icon-arrow-left"></i> @lang('ui.continue shopping')
             </a>
         </h3>
         <hr class="soft"/>
+
+        @if(!auth()->id())
         <table class="table table-bordered">
             <tr>
                 <th>{{ __('ui.'.'already registered') }}</th>
             </tr>
             <tr>
                 <td>
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" action="{{ route('login') }}" method="POST">
+                        @csrf
                         <div class="control-group">
-                            <label class="control-label" for="inputUsername">{{ __('ui.'.'username') }}</label>
+                            <label class="control-label" for="inputUsername">{{ __('ui.email') }}</label>
                             <div class="controls">
-                                <input type="text" id="inputUsername" placeholder="{{ __('ui.'.'E-mail address') }}">
+                                <input name="email" type="text" id="inputUsername" placeholder="{{ __('ui.email') }}">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="inputPassword1">{{ __('ui.'.'Password') }}</label>
+                            <label class="control-label" for="inputPassword1">{{ __('ui.password') }}</label>
                             <div class="controls">
-                                <input type="password" id="inputPassword1" placeholder="{{ __('ui.'.'Password') }}">
+                                <input name="password" type="password" id="inputPassword1" placeholder="{{ __('ui.password') }}">
                             </div>
                         </div>
                         <div class="control-group">
@@ -53,6 +56,7 @@
                 </td>
             </tr>
         </table>
+        @endif
 
         <table class="table table-bordered">
             <thead>

@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\LangController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
+use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $products = \App\Models\Product::paginate(6);
+    $products = Product::paginate(6);
     return view('public.pages.index', compact('products'));
 });
 
@@ -37,7 +41,7 @@ Route::get('blog', function () {
     return view('public.pages.blog');
 });
 Route::get('special_offer', function () {
-    $products = \App\Models\Product::where('price_old', '!=', 0)->paginate(6);
+    $products = Product::where('price_old', '!=', 0)->paginate(6);
     return view('public.pages.special_offer', compact('products'));
 });
 Route::get('products', function () {
@@ -55,11 +59,14 @@ Route::get('product_details.html', function () {
     return view('public.pages.product_details');
 });
 
-Route::get('login.html', function () {
-    return redirect()->to('/login');
-});
+//Route::get('login', function () {
+//    return redirect()->to('/login');
+//});
+Route::post('login', [\App\Http\Controllers\Auth\LoginController::class, 'login']);
+Route::get('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-Route::get('product_summary.html', [\App\Http\Controllers\PageController::class, 'productSummaryPage']);
+Route::get('products_summary', [PageController::class, 'productSummaryPage'])
+    ->name('cart.show');
 
 Route::get('forgetpass.html', function () {
     return redirect()->to('/forgot-password');
@@ -102,18 +109,18 @@ Route::prefix('admin')->group(function () {
     Route::get('test', function () {
 //        return (new \App\Classes\Parser\WebParser())->run();
 
-       $cats =\App\Models\ProductCategory::where('parent_id', 0)->get();
+        $cats = ProductCategory::where('parent_id', 0)->get();
 
-       $catsWithSubCats = $cats->filter(function ($item) {
-           return $item->childrenCategories()->get()->count();
-       });
-       foreach($catsWithSubCats as $cat) {
-           foreach($cat->products()->get() as $product) {
-               $product->delete();
-           }
-       }
+        $catsWithSubCats = $cats->filter(function ($item) {
+            return $item->childrenCategories()->get()->count();
+        });
+        foreach ($catsWithSubCats as $cat) {
+            foreach ($cat->products()->get() as $product) {
+                $product->delete();
+            }
+        }
 
-       dd($cats, $catsWithSubCats);
+        dd($cats, $catsWithSubCats);
 
     });
 

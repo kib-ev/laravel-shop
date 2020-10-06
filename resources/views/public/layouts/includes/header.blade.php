@@ -7,10 +7,7 @@
                     <a href="/login"><strong>{{ __('ui.'.'guest') }}</strong></a>
                 @else
                     <a href="/user"><strong>{{ auth()->user()->name }}</strong></a>
-                    <form action="/logout" method="post" style="display: inline-block; margin: 0px;">
-                        @csrf
-                        <button class="btn btn-mini btn-primary" type="submit">Выйти</button>
-                    </form>
+                    <a  class="btn btn-mini btn-primary"  href="{{ route('logout') }}">@lang('ui.logout')</a>
                 @endif
             </div>
             <div class="span6">
@@ -41,7 +38,7 @@
                     <span>&nbsp;</span>
                      */ ?>
 
-                <!--<a href="{{ url('product_summary.html') }}">
+                <!--<a href="{{ route('cart.show') }}">
                         <span class="btn btn-mini btn-primary">
                             <i class="icon-shopping-cart icon-white"></i> [ {{ cart()->products->count() }} ] Items in your cart
                         </span>

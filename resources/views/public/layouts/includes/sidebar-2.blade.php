@@ -78,7 +78,7 @@
 </style>
 
 <div id="sidebar" class="span3">
-    <div class="well well-small"><a id="myCart" href="{{ url('product_summary.html') }}">
+    <div class="well well-small"><a id="myCart" href="{{ route('cart.show') }}">
             <img src="{{ asset('/themes/images/ico-cart.png') }}" alt="cart">
             {{ cart()->products->count() }} Items in your cart <span class="badge badge-warning pull-right">{{ cart()->summary_total }}</span>
         </a>

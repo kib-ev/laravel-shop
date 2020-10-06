@@ -9,6 +9,13 @@ class Cart extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['user_id'];
+
+    public $summary_price = 0.00;
+    public $summary_discount = 0.00;
+    public $summary_tax = 0.00;
+    public $summary_total = 0.00;
+
     public function products() {
         return $this->belongsToMany(Product::class)->withPivot([
             'id',
@@ -24,11 +31,20 @@ class Cart extends Model
     public static function getFromSession() {
         if(session()->has('cart_id')) {
             $cart = Cart::with('products')->find(session()->get('cart_id'));
-            $cart->updateSummary();
+            if (!$cart) {
+                $cart = Cart::createNewCartAndPutInSession();
+            }
         } else {
-            $cart = Cart::create();
-            session()->put('cart_id', $cart->id);
+            $cart = Cart::createNewCartAndPutInSession();
         }
+        $cart->updateSummary();
+        return $cart;
+    }
+
+    protected static function createNewCartAndPutInSession() {
+        $cart = Cart::create();
+        session()->put('cart_id', $cart->id);
+
         return $cart;
     }
 

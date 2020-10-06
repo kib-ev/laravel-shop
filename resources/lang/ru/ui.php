@@ -16,9 +16,12 @@ return [
     'Add to cart' => 'В корзину',
     'Find' => 'Найти',
     'username' => 'Логин',
-    'E-mail address' => 'E-mail',
-    'Password' => 'Пароль',
+    'email' => 'E-mail',
+    'password' => 'Пароль',
     'Sign in' => 'Войти',
+    'login' => 'Вход',
+    'logout' => 'Выйти',
+    'remember' => 'Запомнить меня',
     'or' => 'или',
     'Register' => 'Зарегистрировать',
     'items in stock' => ':count шт на складе',
@@ -35,6 +38,7 @@ return [
     'next step' => 'Дальше',
     'products' => 'Каталог',
     'special offer' => 'Скидки',
+    'shopping cart' => 'Корзина',
 
 
 ];
