@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductCategoryController;
@@ -18,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::post('login', [LoginController::class, 'login'])->name('auth.login');
+Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
 
 Route::get('/', function () {
     $products = Product::paginate(6);
@@ -58,12 +62,6 @@ Route::get('legal_notice.html', function () {
 Route::get('product_details.html', function () {
     return view('public.pages.product_details');
 });
-
-//Route::get('login', function () {
-//    return redirect()->to('/login');
-//});
-Route::post('login', [\App\Http\Controllers\Auth\LoginController::class, 'login']);
-Route::get('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 Route::get('products_summary', [PageController::class, 'productSummaryPage'])
     ->name('cart.show');

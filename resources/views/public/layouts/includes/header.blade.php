@@ -7,7 +7,7 @@
                     <a href="/login"><strong>{{ __('ui.'.'guest') }}</strong></a>
                 @else
                     <a href="/user"><strong>{{ auth()->user()->name }}</strong></a>
-                    <a  class="btn btn-mini btn-primary"  href="{{ route('logout') }}">@lang('ui.logout')</a>
+                    <a  class="btn btn-mini btn-primary"  href="{{ url('auth.logout') }}">@lang('ui.logout')</a>
                 @endif
             </div>
             <div class="span6">
