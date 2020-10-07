@@ -1007,7 +1007,7 @@
                         <label class="checkbox">
                             <input type="checkbox"> Remember me
                         </label>
-                        <button type="submit" class="btn">Sign in</button>
+                        <button type="submit" class="btn">@lang('ui.sign in')</button>
                     </form>
                 </div>
                 <div class="span6">

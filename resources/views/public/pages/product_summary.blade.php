@@ -41,9 +41,9 @@
                         </div>
                         <div class="control-group">
                             <div class="controls">
-                                <button type="submit" class="btn">{{ __('ui.'.'Sign in') }}</button>
+                                <button type="submit" class="btn">@lang('ui.sign in')</button>
                                 {{ __('ui.'.'or') }}
-                                <a href="{{ route('register') }}" class="btn">{{ __('ui.'.'Register') }}</a>
+                                <a href="{{ route('register') }}" class="btn">@lang('ui.register')</a>
                             </div>
                         </div>
                         <div class="control-group">
@@ -209,21 +209,39 @@
 
         <table class="table table-bordered">
             <tr>
-                <th>ESTIMATE YOUR SHIPPING</th>
+                <th>ЛИЧНЫЕ ДАННЫЕ</th>
             </tr>
             <tr>
                 <td>
                     <form class="form-horizontal">
                         <div class="control-group">
-                            <label class="control-label" for="inputCountry">Country </label>
+                            <label class="control-label" for="inputCountry">Ваше имя </label>
                             <div class="controls">
                                 <input type="text" id="inputCountry" placeholder="Country">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="inputPost">Post Code/ Zipcode </label>
+                            <label class="control-label" for="inputPost">E-mail </label>
                             <div class="controls">
                                 <input type="text" id="inputPost" placeholder="Postcode">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputPost">Телефон </label>
+                            <div class="controls">
+                                <input type="text" id="inputPost" placeholder="Postcode">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputPost">Address </label>
+                            <div class="controls">
+                                <textarea type="text" id="inputPost" placeholder="address"></textarea>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputPost">Comment </label>
+                            <div class="controls">
+                                <textarea type="text" id="inputPost" placeholder="Comment"></textarea>
                             </div>
                         </div>
                         <div class="control-group">

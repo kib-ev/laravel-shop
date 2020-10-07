@@ -18,12 +18,12 @@ return [
     'username' => 'Логин',
     'email' => 'E-mail',
     'password' => 'Пароль',
-    'Sign in' => 'Войти',
+    'sign in' => 'Войти',
     'login' => 'Вход',
     'logout' => 'Выйти',
     'remember' => 'Запомнить меня',
     'or' => 'или',
-    'Register' => 'Зарегистрировать',
+    'register' => 'Зарегистрировать',
     'items in stock' => ':count шт на складе',
     'products are available' => ':total товаров доступно',
     'welcome' => 'Добро пожаловать!',
@@ -39,6 +39,5 @@ return [
     'products' => 'Каталог',
     'special offer' => 'Скидки',
     'shopping cart' => 'Корзина',
-
-
+    'items in cart' => ':count товара(ов)'
 ];

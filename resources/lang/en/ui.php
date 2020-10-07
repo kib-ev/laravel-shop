@@ -18,12 +18,12 @@ return [
     'username' => 'Username',
     'email' => 'E-mail',
     'password' => 'Password',
-    'Sign in' => 'Sign in',
+    'sign in' => 'Sign in',
     'login' => 'Login',
     'logout' => 'Logout',
     'remember' => 'Remember me',
     'or' => 'OR',
-    'Register' => 'Register Now!',
+    'register' => 'Register Now!',
     'items in stock' => ':count items in stock',
     'products are available' => ':total products are available',
     'welcome' => 'Welcome!',
@@ -39,4 +39,5 @@ return [
     'products' => 'Products',
     'special offer' => 'Special offer',
     'shopping cart' => 'Shopping Cart',
+    'items in cart' => ':count Items in your cart'
 ];
