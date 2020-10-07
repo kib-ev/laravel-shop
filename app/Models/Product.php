@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model {
 
     use HasFactory;
+    // use HasMeta; // TODO
 
     protected $guarded = ['id'];
 
@@ -23,5 +24,18 @@ class Product extends Model {
     public function getPriceAttribute() {
         $price = number_format($this->attributes['price'], 2, '.', '');
         return $price != '0.00' ? $price : '';
+    }
+
+    protected $metaTitle;
+    public function setMetaTitleAttribute($value) {
+        $meta = Meta::where([
+            'uri' => request()->getRequestUri(),
+            'lang' => app()->getLocale(),
+        ])->first();
+
+        $meta->title = $value;
+        $meta->update();
+
+        $this->metaTitle = $value;
     }
 }
