@@ -7,6 +7,9 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <!-- Bootstrap -->
+        <link id="callCss" rel="stylesheet" href="{{ asset('/themes/bootshop/bootstrap.min.css') }}" media="screen"/>
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
 
@@ -203,8 +206,13 @@
 
             <!-- Page Heading -->
 
+            @yield('content')
+
+
 
         </div>
+
+
 
         @stack('modals')
 

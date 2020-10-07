@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
-    <title>{!! $meta->title  !!} </title>
+    <title>{!! isset($meta) ? $meta->title : __('ui.error')  !!} </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -16,7 +16,7 @@
     <script src="/themes/js/less.js" type="text/javascript"></script> -->
 
     <!-- Bootstrap style -->
-    <link id="callCss" rel="stylesheet" href="/themes/bootshop/bootstrap.min.css" media="screen"/>
+    <link id="callCss" rel="stylesheet" href="{{ asset('/themes/bootshop/bootstrap.min.css') }}" media="screen"/>
     <link href="/themes/css/base.css" rel="stylesheet" media="screen"/>
     <!-- Bootstrap style responsive -->
     <link href="/themes/css/bootstrap-responsive.min.css" rel="stylesheet"/>

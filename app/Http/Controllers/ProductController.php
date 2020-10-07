@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Parser\WebParser;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -9,10 +10,12 @@ class ProductController extends Controller {
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        $products = Product::paginate(6);
+    public function index(Request $request) {
+        $discounted = $request->get('only_discounted');
+        $products = Product::discounted($discounted)->paginate(6);
         return view('public.pages.products', compact('products'));
     }
 
@@ -42,9 +45,18 @@ class ProductController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product) {
+        if (!$product->description) {
+            WebParser::updateProductData($product);
+        }
+
         $product->meta_title = $product->name;
 
-        $products = Product::paginate(3);
+        $products = $product->category
+            ->products()
+            ->where('id', '!=', $product->id)
+            ->inRandomOrder()
+            ->paginate(3);
+
         return view('public.pages.product_details', compact('product', 'products'));
     }
 

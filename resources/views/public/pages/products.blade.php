@@ -6,20 +6,23 @@
 
 @section('content')
     <div class="span9">
-        @include('public.pages.includes.breadcrumbs')
+        <ul class="breadcrumb">
+            <li><a href="/">{{ __('ui.home') }}</a><span class="divider"> / </span></li>
+            <li class="active">{{ __('ui.products') }}</li>
+        </ul>
 
         <h3>
-            @include('public.pages.includes.title')
+            <span class="page-title">{{ __('ui.products') }}</span>
             <small class="pull-right">
-                {{ __('ui.'.'products are available', ['total' => @$products->total()]) }}
+                {{ __('ui.products are available', ['total' => @$products->total()]) }}
             </small>
         </h3>
-        <hr class="soft"/>
+        <!--<hr class="soft"/>
         <p>
             Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with
             the latest fashion tendencies - that is why our goods are so popular and we have a great number of faithful
             customers all over the country.
-        </p>
+        </p>-->
         <hr class="soft"/>
         <form class="form-horizontal span6">
             <div class="control-group">
@@ -34,28 +37,28 @@
         </form>
 
         <div id="myTab" class="pull-right">
-            <a href="#listView" data-toggle="tab"><span class="btn btn-large"><i class="icon-list"></i></span></a>
-            <a href="#blockView" data-toggle="tab"><span class="btn btn-large btn-primary"><i class="icon-th-large"></i></span></a>
+            <a href="#blockView" data-toggle="tab">
+                <span class="btn btn-large btn-primary"><i class="icon-th-large"></i></span>
+            </a>
+            <a href="#listView" data-toggle="tab">
+                <span class="btn btn-large"><i class="icon-list"></i></span>
+            </a>
         </div>
         <br class="clr"/>
-        <div class="tab-content">
-            <div class="tab-pane" id="listView">
-                @foreach($products ?? [] as $product)
-                    @include('public.pages.includes.product_list_item', ['product' => $product])
-                @endforeach
-            </div>
 
-            <div class="tab-pane  active" id="blockView">
-                <ul class="thumbnails">
-                    @foreach($products ?? [] as $product)
-                        @include('public.pages.includes.product_block_item', ['product' => $product])
-                    @endforeach
-                </ul>
-                <hr class="soft"/>
+        <div class="tab-content">
+            <div class="tab-pane active" id="blockView">
+                @include('public.pages.includes.products_block_pane', ['products' => $products ?? []])
+            </div>
+            <div class="tab-pane" id="listView">
+                @include('public.pages.includes.products_list_pane', ['products' => $products ?? []])
             </div>
         </div>
 
-        <a href="/compair.html" class="btn btn-large pull-right">Compair Product</a>
+        <hr class="soft"/>
+
+        <!-- <a href="/compair.html" class="btn btn-large pull-right">Compare Product</a> -->
+
         <div class="pagination">
             {{ @$products->withQueryString()->onEachSide(2)->links() }}
         </div>

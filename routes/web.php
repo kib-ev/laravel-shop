@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ParserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\PageController;
@@ -26,7 +27,7 @@ Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
 Route::get('/', function () {
     $products = Product::paginate(6);
     return view('public.pages.index', compact('products'));
-});
+})->name('home');
 
 // default pages
 Route::get('contacts', function () {
@@ -44,10 +45,7 @@ Route::get('payment', function () {
 Route::get('blog', function () {
     return view('public.pages.blog');
 });
-Route::get('special_offer', function () {
-    $products = Product::where('price_old', '!=', 0)->paginate(6);
-    return view('public.pages.special_offer', compact('products'));
-});
+
 Route::get('products', function () {
     return view('public.pages.products');
 });
@@ -79,13 +77,21 @@ Route::get('components.html', function () {
     return view('public.pages.components');
 });
 
+// PUBLIC ROUTES
 Route::resource('products', ProductController::class)->only([
     'index', 'show'
 ]);
 
-Route::resource('product-categories', ProductCategoryController::class)->only([
-    'index', 'show'
-]);
+Route::name('products.')->prefix('products')->group(function () {
+    Route::resource('categories', ProductCategoryController::class)->only([
+        'show', // route: /products/categories/{id}
+    ]);
+});
+
+Route::get('special_offer', function () {
+    $products = Product::discounted()->paginate(6);
+    return view('public.pages.special_offer', compact('products'));
+});
 
 // redirect
 Route::get('products.html', function () {
@@ -103,23 +109,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
 });
 
 
-Route::prefix('admin')->group(function () {
-    Route::get('test', function () {
-//        return (new \App\Classes\Parser\WebParser())->run();
-
-        $cats = ProductCategory::where('parent_id', 0)->get();
-
-        $catsWithSubCats = $cats->filter(function ($item) {
-            return $item->childrenCategories()->get()->count();
-        });
-        foreach ($catsWithSubCats as $cat) {
-            foreach ($cat->products()->get() as $product) {
-                $product->delete();
-            }
-        }
-
-        dd($cats, $catsWithSubCats);
-
-    });
-
+Route::prefix('admin/parser/')->group(function () {
+    Route::get('parse/categories', [ParserController::class, 'parseCategories']);
+    Route::get('parse/products', [ParserController::class, 'parseProducts']);
 });

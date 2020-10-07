@@ -11,14 +11,14 @@ class AddMeta
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param Request $request
+     * @param Closure $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
         $meta = Meta::firstOrCreate([
-            'uri' => $request->path() != '/' ? '/'. $request->path() : '/' ,
+            'uri' => $request->path() != '/' ? '/' . $request->path() : '/',
             'lang' => app()->getLocale(),
         ]);
 

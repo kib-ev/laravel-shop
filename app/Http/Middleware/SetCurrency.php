@@ -9,16 +9,21 @@ class SetCurrency
 {
     public static $parameterName = 'currency';
 
+    public static function set_currency_url($currency)
+    {
+        return request()->fullUrlWithQuery([SetCurrency::$parameterName => $currency]);
+    }
+
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param Request $request
+     * @param Closure $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->has(SetCurrency::$parameterName)) {
+        if ($request->has(SetCurrency::$parameterName)) {
             $currency = $request->get(SetCurrency::$parameterName);
             if (in_array($currency, ['usd', 'rub', 'byn'])) {
                 session()->put(SetCurrency::$parameterName, $currency);
@@ -28,13 +33,9 @@ class SetCurrency
             // remove ?currency=xxx parameter from route
             $params = $request->all();
             unset($params[SetCurrency::$parameterName]);
-            $append = http_build_query($params) ? '?'.http_build_query($params) : '';
+            $append = http_build_query($params) ? '?' . http_build_query($params) : '';
             return redirect()->to($request->url() . $append);
         }
         return $next($request);
-    }
-
-    public static function set_currency_url($currency) {
-        return request()->fullUrlWithQuery([SetCurrency::$parameterName => $currency]);
     }
 }

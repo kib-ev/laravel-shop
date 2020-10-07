@@ -2,12 +2,25 @@
     <div class="container">
         <div id="welcomeLine" class="row">
             <div class="span6">
-                {{ __('ui.'.'welcome') }}
-                @if(!auth()->id())
-                    <a href="/login"><strong>{{ __('ui.'.'guest') }}</strong></a>
+                @lang('ui.welcome')
+
+                @php
+                    //dump(auth()->logout());
+                @endphp
+
+                @if(is_null(auth()->id()))
+                    <a href="{{ url('/login') }}"><strong>@lang('ui.guest')</strong></a>
                 @else
-                    <a href="/user"><strong>{{ auth()->user()->name }}</strong></a>
-                    <a  class="btn btn-mini btn-primary"  href="{{ route('auth.logout') }}">@lang('ui.logout')</a>
+
+                    @if(auth()->id())
+                    <a href="{{ url('/admin') }}">
+                        <strong>{{ auth()->user()->name }}</strong>
+                    </a>
+                    @else
+                        <strong>{{ auth()->user()->name }}</strong>
+                    @endif
+
+                    <a class="btn btn-mini btn-primary"  href="{{ route('auth.logout') }}">@lang('ui.logout')</a>
                 @endif
             </div>
             <div class="span6">
@@ -56,23 +69,26 @@
                 <span class="icon-bar"></span>
             </a>
             <div class="navbar-inner">
-                <a class="brand" href="/"><img src="/themes/images/logo.png" alt="Bootsshop"/></a>
-                <form class="form-inline navbar-search" method="post" action="/products">
-                    <input id="srchFld" class="srchTxt" type="text"/>
+                <a class="brand" href="{{ url('/') }}">
+                    <img src="{{ asset('/themes/images/logo.png') }}" alt="Bootsshop"/>
+                </a>
+                <form class="form-inline navbar-search" method="get" action="{{ route('products.index') }}">
+                    <input name="search" id="srchFld" class="srchTxt" type="text"/>
                     <select class="srchTxt">
                         <option>All</option>
-                        <option>CLOTHES</option>
-                        <option>FOOD AND BEVERAGES</option>
-                        <option>HEALTH & BEAUTY</option>
-                        <option>SPORTS & LEISURE</option>
-                        <option>BOOKS & ENTERTAINMENTS</option>
                     </select>
-                    <button type="submit" id="submitButton" class="btn btn-primary">{{ __('ui.'.'Find') }}</button>
+                    <button type="submit" id="submitButton" class="btn btn-primary">{{ __('ui.find') }}</button>
                 </form>
                 <ul id="topMenu" class="nav pull-right">
-                    <li class=""><a href="/special_offer">{{ __('ui.'.'special offer') }}</a></li>
-                    <li class=""><a href="/delivery">{{ __('ui.'.'delivery') }}</a></li>
-                    <li class=""><a href="/contacts">{{ __('ui.'.'contacts') }}</a></li>
+                    <li class="">
+                        <a href="{{ route('products.index', ['only_discounted' => '1']) }}">{{ __('ui.special_offer') }}</a>
+                    </li>
+                    <li class="">
+                        <a href="{{ url('/delivery') }}">{{ __('ui.delivery') }}</a>
+                    </li>
+                    <li class="">
+                        <a href="{{ url('/contacts') }}">{{ __('ui.contacts') }}</a>
+                    </li>
                 </ul>
             </div>
         </div>

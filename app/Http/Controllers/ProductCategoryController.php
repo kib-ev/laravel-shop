@@ -37,10 +37,12 @@ class ProductCategoryController extends Controller {
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\ProductCategory $productCategory
+     * @param int $productCategoryId
      * @return \Illuminate\Http\Response
      */
-    public function show(ProductCategory $productCategory) {
+    public function show($productCategoryId) {
+        $productCategory= ProductCategory::findOrFail($productCategoryId);
+
         return view('public.pages.products', [
             'category' => $productCategory,
             'products' => $productCategory->products()->paginate(6),

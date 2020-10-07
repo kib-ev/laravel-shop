@@ -8,12 +8,12 @@
     <div class="span9">
         <ul class="breadcrumb">
             <li><a href="{{ url('/') }}">@lang('ui.home')</a> <span class="divider">/</span></li>
-            <li class="active"> @lang('ui.shopping cart') </li>
+            <li class="active"> @lang('ui.shopping_cart') </li>
         </ul>
         <h3>
-            @lang('ui.shopping cart') [ <small>{{ cart()->products->count() }} Item(s) </small>]
-            <a href="products.html" class="btn btn-large pull-right">
-                <i class="icon-arrow-left"></i> @lang('ui.continue shopping')
+            @lang('ui.shopping_cart') [ <small>{{ cart()->products->count() }} Item(s) </small>]
+            <a href="{{ route('products.index') }}" class="btn btn-large pull-right">
+                <i class="icon-arrow-left"></i> {{ __('ui.continue_shopping') }}
             </a>
         </h3>
         <hr class="soft"/>
@@ -21,7 +21,7 @@
         @if(!auth()->id())
         <table class="table table-bordered">
             <tr>
-                <th>{{ __('ui.'.'already registered') }}</th>
+                <th>{{ __('ui.already_registered') }}</th>
             </tr>
             <tr>
                 <td>
@@ -41,15 +41,15 @@
                         </div>
                         <div class="control-group">
                             <div class="controls">
-                                <button type="submit" class="btn">@lang('ui.sign in')</button>
-                                {{ __('ui.'.'or') }}
-                                <a href="{{ route('register') }}" class="btn">@lang('ui.register')</a>
+                                <button type="submit" class="btn">@lang('ui.sign_in')</button>
+                                {{ __('ui.or') }}
+                                <a href="{{ route('register') }}" class="btn">{{ __('ui.register') }}</a>
                             </div>
                         </div>
                         <div class="control-group">
                             <div class="controls">
                                 <a href="{{ route('password.request') }}"
-                                   style="text-decoration:underline">{{ __('ui.'.'forgot password?') }}</a>
+                                   style="text-decoration:underline">{{ __('ui.forget_password') }}</a>
                             </div>
                         </div>
                     </form>
@@ -253,9 +253,9 @@
                 </td>
             </tr>
         </table>
-        <a href="/products" class="btn btn-large"><i class="icon-arrow-left"></i> {{ __('ui.'.'continue shopping') }}
+        <a href="/products" class="btn btn-large"><i class="icon-arrow-left"></i> {{ __('ui.continue_shopping') }}
         </a>
-        <a href="/login" class="btn btn-large pull-right">{{ __('ui.'.'next step') }} <i
+        <a href="/login" class="btn btn-large pull-right">{{ __('ui.next_step') }} <i
                 class="icon-arrow-right"></i></a>
     </div>
 @endsection

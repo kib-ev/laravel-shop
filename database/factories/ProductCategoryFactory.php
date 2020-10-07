@@ -3,10 +3,10 @@
 namespace Database\Factories;
 
 use App\Models\ProductCategory;
-use App\View\Components\AppLayout;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ProductCategoryFactory extends Factory {
+class ProductCategoryFactory extends Factory
+{
     /**
      * The name of the factory's corresponding model.
      *
@@ -21,7 +21,8 @@ class ProductCategoryFactory extends Factory {
      *
      * @return array
      */
-    public function definition() {
+    public function definition()
+    {
 
         $faker = $this->faker;
 

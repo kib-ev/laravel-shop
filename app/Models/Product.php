@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use phpDocumentor\Reflection\Types\Boolean;
 
 class Product extends Model {
 
@@ -14,6 +15,17 @@ class Product extends Model {
 
     public function category() {
         return $this->belongsTo(ProductCategory::class, 'category_id');
+    }
+
+    public function scopeFeatured($query) {
+        return $query->where('featured', 1);
+    }
+
+    public function scopeDiscounted($query, $filter = 0) {
+        switch ($filter) {
+            case 1 : return $query->where('price_old', '!=', 0);
+            default : return $query;
+        }
     }
 
     public function getPriceOldAttribute() {

@@ -63,9 +63,4 @@ class Cart extends Model
         }
     }
 
-    public function getSummaryTotalAttribute() {
-        $value = $this->attributes['summary_total'] ?? 0;
-        return number_format($value, 2, '.', '');
-    }
-
 }

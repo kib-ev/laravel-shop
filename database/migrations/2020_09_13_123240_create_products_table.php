@@ -25,6 +25,9 @@ class CreateProductsTable extends Migration
             $table->integer('count')->unsigned()->default(0);
             $table->double('price', 8, 2)->unsigned()->default(0.00);
             $table->double('price_old', 8, 2)->unsigned()->default(0.00);
+
+            $table->boolean('featured')->default(0);
+
             $table->timestamps();
             $table->softDeletes();
         });

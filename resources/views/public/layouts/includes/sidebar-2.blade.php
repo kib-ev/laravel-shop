@@ -80,14 +80,16 @@
 <div id="sidebar" class="span3">
     <div class="well well-small"><a id="myCart" href="{{ route('cart.show') }}">
             <img src="{{ asset('/themes/images/ico-cart.png') }}" alt="cart">
-            @lang('ui.items in cart', ['count' => cart()->products->count()]) <span class="badge badge-warning pull-right">{{ cart()->summary_total }}</span>
+            {{ __('ui.items in cart', ['count' => cart()->products->count()]) }} <span class="badge badge-warning pull-right">
+                {{ number_format(cart()->summary_total, 2, '.', '') }}
+            </span>
         </a>
     </div>
 
     <ul class="sidebar-menu">
         @foreach($categories->filter(function ($item) { return $item->parent_id == 0; }) as $category)
             <li class="treeview">
-                <a href="{{ route('product-categories.show', $category->id) }}">
+                <a href="{{ route('products.categories.show', $category->id) }}">
                     {{ ($category->name) }} [{{ $category->productsCount(0)  }}]
 
                     @if($category->hasChildren())
@@ -99,7 +101,7 @@
                     @foreach($category->childrenCategories as $childrenCategory)
                         <ul class="treeview-menu">
                             <li>
-                                <a href="{{ route('product-categories.show', $childrenCategory->id) }}">
+                                <a href="{{ route('products.categories.show', $childrenCategory->id) }}">
                                     <i class="icon-chevron-right"></i>
                                     {{ $childrenCategory->name }} ({{ $childrenCategory->productsCount() }})
                                 </a>

@@ -7,7 +7,7 @@
 @section('content')
     <div class="span9">
         <ul class="breadcrumb">
-            <li><a href="/">{{ __('ui.'.'home') }}</a><span class="divider">/</span></li>
+            <li><a href="/">{{ __('ui.'.'home') }}</a><span class="divider"> / </span></li>
             <li class="active">{{ __('ui.'.'delivery') }}</li>
         </ul>
         <h3>{{ __('ui.'.'delivery') }}</h3>
