@@ -25,10 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Product::whereIn('id', config('site.featured_products'))->update([ // TODO: remove
-            'featured' => 1
-        ]);
-
         Paginator::defaultView('vendor.pagination.bootstrap-4');
     }
 }

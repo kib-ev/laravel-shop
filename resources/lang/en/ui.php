@@ -46,6 +46,7 @@ return [
     'already_registered' => 'I am already registered',
     'personal_information' => 'Your personal information',
     // Products
+    'sort_by' => 'Sort By',
     'items in stock' => ':count items in stock',
     'products are available' => ':total products are available',
     'view_details' => 'View Details',
@@ -78,6 +79,8 @@ return [
         'payment' => 'Payment',
         'checkout' => 'Checkout',
         'cart_empty' => 'Cart Empty',
+        'address' => 'Address',
+        'comment' => 'Comment',
     ]
 
 ];

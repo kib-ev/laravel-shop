@@ -46,6 +46,7 @@ return [
     'already_registered' => 'У меня уже есть аккаунт',
     'personal_information' => 'Личная информация',
     // Products
+    'sort_by' => 'Сортировать',
     'items in stock' => ':count шт на складе',
     'products are available' => ':total товаров доступно',
     'view_details' => 'Подробнее',
@@ -78,6 +79,8 @@ return [
         'payment' => 'Оплата',
         'checkout' => 'Оформить',
         'cart_empty' => 'Корзина пуста',
+        'address' => 'Адрес',
+        'comment' => 'Комментарий',
     ]
 
 ];

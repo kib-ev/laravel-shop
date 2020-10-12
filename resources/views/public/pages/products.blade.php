@@ -24,16 +24,16 @@
             customers all over the country.
         </p>-->
         <hr class="soft"/>
-        <form class="form-horizontal span6">
-            <div class="control-group">
-                <label class="control-label alignL">Sort By </label>
-                <select>
-                    <option>Product name A - Z</option>
-                    <option>Product name Z - A</option>
-                    <option>Product Stoke</option>
-                    <option>Price Lowest first</option>
-                </select>
-            </div>
+        <form class="form-horizontal span6"> {{-- TODO: add sort --}}
+          <div class="control-group">
+              <label class="control-label alignL">{{ __('ui.sort_by') }}</label>
+              <select>
+                  <option>По наименованию А - Я</option>
+                  <option>По наименованию Я - А</option>
+                  <option>По цене - сначала дешевые</option>
+                  <option>По цене - сначала дорогие</option>
+              </select>
+          </div>
         </form>
 
         <div id="myTab" class="pull-right">
