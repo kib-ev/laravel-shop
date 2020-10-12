@@ -14,3 +14,9 @@ function set_currency_url($locale)
 {
     return \App\Http\Middleware\SetCurrency::set_currency_url($locale);
 }
+
+function meta()
+{
+    // meta added in \App\Http\Middleware\AddMeta.php
+    return request()->meta;
+}

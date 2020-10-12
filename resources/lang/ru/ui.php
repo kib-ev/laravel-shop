@@ -13,8 +13,20 @@ return [
     |
     */
 
-    'add_to_cart' => 'В корзину',
+    // Pages
+    'home' => 'Главная',
+    'delivery' => 'Доставка',
+    'contacts' => 'Контакты',
+    'special_offer' => 'Скидки',
+    'error' => 'Ошибка',
+    'error_404' => 'Ошибка 404',
+    'page_not_found' => 'Запрашиваемая страница не найдена!',
+    // Search
     'find' => 'Найти',
+    'all_categories' => 'Все категории',
+    // Auth
+    'welcome' => 'Добро пожаловать!',
+    'guest' => 'Гость',
     'username' => 'Логин',
     'name' => 'Имя',
     'last_name' => 'Фамилия',
@@ -31,29 +43,41 @@ return [
     'create_account' => 'Создать новый аккаунт',
     'register' => 'Зарегистрировать',
     'registration' => 'Регистрация',
+    'already_registered' => 'У меня уже есть аккаунт',
     'personal_information' => 'Личная информация',
+    // Products
     'items in stock' => ':count шт на складе',
     'products are available' => ':total товаров доступно',
     'view_details' => 'Подробнее',
-    'welcome' => 'Добро пожаловать!',
-    'guest' => 'Гость',
-    'home' => 'Главная',
     'qty.' => 'Кол-во',
-    'already_registered' => 'У меня уже есть аккаунт',
-    'delivery' => 'Доставка',
-    'contacts' => 'Контакты',
     'continue_shopping' => 'Вернуться в магазин',
     'next_step' => 'Продолжить',
     'products' => 'Каталог',
     'product_details' => 'Описание',
     'related_products' => 'Похожие товары',
+    'random_products' => 'Случайные товары',
     'lasted_products' => 'Новые поступления',
     'featured_products' => 'Рекомендуемые товары',
     'view_product' => 'Смотреть',
-    'special_offer' => 'Скидки',
     'shopping_cart' => 'Корзина',
-    'items in cart' => ':count товара(ов)',
-    'error' => 'Ошибка',
-    'error_404' => 'Ошибка 404',
-    'page_not_found' => 'Запрашиваемая страница не найдена!'
+    'items_in_cart' => ':count товара(ов)',
+    'add_to_cart' => 'В корзину',
+
+    'cart' => [
+        'product' => 'Товар',
+        'description' => 'Описание',
+        'quantity_update' => 'Количество/Изменить',
+        'price' => 'Цена',
+        'discount' => 'Скидка',
+        'tax' => 'Налог',
+        'total' => 'Всего',
+        'total_price' => 'Общая цена',
+        'total_discount' => 'Общая скидка',
+        'total_tax' => 'Общий налог',
+        'delivery' => 'Доставка',
+        'payment' => 'Оплата',
+        'checkout' => 'Оформить',
+        'cart_empty' => 'Корзина пуста',
+    ]
+
 ];

@@ -16,7 +16,7 @@ class ParserController extends Controller
             WebParser::collectCategories();
         }
 
-        return redirect()->back()   ;
+        return back();
     }
 
     public function parseProducts()
@@ -25,6 +25,6 @@ class ParserController extends Controller
             WebParser::collectProducts();
         }
 
-        return redirect()->back()   ;
+        return back();
     }
 }

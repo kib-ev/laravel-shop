@@ -6,16 +6,27 @@ use App\Classes\Parser\WebParser;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller {
+class ProductController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
      * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request) {
-        $discounted = $request->get('only_discounted');
-        $products = Product::discounted($discounted)->paginate(6);
+    public function index(Request $request)
+    {
+        $discounted = (boolean)$request->get('only_discounted');
+        $search = $request->get('search');
+
+        $products = Product::discounted($discounted)
+            ->search($search)
+            ->paginate(config('site.products.per_page'));
+
+        meta()->update([
+            'title' => __('ui.products'),
+        ]);
+
         return view('public.pages.products', compact('products'));
     }
 
@@ -24,7 +35,8 @@ class ProductController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         //
     }
 
@@ -34,7 +46,8 @@ class ProductController extends Controller {
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         //
     }
 
@@ -44,18 +57,24 @@ class ProductController extends Controller {
      * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product) {
+    public function show(Product $product)
+    {
         if (!$product->description) {
             WebParser::updateProductData($product);
         }
+//        if(Str::contains('http://1000-stroy.by/', $product->image_path)) {
+//            // TODO: save images to local storage
+//        }
 
-        $product->meta_title = $product->name;
+        meta()->update([
+            'title' => $product->name,
+        ]);
 
         $products = $product->category
             ->products()
             ->where('id', '!=', $product->id)
             ->inRandomOrder()
-            ->paginate(3);
+            ->paginate(config('site.products.related_count'));
 
         return view('public.pages.product_details', compact('product', 'products'));
     }
@@ -66,7 +85,8 @@ class ProductController extends Controller {
      * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product) {
+    public function edit(Product $product)
+    {
         //
     }
 
@@ -77,7 +97,8 @@ class ProductController extends Controller {
      * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product) {
+    public function update(Request $request, Product $product)
+    {
         //
     }
 
@@ -87,7 +108,8 @@ class ProductController extends Controller {
      * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product) {
+    public function destroy(Product $product)
+    {
         //
     }
 }

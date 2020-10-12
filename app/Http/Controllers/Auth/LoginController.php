@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Cart;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -26,10 +25,11 @@ class LoginController extends Controller
             ]);
         }
 
-        return  back();
+        return back();
     }
 
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         if (auth()->id()) {
             auth()->logout();
         }

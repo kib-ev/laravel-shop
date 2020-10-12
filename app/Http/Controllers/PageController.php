@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Page;
-use Illuminate\Http\Request;
+class PageController extends Controller
+{
 
-class PageController extends Controller {
+    public function productSummaryPage()
+    {
+        meta()->update([
+            'title' => __('ui.shopping_cart'),
+        ]);
 
-    public function productSummaryPage() {
         return view('public.pages.product_summary');
     }
 }

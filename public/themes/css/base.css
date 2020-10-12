@@ -107,11 +107,11 @@
 .navbar .nav > li > a {border-top:1px solid #666; padding:0}
 }
 .flex-parent {
-    display: flex;
-    flex-wrap: wrap;
+    display: flex !important;
+    flex-wrap: wrap !important;
 }
 .flex-item {
-    display: flex;
+    display: flex !important;
 }
 .text-center {
     text-align: center;

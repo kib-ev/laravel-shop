@@ -9,5 +9,6 @@ class Meta extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['uri', 'lang'];
+    protected $guarded = ['id'];
+
 }

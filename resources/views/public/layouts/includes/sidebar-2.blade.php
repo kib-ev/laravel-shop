@@ -78,9 +78,9 @@
 </style>
 
 <div id="sidebar" class="span3">
-    <div class="well well-small"><a id="myCart" href="{{ route('cart.show') }}">
+    <div class="well well-small"><a id="myCart" href="{{ route('carts.show') }}">
             <img src="{{ asset('/themes/images/ico-cart.png') }}" alt="cart">
-            {{ __('ui.items in cart', ['count' => cart()->products->count()]) }} <span class="badge badge-warning pull-right">
+            {{ __('ui.items_in_cart', ['count' => cart()->products->count()]) }} <span class="badge badge-warning pull-right">
                 {{ number_format(cart()->summary_total, 2, '.', '') }}
             </span>
         </a>

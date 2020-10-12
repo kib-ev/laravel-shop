@@ -14,13 +14,6 @@ class SetLocale
         return request()->fullUrlWithQuery([SetLocale::$parameterName => $locale]);
     }
 
-    /**
-     * Handle an incoming request.
-     *
-     * @param Request $request
-     * @param Closure $next
-     * @return mixed
-     */
     public function handle(Request $request, Closure $next)
     {
         if (!session()->has(SetLocale::$parameterName)) {
@@ -36,13 +29,13 @@ class SetLocale
 
         app()->setLocale(session()->get(SetLocale::$parameterName));
 
-        return $this->removeParamFromQueryAndRedirect($request, $next);
+        return $this->removeLocaleParamFromUrlAndRedirect($request, $next);
     }
 
-    protected function removeParamFromQueryAndRedirect(Request $request, Closure $next)
+    protected function removeLocaleParamFromUrlAndRedirect(Request $request, Closure $next)
     {
         if ($request->has(SetLocale::$parameterName)) {
-            // remove ?lang=xx parameter from route
+            // remove ?lang=xx parameter from url
             $params = $request->all();
             unset($params[SetLocale::$parameterName]);
             $append = http_build_query($params) ? '?' . http_build_query($params) : '';

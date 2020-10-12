@@ -13,8 +13,20 @@ return [
     |
     */
 
-    'add_to_cart' => 'Add to cart',
+    // Pages
+    'home' => 'Home',
+    'delivery' => 'Delivery',
+    'contacts' => 'Contacts',
+    'special_offer' => 'Special offer',
+    'error' => 'Ошибка',
+    'error_404' => 'Error 404',
+    'page_not_found' => 'Page Not Found!',
+    // Search
     'find' => 'Find',
+    'all_categories' => 'All',
+    // Auth
+    'welcome' => 'Welcome!',
+    'guest' => 'Guest',
     'username' => 'Username',
     'name' => 'Name',
     'last_name' => 'Last Name',
@@ -31,30 +43,41 @@ return [
     'create_account' => 'Create Your Account',
     'register' => 'Register Now!',
     'registration' => 'Registration',
+    'already_registered' => 'I am already registered',
     'personal_information' => 'Your personal information',
+    // Products
     'items in stock' => ':count items in stock',
     'products are available' => ':total products are available',
     'view_details' => 'View Details',
-    'welcome' => 'Welcome!',
-    'guest' => 'Guest',
-    'home' => 'Home',
     'qty.' => 'Qty.',
-    'already_registered' => 'I am already registered',
-    'delivery' => 'Delivery',
-    'contacts' => 'Contacts',
     'continue_shopping' => 'Continue Shopping',
     'next_step' => 'Next',
     'products' => 'Products',
     'product_details' => 'Products Details',
     'related_products' => 'Related Products',
+    'random_products' => 'Random Products',
     'lasted_products' => 'Lasted Products',
     'featured_products' => 'Featured Products',
     'view_product' => 'View',
-    'special_offer' => 'Special offer',
     'shopping_cart' => 'Shopping Cart',
-    'items in cart' => ':count Items in your cart',
-    'error' => 'Ошибка',
-    'error_404' => 'Error 404',
-    'page_not_found' => 'Page Not Found!'
+    'items_in_cart' => ':count Items in your cart',
+    'add_to_cart' => 'Add to cart',
+
+    'cart' => [
+        'product' => 'Product',
+        'description' => 'Description',
+        'quantity_update' => 'Quantity/Update',
+        'price' => 'Price',
+        'discount' => 'Discount',
+        'tax' => 'Tax',
+        'total' => 'Total',
+        'total_price' => 'Total Price',
+        'total_discount' => 'Total Discount',
+        'total_tax' => 'Total Tax',
+        'delivery' => 'Delivery',
+        'payment' => 'Payment',
+        'checkout' => 'Checkout',
+        'cart_empty' => 'Cart Empty',
+    ]
 
 ];

@@ -24,6 +24,8 @@ class AddMeta
 
 //        $meta->title = ' | ' .config('app.name');
 
+        $request->meta = $meta;
+
         view()->share('meta', $meta);
 
         return $next($request);

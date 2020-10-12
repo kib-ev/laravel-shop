@@ -16,7 +16,7 @@
 
         @include('public.pages.includes.products_block_pane', [
             'products' => $products ?? [],
-            'title' => __('ui.lasted_products')
+            'title' => __('ui.random_products')
         ])
 
     </div>

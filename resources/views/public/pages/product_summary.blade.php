@@ -11,7 +11,13 @@
             <li class="active"> @lang('ui.shopping_cart') </li>
         </ul>
         <h3>
-            @lang('ui.shopping_cart') [ <small>{{ cart()->products->count() }} Item(s) </small>]
+            @if(cart()->products->count())
+                {{ __('ui.shopping_cart') }}
+            @else
+                {{ __('ui.cart.cart_empty') }}
+            @endif
+
+            [ <small>{{ __('ui.items_in_cart', ['count' => cart()->products->count()]) }}</small> ]
             <a href="{{ route('products.index') }}" class="btn btn-large pull-right">
                 <i class="icon-arrow-left"></i> {{ __('ui.continue_shopping') }}
             </a>
@@ -19,55 +25,60 @@
         <hr class="soft"/>
 
         @if(!auth()->id())
-        <table class="table table-bordered">
-            <tr>
-                <th>{{ __('ui.already_registered') }}</th>
-            </tr>
-            <tr>
-                <td>
-                    <form class="form-horizontal" action="{{ route('login') }}" method="POST">
-                        @csrf
-                        <div class="control-group">
-                            <label class="control-label" for="inputUsername">{{ __('ui.email') }}</label>
-                            <div class="controls">
-                                <input name="email" type="text" id="inputUsername" placeholder="{{ __('ui.email') }}">
+            <table class="table table-bordered">
+                <tr>
+                    <th>{{ __('ui.already_registered') }}</th>
+                </tr>
+                <tr>
+                    <td>
+                        <form class="form-horizontal" action="{{ route('login') }}" method="POST">
+                            @csrf
+                            <div class="control-group">
+                                <label class="control-label" for="inputUsername">{{ __('ui.email') }}</label>
+                                <div class="controls">
+                                    <input name="email" type="text" id="inputUsername"
+                                           placeholder="{{ __('ui.email') }}">
+                                </div>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="inputPassword1">{{ __('ui.password') }}</label>
-                            <div class="controls">
-                                <input name="password" type="password" id="inputPassword1" placeholder="{{ __('ui.password') }}">
+                            <div class="control-group">
+                                <label class="control-label" for="inputPassword1">{{ __('ui.password') }}</label>
+                                <div class="controls">
+                                    <input name="password" type="password" id="inputPassword1"
+                                           placeholder="{{ __('ui.password') }}">
+                                </div>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="controls">
-                                <button type="submit" class="btn">@lang('ui.sign_in')</button>
-                                {{ __('ui.or') }}
-                                <a href="{{ route('register') }}" class="btn">{{ __('ui.register') }}</a>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button type="submit" class="btn">{{ __('ui.sign_in') }}</button>
+                                    {{ __('ui.or') }}
+                                    <a href="{{ route('register') }}" class="btn">{{ __('ui.register') }}</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="controls">
-                                <a href="{{ route('password.request') }}"
-                                   style="text-decoration:underline">{{ __('ui.forget_password') }}</a>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <a href="{{ route('password.request') }}"
+                                       style="text-decoration:underline">{{ __('ui.forget_password') }}</a>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                </td>
-            </tr>
-        </table>
+                        </form>
+                    </td>
+                </tr>
+            </table>
         @endif
+
+        @if(cart()->products->count())
+
 
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>Product</th>
-                <th>Description</th>
-                <th>Quantity/Update</th>
-                <th>Price</th>
-                <th>Discount</th>
-                <th>Tax</th>
-                <th>Total</th>
+                <th>{{ __('ui.cart.product') }}</th>
+                <th>{{ __('ui.cart.description') }}</th>
+                <th>{{ __('ui.cart.quantity_update') }}</th>
+                <th>{{ __('ui.cart.price') }}</th>
+                <th>{{ __('ui.cart.discount') }}</th>
+                <th>{{ __('ui.cart.tax') }}</th>
+                <th>{{ __('ui.cart.total') }}</th>
             </tr>
             </thead>
             <tbody>
@@ -84,7 +95,8 @@
                                    style="max-width:34px" placeholder="1" class="span1"
                                    id="appendedInputButtons" size="16" type="text">
 
-                            <form action="{{ route('api.carts.products.pivot.update', $product->pivot->id) }}" method="post" style="display: inline;">
+                            <form action="{{ route('api.carts.products.pivot.update', $product->pivot->id) }}"
+                                  method="post" style="display: inline;">
                                 @csrf
                                 <input type="hidden" name="redirect" value="{{ url()->current() }}">
                                 <input type="hidden" name="count" value="{{ $product->pivot->count - 1 }}">
@@ -93,7 +105,8 @@
                                 </button>
                             </form>
 
-                            <form action="{{ route('api.carts.products.pivot.update', $product->pivot->id) }}" method="post" style="display: inline;">
+                            <form action="{{ route('api.carts.products.pivot.update', $product->pivot->id) }}"
+                                  method="post" style="display: inline;">
                                 @csrf
                                 <input type="hidden" name="redirect" value="{{ url()->current() }}">
                                 <input type="hidden" name="count" value="{{ $product->pivot->count + 1 }}">
@@ -102,7 +115,8 @@
                                 </button>
                             </form>
 
-                            <form action="{{ route('api.carts.products.pivot.remove', $product->pivot->id) }}" method="post" style="display: inline;">
+                            <form action="{{ route('api.carts.products.pivot.remove', $product->pivot->id) }}"
+                                  method="post" style="display: inline;">
                                 @csrf
                                 <input type="hidden" name="redirect" value="{{ url()->current() }}">
                                 <button class="btn btn-danger" type="submit">
@@ -111,83 +125,37 @@
                             </form>
                         </div>
                     </td>
-                    <td>{{ $product->summary_price > 0 ? $product->summary_price : '--' }}</td>
-                    <td>{{ $product->summary_discount > 0 ? $product->summary_discount : '--' }}</td>
-                    <td>{{ $product->summary_tax > 0 ? $product->summary_tax : '--' }}</td>
-                    <td>{{ $product->summary_total > 0 ? $product->summary_total : '--' }}</td>
+                    <td>{{ $product->summary_price > 0 ? number_format($product->summary_price, 2, '.', '') : '--' }}</td>
+                    <td>{{ $product->summary_discount > 0 ? number_format($product->summary_discount, 2, '.', '') : '--' }}</td>
+                    <td>{{ $product->summary_tax > 0 ? number_format($product->summary_tax, 2, '.', '') : '--' }}</td>
+                    <td>{{ $product->summary_total > 0 ? number_format($product->summary_total, 2, '.', '') : '--' }}</td>
                 </tr>
             @endforeach
-            <!--
-            <tr>
-                <td><img width="60" src="/themes/images/products/4.jpg" alt=""/></td>
-                <td>MASSA AST<br/>Color : black, Material : metal</td>
-                <td>
-                    <div class="input-append"><input class="span1" style="max-width:34px" placeholder="1"
-                                                     id="appendedInputButtons" size="16" type="text">
-                        <button class="btn" type="button"><i class="icon-minus"></i></button>
-                        <button class="btn" type="button"><i class="icon-plus"></i></button>
-                        <button class="btn btn-danger" type="button"><i class="icon-remove icon-white"></i></button>
-                    </div>
-                </td>
-                <td>$120.00</td>
-                <td>$25.00</td>
-                <td>$15.00</td>
-                <td>$110.00</td>
-            </tr>
-            <tr>
-                <td><img width="60" src="/themes/images/products/8.jpg" alt=""/></td>
-                <td>MASSA AST<br/>Color : black, Material : metal</td>
-                <td>
-                    <div class="input-append"><input class="span1" style="max-width:34px" placeholder="1" size="16"
-                                                     type="text">
-                        <button class="btn" type="button"><i class="icon-minus"></i></button>
-                        <button class="btn" type="button"><i class="icon-plus"></i></button>
-                        <button class="btn btn-danger" type="button"><i class="icon-remove icon-white"></i></button>
-                    </div>
-                </td>
-                <td>$7.00</td>
-                <td>--</td>
-                <td>$1.00</td>
-                <td>$8.00</td>
-            </tr>
-            <tr>
-                <td><img width="60" src="/themes/images/products/3.jpg" alt=""/></td>
-                <td>MASSA AST<br/>Color : black, Material : metal</td>
-                <td>
-                    <div class="input-append"><input class="span1" style="max-width:34px" placeholder="1" size="16"
-                                                     type="text">
-                        <button class="btn" type="button"><i class="icon-minus"></i></button>
-                        <button class="btn" type="button"><i class="icon-plus"></i></button>
-                        <button class="btn btn-danger" type="button"><i class="icon-remove icon-white"></i></button>
-                    </div>
-                </td>
-                <td>$120.00</td>
-                <td>$25.00</td>
-                <td>$15.00</td>
-                <td>$110.00</td>
-            </tr>
-            -->
 
             <tr>
-                <td colspan="6" style="text-align:right">Total Price:</td>
-                <td>{{ cart()->summary_price }}</td>
+                <td colspan="6" style="text-align:right">{{ __('ui.cart.total_price') }}:</td>
+                <td>{{ number_format(cart()->summary_price, 2, '.', '') }}</td>
             </tr>
             <tr>
-                <td colspan="6" style="text-align:right">Total Discount:</td>
-                <td>{{ cart()->summary_discount }}</td>
+                <td colspan="6" style="text-align:right">{{ __('ui.cart.total_discount') }}:</td>
+                <td>{{ number_format(cart()->summary_discount, 2, '.', '') }}</td>
             </tr>
             <tr>
-                <td colspan="6" style="text-align:right">Total Tax:</td>
-                <td>{{ cart()->summary_tax }}</td>
+                <td colspan="6" style="text-align:right">{{ __('ui.cart.total_tax') }}:</td>
+                <td>{{ number_format(cart()->summary_tax, 2, '.', '') }}</td>
             </tr>
             <tr>
-                <td colspan="6" style="text-align:right"><strong>TOTAL ({{ cart()->summary_price }} - {{ cart()->summary_discount }} + {{ cart()->summary_tax }}) =</strong></td>
-                <td class="label label-important" style="display:block"><strong>{{ cart()->summary_total }}</strong></td>
+                <td colspan="6" style="text-align:right"><strong class="uppercase">{{ __('ui.cart.total') }}
+                        ({{ number_format(cart()->summary_price, 2, '.', '') }}
+                        - {{ number_format(cart()->summary_discount, 2, '.', '') }}
+                        + {{ number_format(cart()->summary_tax, 2, '.', '') }}) =</strong></td>
+                <td class="label label-important" style="display:block">
+                    <strong>{{ number_format(cart()->summary_total, 2, '.', '') }}</strong></td>
             </tr>
             </tbody>
         </table>
 
-
+        <!--
         <table class="table table-bordered">
             <tbody>
             <tr>
@@ -206,6 +174,24 @@
 
             </tbody>
         </table>
+        -->
+
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <th class="uppercase">{{ __('ui.cart.delivery') }}</th>
+                <th class="uppercase">{{ __('ui.cart.payment') }}</th>
+            </tr>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
 
         <table class="table table-bordered">
             <tr>
@@ -213,49 +199,69 @@
             </tr>
             <tr>
                 <td>
-                    <form class="form-horizontal">
+                    <form id="orderForm" class="form-horizontal" action="{{ route('orders.store') }}" method="POST">
+                        @csrf
                         <div class="control-group">
-                            <label class="control-label" for="inputCountry">Ваше имя </label>
+                            <label class="control-label" for="inputCountry">{{ __('ui.name') }}</label>
                             <div class="controls">
-                                <input type="text" id="inputCountry" placeholder="Country">
+                                <input name="name" type="text" id="inputCountry" placeholder="{{ __('ui.name') }}"
+                                       value="{{ auth()->id() ? auth()->user()->name : '' }}">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="inputPost">E-mail </label>
+                            <label class="control-label" for="inputCountry">{{ __('ui.last_name') }}</label>
                             <div class="controls">
-                                <input type="text" id="inputPost" placeholder="Postcode">
+                                <input name="last_name" type="text" id="inputCountry"
+                                       placeholder="{{ __('ui.last_name') }}"
+                                       value="{{ auth()->id() ? auth()->user()->last_name : '' }}">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="inputPost">Телефон </label>
+                            <label class="control-label" for="inputPost">{{ __('ui.email') }}</label>
                             <div class="controls">
-                                <input type="text" id="inputPost" placeholder="Postcode">
+                                <input name="email" type="text" id="inputPost" placeholder="{{ __('ui.email') }}"
+                                       value="{{ auth()->id() ? auth()->user()->email : '' }}">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="inputPost">Address </label>
+                            <label class="control-label" for="inputPost">{{ __('ui.phone') }}</label>
                             <div class="controls">
-                                <textarea type="text" id="inputPost" placeholder="address"></textarea>
+                                <input name="phone" type="text" id="inputPost" placeholder="{{ __('ui.phone') }}"
+                                       value="{{ auth()->id() ? auth()->user()->phone : '' }}">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="inputPost">Comment </label>
+                            <label class="control-label" for="inputPost">{{ __('ui.address') }}</label>
                             <div class="controls">
-                                <textarea type="text" id="inputPost" placeholder="Comment"></textarea>
+                                <textarea name="address" type="text" id="inputPost"
+                                          placeholder="{{ __('ui.address') }}"></textarea>
                             </div>
                         </div>
                         <div class="control-group">
+                            <label class="control-label" for="inputPost">{{ __('ui.comment') }}</label>
                             <div class="controls">
-                                <button type="submit" class="btn">ESTIMATE</button>
+                                <textarea name="comment" type="text" id="inputPost"
+                                          placeholder="{{ __('ui.comment') }}"></textarea>
                             </div>
                         </div>
+
                     </form>
                 </td>
             </tr>
         </table>
-        <a href="/products" class="btn btn-large"><i class="icon-arrow-left"></i> {{ __('ui.continue_shopping') }}
+        @endif
+
+        <a href="{{ route('products.index') }}" class="btn btn-large">
+            <i class="icon-arrow-left"></i> {{ __('ui.continue_shopping') }}
         </a>
-        <a href="/login" class="btn btn-large pull-right">{{ __('ui.next_step') }} <i
-                class="icon-arrow-right"></i></a>
+
+        @if(cart()->products->count())
+            <a href="#" class="btn btn-success btn-large pull-right"
+               onclick="document.getElementById('orderForm').submit();">
+                {{ __('ui.cart.checkout') }}
+                <i class="icon-arrow-right"></i>
+            </a>
+        @endif
+
     </div>
 @endsection

@@ -39,7 +39,7 @@ class CartController extends Controller
     public function updateProduct(Request $request, $pivotId) // api method
     {
         $product = $this->cart->products()->wherePivot('id', $pivotId)->first();
-        if($request->get('count') == 0 || $request->get('count') < 0) {
+        if ($request->get('count') == 0 || $request->get('count') < 0) {
             return $this->cart;
         }
         $product->pivot->count = $request->get('count') ?? $product->pivot->count;

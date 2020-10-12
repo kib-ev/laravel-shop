@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Product;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Product::whereIn('id', config('site.featured_products'))->update([ // TODO: remove
+            'featured' => 1
+        ]);
+
         Paginator::defaultView('vendor.pagination.bootstrap-4');
     }
 }

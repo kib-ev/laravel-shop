@@ -30,7 +30,7 @@ class MetaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +41,7 @@ class MetaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PageMeta  $pageMeta
+     * @param \App\Models\PageMeta $pageMeta
      * @return \Illuminate\Http\Response
      */
     public function show(PageMeta $pageMeta)
@@ -52,7 +52,7 @@ class MetaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PageMeta  $pageMeta
+     * @param \App\Models\PageMeta $pageMeta
      * @return \Illuminate\Http\Response
      */
     public function edit(PageMeta $pageMeta)
@@ -63,8 +63,8 @@ class MetaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PageMeta  $pageMeta
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\PageMeta $pageMeta
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, PageMeta $pageMeta)
@@ -75,7 +75,7 @@ class MetaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PageMeta  $pageMeta
+     * @param \App\Models\PageMeta $pageMeta
      * @return \Illuminate\Http\Response
      */
     public function destroy(PageMeta $pageMeta)

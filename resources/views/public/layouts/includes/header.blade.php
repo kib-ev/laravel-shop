@@ -9,7 +9,7 @@
                 @endphp
 
                 @if(is_null(auth()->id()))
-                    <a href="{{ url('/login') }}"><strong>@lang('ui.guest')</strong></a>
+                    <a href="{{ url('/login') }}"><strong>{{ __('ui.guest') }}</strong></a>
                 @else
 
                     @if(auth()->id())
@@ -20,7 +20,7 @@
                         <strong>{{ auth()->user()->name }}</strong>
                     @endif
 
-                    <a class="btn btn-mini btn-primary"  href="{{ route('auth.logout') }}">@lang('ui.logout')</a>
+                    <a class="btn btn-mini btn-primary"  href="{{ route('auth.logout') }}">{{ __('ui.logout') }}</a>
                 @endif
             </div>
             <div class="span6">
@@ -51,7 +51,7 @@
                     <span>&nbsp;</span>
                      */ ?>
 
-                <!--<a href="{{ route('cart.show') }}">
+                <!--<a href="{{ route('carts.show') }}">
                         <span class="btn btn-mini btn-primary">
                             <i class="icon-shopping-cart icon-white"></i> [ {{ cart()->products->count() }} ] Items in your cart
                         </span>
@@ -73,9 +73,9 @@
                     <img src="{{ asset('/themes/images/logo.png') }}" alt="Bootsshop"/>
                 </a>
                 <form class="form-inline navbar-search" method="get" action="{{ route('products.index') }}">
-                    <input name="search" id="srchFld" class="srchTxt" type="text"/>
+                    <input name="search" id="srchFld" class="srchTxt" type="text" autocomplete="off"/>
                     <select class="srchTxt">
-                        <option>All</option>
+                        <option>{{ __('ui.all_categories') }}</option>
                     </select>
                     <button type="submit" id="submitButton" class="btn btn-primary">{{ __('ui.find') }}</button>
                 </form>
