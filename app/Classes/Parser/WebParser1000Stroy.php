@@ -6,7 +6,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use Pharse;
 
-class WebParser
+class WebParser1000Stroy
 {
 
     private $isNextPageExists = true;
@@ -17,17 +17,17 @@ class WebParser
 
     public static function updateProductData(Product $product)
     {
-        $webParser = new WebParser();
+        $webParser = new WebParser1000Stroy();
         $product->update($webParser->parseProductData($product->parser_link));
     }
 
     public static function collectCategories() {
-        $webParser = new WebParser();
+        $webParser = new WebParser1000Stroy();
         $webParser->parseCategories($webParser->site);
     }
 
     public static function collectProducts() {
-        $webParser = new WebParser();
+        $webParser = new WebParser1000Stroy();
 
         $productsAll = collect();
         foreach (ProductCategory::all() as $category) {

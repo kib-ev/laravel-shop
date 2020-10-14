@@ -125,3 +125,36 @@
 .required-marker {
     color: red;
 }
+#blockView .thumbnail {
+    width: 100%;
+}
+/* - block features */
+.features_blk ._row {
+    margin: 0;
+}
+
+.features_blk ._row + ._row {
+    margin-top: 0;
+}
+
+.features_blk ._row:nth-child(2n-1) {
+    background: #dff0f7;
+}
+
+.features_blk [class^="col_"] {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.features_blk [class^="col_"] + [class^="col_"] {
+    border-left: 1px solid #fff;
+}
+
+.features_blk .title {
+    color: #666666;
+}
+.col_6 {
+    width: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+}

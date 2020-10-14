@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Parser\WebParserPostroykaBy;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
@@ -48,13 +49,25 @@ class ProductCategoryController extends Controller
     {
         $productCategory = ProductCategory::findOrFail($productCategoryId);
 
+        if (!$productCategory->hasChildren() && $productCategory->products()->count() == 0) {
+
+            $webParser = new WebParserPostroykaBy();
+            $url = $webParser->site.$productCategory->parser_link;
+
+            $products = $webParser->parseProductsFromSingleCategoryPage($url, $productCategoryId);
+
+            $products->each(function ($item) {
+                $item->save();
+            });
+        }
+
         meta()->update([
             'title' => $productCategory->name,
         ]);
 
         return view('public.pages.products', [
             'category' => $productCategory,
-            'products' => $productCategory->products()->paginate(6),
+            'products' => $productCategory->products()->paginate(config('site.products.per_page')),
         ]);
     }
 

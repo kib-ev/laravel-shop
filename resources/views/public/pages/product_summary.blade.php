@@ -231,17 +231,17 @@
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="inputPost">{{ __('ui.address') }}</label>
+                            <label class="control-label" for="inputPost">{{ __('ui.cart.address') }}</label>
                             <div class="controls">
                                 <textarea name="address" type="text" id="inputPost"
-                                          placeholder="{{ __('ui.address') }}"></textarea>
+                                          placeholder="{{ __('ui.cart.address') }}"></textarea>
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="inputPost">{{ __('ui.comment') }}</label>
+                            <label class="control-label" for="inputPost">{{ __('ui.cart.comment') }}</label>
                             <div class="controls">
                                 <textarea name="comment" type="text" id="inputPost"
-                                          placeholder="{{ __('ui.comment') }}"></textarea>
+                                          placeholder="{{ __('ui.cart.comment') }}"></textarea>
                             </div>
                         </div>
 

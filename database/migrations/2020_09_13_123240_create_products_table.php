@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->text('excerpt')->nullable()->default(null);
             $table->text('description')->nullable()->default(null);
             $table->integer('count')->unsigned()->default(0);
+            $table->string('measure')->nullable()->default(null);
             $table->double('price', 8, 2)->unsigned()->default(0.00);
             $table->double('price_old', 8, 2)->unsigned()->default(0.00);
 
