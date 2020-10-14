@@ -128,6 +128,9 @@
 #blockView .thumbnail {
     width: 100%;
 }
+#blockView .thumbnail img {
+    max-height: 150px;
+}
 /* - block features */
 .features_blk ._row {
     margin: 0;

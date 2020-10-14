@@ -29,34 +29,34 @@ class WebParserPostroykaBy
         $content = file_get_contents($url);
         $html = Pharse::str_get_dom($content);
 
-//        if ($html('.price > li > span.old_price', 0)) {
-//            $oldPrice = $html('.price > li > span.old_price', 0)->getPlainText();
-//            $price = $html('.price > li > span', 1)->getPlainText();
-//        } else {
-//            $oldPrice = 0;
-//            $price = $html('.price > li > span', 0)->getPlainText();
-//        }
+        $data = [];
 
-        $imgPath = $html('.img img', 0)->getAttribute('src');
+        $product = Product::find($productId);
+        if (Storage::disk('public')->has($product->image_path)) {
 
-        $fileInfo = pathinfo($imgPath);
-        $file = file_get_contents($imgPath);
-        $newFilePath = "images/{$productId}.{$fileInfo['extension']}";
-        Storage::disk('public')->put($newFilePath, $file);
+        } else {
+            $imgPath = $html('.img img', 0)->getAttribute('src');
+
+            $fileInfo = pathinfo($imgPath);
+            $file = file_get_contents($imgPath);
+            $newFilePath = "images/{$productId}.{$fileInfo['extension']}";
+            Storage::disk('public')->put($newFilePath, $file);
+
+            $data['image_path'] = Storage::url($newFilePath);
+        }
 
         $description = $html('.blk_body .tab', 0)->getInnerText();
 
-
         // remove links from content
-        $descriptionNoLinks = preg_replace('#<a.*?>(.*?)</a>#i', '\1', $description);
+        $desc = preg_replace('#<a.*?>(.*?)</a>#i', '\1', $description);
+        $desc = preg_replace('#<iframe.*?>(.*?)</iframe>#i', '\1', $desc);
+        $desc = preg_replace('#<h5.*?>(.*?)</h5>#i', '\1', $desc);
 
-        $data = array(
-                'image_path' => Storage::url($newFilePath),
-//            'name' => trim($html('h1.heading', 0)->getPlainText()),
-            'description' => $descriptionNoLinks,
-//            'price_old' => str_replace('р.', '', $oldPrice),
-//            'price' => str_replace('р.', '', $price),
-        );
+        $desc = str_replace([
+            '<div class="s-res-video"></div>',
+        ], '<p></p>', $desc);
+
+        $data['description'] = $desc;
 
         return $data;
     }

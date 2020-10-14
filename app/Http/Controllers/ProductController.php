@@ -60,12 +60,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        if (!$product->description) {
+        if (!$product->description || request()->has('update')) {
             WebParserPostroykaBy::updateProductData($product);
         }
-//        if(Str::contains('http://1000-stroy.by/', $product->image_path)) {
-//            // TODO: save images to local storage
-//        }
 
         meta()->update([
             'title' => $product->name,
