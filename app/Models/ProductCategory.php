@@ -24,7 +24,7 @@ class ProductCategory extends Model
 
     public function hasChildren()
     {
-        return count($this->childrenCategories()->get());
+        return $this->childrenCategories->count();
     }
 
     public function productsCount($deep = 1)
@@ -32,7 +32,7 @@ class ProductCategory extends Model
         $ownProductsCount = $this->products->count();
 
         if ($deep == 0) {
-            $childrenCatProductsCount = $this->childrenCategories()->get()->sum(function ($item) {
+            $childrenCatProductsCount = $this->childrenCategories->sum(function ($item) {
                 return $item->products->count();
             });
             return $ownProductsCount + $childrenCatProductsCount;

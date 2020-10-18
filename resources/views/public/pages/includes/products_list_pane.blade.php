@@ -1,4 +1,4 @@
-@foreach($products ?? [] as $product)
+@foreach($products->load('category') ?? [] as $product)
     <div class="row">
         <div class="span2">
             <a href="{{ route('products.show', $product->id) }}">

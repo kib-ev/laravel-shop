@@ -1,7 +1,3 @@
-@php
-    $categories = \App\Models\ProductCategory::with('products', 'childrenCategories.products')->get();
-@endphp
-
 <style>
     .sidebar-menu {
         list-style: none;

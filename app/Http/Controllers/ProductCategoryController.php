@@ -47,7 +47,7 @@ class ProductCategoryController extends Controller
      */
     public function show($productCategoryId)
     {
-        $productCategory = ProductCategory::findOrFail($productCategoryId);
+        $productCategory = ProductCategory::with('products')->findOrFail($productCategoryId);
 
         if (!$productCategory->hasChildren() && $productCategory->products()->count() == 0) {
 

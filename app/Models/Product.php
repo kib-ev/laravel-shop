@@ -68,8 +68,6 @@ class Product extends Model
         $this->metaTitle = $value;
     }
 
-
-
     public function getDescriptionAttribute() {
         $description = $this->attributes['description'];
         $cleanDescription = $this->temp_clearDescription($description);
@@ -96,7 +94,10 @@ class Product extends Model
             '<p>Сварная сетка и арматура в каталоге "Постройка.бай".</p>',
             '<h5>Видео: секреты и особенности работы с утеплителями</h5>',
             '<div class="text_blk">Видео: секреты и особенности работы с утеплителями<p></p></div>',
+            '<div class="text_blk"><h5>Видео: секреты работы с утеплителями</h5><p></p></div>',
+            '<div class="text_blk"><h5>Видео: секреты и особенности кладка блока и кирпича</h5><p></p></div>',
             '<div class="text_blk"><h5>Видео: секреты работы со шпаклевкой</h5><p></p></div>',
+            '<div class="text_blk"><h5>Видео: секреты работы со штукатуркой</h5><p></p></div>',
             '<div class="text_blk"><h5>Видео: секреты и особенности работы с гипсокартоном</h5><p></p></div>',
             '<div class="text_blk"><h5>Видео: секреты и особенности работы с сетками и лентами</h5><p></p></div>',
             '<div class="text_blk"><h5>Видео: секреты и особенности работы с углами</h5><p></p></div>',
@@ -104,6 +105,9 @@ class Product extends Model
             '<div class="text_blk"><h5>Видео: секреты и особенности работы с клеем для плитки</h5><p></p></div>',
             '<div class="text_blk"><h5>Видео: секреты и особенности работы с грунтовкой</h5><p></p></div>',
             '<div class="text_blk"><h5>Видео: секреты и особенности работы с красками</h5><p></p></div>',
+            '<div class="text_blk"><h5>Видео: секреты и особенности работы с битумными материалами</h5><p></p></div>',
+            '<div class="text_blk"><h5>Видео: секреты и особенности работы с маяками</h5><p></p></div>',
+            '<div class="text_blk"><h5>Видео: секреты и особенности работы с профилем для гипсокартона</h5><p></p></div>',
         ];
 
         $desc = str_replace($replace, '', $desc);
