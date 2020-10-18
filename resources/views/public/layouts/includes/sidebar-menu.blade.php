@@ -73,46 +73,32 @@
     }
 </style>
 
-<div id="sidebar" class="span3">
-    <div class="well well-small">
-        <a id="myCart" href="{{ route('carts.show') }}">
-            <img src="{{ asset('/themes/images/ico-cart.png') }}" alt="@lang('ui.shopping_cart')">
+<ul class="sidebar-menu">
+    @foreach($categories->filter(function ($item) { return $item->parent_id == 0; }) as $category)
+        <li class="treeview">
+            <a href="{{ route('products.categories.show', $category->id) }}">
+                {{ ($category->name) }} [{{ $category->productsCount(0)  }}]
 
-            @choice('ui.cart.products_count', cart()->products->count(), ['count' => cart()->products->count()])
-
-            <span class="badge badge-warning pull-right">
-                {{ number_format(cart()->summary_total, 2, '.', '') }}
-            </span>
-        </a>
-    </div>
-
-    <ul class="sidebar-menu">
-        @foreach($categories->filter(function ($item) { return $item->parent_id == 0; }) as $category)
-            <li class="treeview">
-                <a href="{{ route('products.categories.show', $category->id) }}">
-                    {{ ($category->name) }} [{{ $category->productsCount(0)  }}]
-
-                    @if($category->hasChildren())
-                        <i class="fa fa-angle-left pull-right"></i>
-                    @endif
-                </a>
-
-                @if($category->childrenCategories)
-                    @foreach($category->childrenCategories as $childrenCategory)
-                        <ul class="treeview-menu">
-                            <li>
-                                <a href="{{ route('products.categories.show', $childrenCategory->id) }}">
-                                    <i class="icon-chevron-right"></i>
-                                    {{ $childrenCategory->name }} ({{ $childrenCategory->productsCount() }})
-                                </a>
-                            </li>
-                        </ul>
-                    @endforeach
+                @if($category->hasChildren())
+                    <i class="fa fa-angle-left pull-right"></i>
                 @endif
-            </li>
-        @endforeach
-    </ul>
-</div>
+            </a>
+
+            @if($category->childrenCategories)
+                @foreach($category->childrenCategories as $childrenCategory)
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{{ route('products.categories.show', $childrenCategory->id) }}">
+                                <i class="icon-chevron-right"></i>
+                                {{ $childrenCategory->name }} ({{ $childrenCategory->productsCount() }})
+                            </a>
+                        </li>
+                    </ul>
+                @endforeach
+            @endif
+        </li>
+    @endforeach
+</ul>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>

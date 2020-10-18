@@ -5,7 +5,7 @@
 @endsection
 
 @section('sidebar')
-    {!! page_element('sidebar') !!}
+    @include('public.layouts.includes.sidebar')
 @endsection
 
 @section('content')

@@ -25,11 +25,11 @@ function page_element($name)
 {
     $element = null;
 
-    if ($name === 'sidebar') {
+    if ($name === 'sidebar-menu') {
         $seconds = 60 * 60 * 24;
         $element = \Illuminate\Support\Facades\Cache::remember('sidebar', $seconds, function () {
             $categories = \App\Models\ProductCategory::all();
-            return view('public.layouts.includes.sidebar', compact('categories'))->render();
+            return view('public.layouts.includes.sidebar-menu', compact('categories'))->render();
         });
     }
 
