@@ -4,7 +4,7 @@
             <div class="item active">
                 <div class="container">
                     <a href="/register">
-                    <img style="width:100%" src="http://1000-stroy.by/image/cache/catalog/test/b2-1140x380.jpg" alt="special offers"/></a>
+                    <img style="width:100%" src="{{ asset('/storage/images/b2-1140x380.jpg') }}" alt="special offers"/></a>
                     <div class="carousel-caption">
                         <h4>Second Thumbnail label</h4>
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
@@ -14,7 +14,7 @@
             </div>
             <div class="item">
                 <div class="container">
-                    <a href="/register"><img style="width:100%" src="http://1000-stroy.by/image/cache/catalog/test/b2-1140x380.jpg" alt=""/></a>
+                    <a href="/register"><img style="width:100%" src="{{ asset('/storage/images/b2-1140x380.jpg') }}" alt=""/></a>
                     <div class="carousel-caption">
                         <h4>Second Thumbnail label</h4>
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
