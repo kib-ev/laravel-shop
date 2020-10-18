@@ -132,6 +132,9 @@
     max-height: 150px;
 }
 /* - block features */
+.features_blk {
+    margin: 20px 0px 20px 0px;
+}
 .features_blk ._row {
     margin: 0;
 }

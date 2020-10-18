@@ -48,7 +48,7 @@ return [
     // Products
     'sort_by' => 'Сортировать',
     'items in stock' => ':count шт на складе',
-    'products are available' => ':total товаров доступно',
+    'products_are_available' => ':total товар доступен|:total товара доступно|:total товаров доступно',
     'view_details' => 'Подробнее',
     'qty.' => 'Кол-во',
     'continue_shopping' => 'Вернуться в магазин',
@@ -60,12 +60,12 @@ return [
     'lasted_products' => 'Новые поступления',
     'featured_products' => 'Рекомендуемые товары',
     'view_product' => 'Смотреть',
-    'shopping_cart' => 'Корзина',
     'items_in_cart' => ':count товара(ов)',
     'add_to_cart' => 'В корзину',
-
+    'shopping_cart' => 'Корзина',
     'cart' => [
         'product' => 'Товар',
+        'products_count' => ':count товар|:count товара|:count товаров',
         'description' => 'Описание',
         'quantity_update' => 'Количество/Изменить',
         'price' => 'Цена',

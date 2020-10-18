@@ -48,7 +48,7 @@ return [
     // Products
     'sort_by' => 'Sort By',
     'items in stock' => ':count items in stock',
-    'products are available' => ':total products are available',
+    'products_are_available' => ':total product is available|:total products are available|:total products are available',
     'view_details' => 'View Details',
     'qty.' => 'Qty.',
     'continue_shopping' => 'Continue Shopping',
@@ -60,12 +60,12 @@ return [
     'lasted_products' => 'Lasted Products',
     'featured_products' => 'Featured Products',
     'view_product' => 'View',
-    'shopping_cart' => 'Shopping Cart',
     'items_in_cart' => ':count Items in your cart',
     'add_to_cart' => 'Add to cart',
-
+    'shopping_cart' => 'Shopping Cart',
     'cart' => [
         'product' => 'Product',
+        'products_count' => ':count item|:count items|:count items',
         'description' => 'Description',
         'quantity_update' => 'Quantity/Update',
         'price' => 'Price',

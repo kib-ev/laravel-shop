@@ -7,19 +7,19 @@
 @section('content')
     <div class="span9">
         <ul class="breadcrumb">
-            <li><a href="{{ url('/') }}">@lang('ui.home')</a> <span class="divider">/</span></li>
-            <li class="active"> @lang('ui.shopping_cart') </li>
+            <li><a href="{{ url('/') }}">@lang('ui.home')</a> <span class="divider"> / </span></li>
+            <li class="active">@lang('ui.shopping_cart')</li>
         </ul>
         <h3>
             @if(cart()->products->count())
-                {{ __('ui.shopping_cart') }}
+                @lang('ui.shopping_cart')
             @else
-                {{ __('ui.cart.cart_empty') }}
+                @lang('ui.cart.cart_empty')
             @endif
 
-            [ <small>{{ __('ui.items_in_cart', ['count' => cart()->products->count()]) }}</small> ]
+            [ <small>@choice('ui.cart.products_count', cart()->products->count(), ['count' => cart()->products->count()])</small> ]
             <a href="{{ route('products.index') }}" class="btn btn-large pull-right">
-                <i class="icon-arrow-left"></i> {{ __('ui.continue_shopping') }}
+                <i class="icon-arrow-left"></i> @lang('ui.continue_shopping')
             </a>
         </h3>
         <hr class="soft"/>
@@ -27,7 +27,7 @@
         @if(!auth()->id())
             <table class="table table-bordered">
                 <tr>
-                    <th>{{ __('ui.already_registered') }}</th>
+                    <th>@lang('ui.already_registered')</th>
                 </tr>
                 <tr>
                     <td>
@@ -72,13 +72,13 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>{{ __('ui.cart.product') }}</th>
-                <th>{{ __('ui.cart.description') }}</th>
-                <th>{{ __('ui.cart.quantity_update') }}</th>
-                <th>{{ __('ui.cart.price') }}</th>
-                <th>{{ __('ui.cart.discount') }}</th>
-                <th>{{ __('ui.cart.tax') }}</th>
-                <th>{{ __('ui.cart.total') }}</th>
+                <th>@lang('ui.cart.product')</th>
+                <th>@lang('ui.cart.description')</th>
+                <th>@lang('ui.cart.quantity_update')</th>
+                <th>@lang('ui.cart.price')</th>
+                <th>@lang('ui.cart.discount')</th>
+                <th>@lang('ui.cart.tax')</th>
+                <th>@lang('ui.cart.total')</th>
             </tr>
             </thead>
             <tbody>
@@ -179,8 +179,8 @@
         <table class="table table-bordered">
             <tbody>
             <tr>
-                <th class="uppercase">{{ __('ui.cart.delivery') }}</th>
-                <th class="uppercase">{{ __('ui.cart.payment') }}</th>
+                <th class="uppercase">@lang('ui.cart.delivery')</th>
+                <th class="uppercase">@lang('ui.cart.payment')</th>
             </tr>
             <tr>
                 <td>

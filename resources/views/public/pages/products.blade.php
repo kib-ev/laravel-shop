@@ -14,7 +14,7 @@
         <h3>
             <span class="page-title">{{ __('ui.products') }}</span>
             <small class="pull-right">
-                {{ __('ui.products are available', ['total' => @$products->total()]) }}
+                @choice('ui.products_are_available', $products->total(), ['total' => $products->total()])
             </small>
         </h3>
         <!--<hr class="soft"/>

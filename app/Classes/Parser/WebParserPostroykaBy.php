@@ -9,7 +9,6 @@ use Pharse;
 
 class WebParserPostroykaBy
 {
-
     public $site = 'https://www.postroyka.by';
     private $isNextPageExists = true;
     private $searchName = '';
@@ -45,18 +44,7 @@ class WebParserPostroykaBy
             $data['image_path'] = Storage::url($newFilePath);
         }
 
-        $description = $html('.blk_body .tab', 0)->getInnerText();
-
-        // remove links from content
-        $desc = preg_replace('#<a.*?>(.*?)</a>#i', '\1', $description);
-        $desc = preg_replace('#<iframe.*?>(.*?)</iframe>#i', '\1', $desc);
-        $desc = preg_replace('#<h5.*?>(.*?)</h5>#i', '\1', $desc);
-
-        $desc = str_replace([
-            '<div class="s-res-video"></div>',
-        ], '<p></p>', $desc);
-
-        $data['description'] = $desc;
+        $data['description'] = $html('.blk_body .tab', 0)->getInnerText();
 
         return $data;
     }
@@ -118,7 +106,6 @@ class WebParserPostroykaBy
             if (!$product->category->hasChildren())
                 $product->save();
         }
-
     }
 
     public function parseProductsFromSingleCategoryPage($url, $categoryId = null)
