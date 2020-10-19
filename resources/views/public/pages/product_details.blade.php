@@ -11,9 +11,9 @@
         <div class="row">
             <div id="gallery" class="span3">
                 <?php // TODO: large image ?>
-                <a href="{{ $product->image_path }}" title="Fujifilm FinePix S2950 Digital Camera">
-                    <img src="{{ $product->image_path }}" style="width:100%"
-                         alt="Fujifilm FinePix S2950 Digital Camera"/>
+                <a href="{{ $product->image_path }}" title="">
+                    <img src="{{ $product->image_path }}"
+                         alt=""/>
                 </a>
 
                 <div id="differentview" class="moreOptopm carousel slide" style="display: none;">

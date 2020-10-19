@@ -75,7 +75,7 @@
 
 <ul class="sidebar-menu">
     @foreach($categories->filter(function ($item) { return $item->parent_id == 0; }) as $category)
-        <li class="treeview">
+        <li class="treeview {{ $categoryCssClass[$category->id] }}">
             <a href="{{ route('products.categories.show', $category->id) }}">
                 {{ ($category->name) }} [{{ $category->productsCount(0)  }}]
 

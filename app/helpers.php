@@ -27,10 +27,21 @@ function page_element($name)
 
     if ($name === 'sidebar-menu') {
         $seconds = 60 * 60 * 24;
-        $element = \Illuminate\Support\Facades\Cache::remember('sidebar', $seconds, function () {
-            $categories = \App\Models\ProductCategory::all();
-            return view('public.layouts.includes.sidebar-menu', compact('categories'))->render();
+        $categories = \Illuminate\Support\Facades\Cache::remember('sidebar', $seconds, function () {
+            return \App\Models\ProductCategory::with('products:id,category_id', 'childrenCategories:id,name,parent_id', 'childrenCategories.products:id,category_id')->get();
         });
+
+        $categoryCssClass = [];
+        $categories->each(function ($item) use (&$categoryCssClass) {
+            if (route('products.categories.show', $item->id) == request()->url()) {
+                $categoryCssClass[$item->id] = 'active';
+                $categoryCssClass[$item->parent_id] = 'active';
+            } else {
+                $categoryCssClass[$item->id] = '';
+            }
+        });
+
+        $element = view('public.layouts.includes.sidebar-menu', compact('categories', 'categoryCssClass'))->render();
     }
 
     return $element;
