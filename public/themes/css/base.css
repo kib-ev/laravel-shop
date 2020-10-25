@@ -20,7 +20,11 @@
 #sidebar ul li li a{background:#eee; padding-left:14px;font-weight:normal;display:block;   font-size:13px; line-height:26px;}
 /* body--- */
 .thumbnail {text-align: center;width: 100%;}
-.thumbnail>.picture{width: 130px;height: 130px;margin:0px auto;}
+.thumbnail>.picture{
+    text-align: center;
+    max-height: 130px;
+    max-width: 130px;
+    margin: 0 auto;}
 .thumbnail>.picture>a{display:block; display: inline-block;line-height: 130px;}
 .thumbnail h5,.thumbnail p{text-align:center}
 /* Product page--- */
