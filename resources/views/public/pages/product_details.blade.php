@@ -6,7 +6,15 @@
 
 @section('content')
     <div class="span9">
-        @include('public.pages.includes.breadcrumbs')
+        <ul class="breadcrumb">
+            <li><a href="{{ url('/') }}">@lang('ui.home')</a><span class="divider"> / </span></li>
+            <li><a href="{{ route('products.index') }}">@lang('ui.'.'products')</a><span class="divider"> / </span></li>
+
+            @if($product->category->parentCategory-)
+                {{  }}
+            @endif
+            <li class="active">{{ $product->name }}</li>
+        </ul>
 
         <div class="row">
             <div id="gallery" class="span3">

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Storage;
 
 class Product extends Model
 {
@@ -65,7 +66,8 @@ class Product extends Model
         $this->metaTitle = $value;
     }
 
-    public function getDescriptionAttribute() {
+    public function getDescriptionAttribute()
+    {
         $description = $this->attributes['description'];
         $cleanDescription = $this->temp_clearDescription($description);
 
@@ -75,7 +77,8 @@ class Product extends Model
         return $cleanDescription;
     }
 
-    protected function temp_clearDescription($description) {
+    protected function temp_clearDescription($description) // TODO remove this method
+    {
         // remove links from content
         $desc = preg_replace('#<a.*?>(.*?)</a>#i', '\1', $description);
         $desc = preg_replace('#<iframe.*?>(.*?)</iframe>#i', '\1', $desc);
@@ -84,45 +87,11 @@ class Product extends Model
             '<div class="s-res-video"></div>',
         ], '<p></p>', $desc);
 
-        $replace = [
-            '<div class="text_blk"><p>Малярный инструмент для строительных работ в каталоге "Постройка.бай".</p></div>',
-            '<div class="text_blk"><p>Сварная сетка и арматура в каталоге "Постройка.бай".</p></div>',
-            '<p>Керамзитобетонные блоки для строительных работ в каталоге "Постройка.бай".</p>',
-            '<p>Сварная сетка и арматура в каталоге "Постройка.бай".</p>',
-            '<h5>Видео: секреты и особенности работы с утеплителями</h5>',
-            '<div class="s-res-video">&gt;</div>',
-            '<div class="s-res-video">></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с OSB</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы со стеклохолстом</h5><p></p></div>',
-            '<p>Газосиликатные блоки для строительных работ в каталоге "Постройка.бел".</p>',
-            '<div class="text_blk"><p>Шпатлёвочные сетки для строительных работ в каталоге "Постройка.бай".</p></div>',
-            '<div class="text_blk">Видео: секреты и особенности работы с битумными материалами<p></p></div>',
-            '<div class="text_blk">Видео: секреты и особенности работы с утеплителями<p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с декоративной штукатуркой</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты работы с утеплителями</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности кладка блока и кирпича</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты работы со шпаклевкой</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео о прочности ГВЛ</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с цементом</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты работы со штукатуркой</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с зонтами для утепления</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с цокольной планкой</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с гипсокартоном</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с сетками и лентами</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с углами</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с монтажной пеной</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с клеем для плитки</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с грунтовкой</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с фугой</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с красками</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с клеем для утеплителя</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с битумными материалами</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с маяками</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с мембранами и плёнками</h5><p></p></div>',
-            '<div class="text_blk"><h5>Видео: секреты и особенности работы с профилем для гипсокартона</h5><p></p></div>',
-        ];
-
-        $desc = str_replace($replace, '', $desc);
+        if (Storage::disk('public')->exists('remove-list.txt')) {
+            $content = Storage::disk('public')->get('remove-list.txt');
+            $replace = explode(PHP_EOL, $content);
+            $desc = str_replace($replace, '', $desc);
+        }
 
         return $desc;
     }

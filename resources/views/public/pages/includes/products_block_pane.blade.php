@@ -5,10 +5,18 @@
 <ul class="thumbnails flex-parent">
     @foreach($products ?? [] as $product)
         <li class="span3 flex-item">
+
             <div class="thumbnail">
-                <a href="{{ route('products.show', $product->id) }}">
-                    <img src="{{ $product->image_path }}" alt=""/>
-                </a>
+                @if(auth()->id() == 1 && $product->description)
+                    <span style="font-size: 0.8em; color: green; float:left;">
+                        {{ $product->updated_at->format('d-m-Y') }}
+                    </span>
+                @endif
+                <div class="picture">
+                    <a href="{{ route('products.show', $product->id) }}">
+                        <img src="{{ asset($product->image_path) }}" alt=""/>
+                    </a>
+                </div>
                 <div class="caption">
                     <h5>{{ $product->name }}</h5>
                     <p>
@@ -26,6 +34,7 @@
                             {{--                    <i class="icon-shopping-cart" style="vertical-align: middle;"></i> --}}
                             {{ __('ui.add_to_cart') }}
                         </a>
+
 
                     </h4>
                 </div>
