@@ -86,7 +86,7 @@
             @foreach(cart()->products as $product)
                 <tr>
                     <td>
-                        <img width="60" src="{{ asset($product->getImageUrl()) }}" alt=""/>
+                        <img width="60" src="{{ asset($product->image_path) }}" alt=""/>
                     </td>
                     <td>{{ $product->name }}<br/><!-- Color : black, Material : metal--></td>
                     <td>

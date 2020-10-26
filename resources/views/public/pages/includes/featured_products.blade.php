@@ -18,7 +18,7 @@
                                         @endif
 
                                         <a href="{{ route('products.show', $featuredProduct->id) }}">
-                                            <img src="{{ url($featuredProduct->getImageUrl()) }}" alt=""></a>
+                                            <img src="{{ url($featuredProduct->image_path) }}" alt=""></a>
                                         <div class="caption">
                                             <h5>{{ \Illuminate\Support\Str::limit($featuredProduct->name, 50) }}</h5>
                                             <h4 >
