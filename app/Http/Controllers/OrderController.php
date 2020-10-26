@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrderRequest;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -9,7 +10,7 @@ use Illuminate\Support\Arr;
 class OrderController extends Controller
 {
 
-    public function store(Request $request)
+    public function store(OrderRequest $request)
     {
         $cart = cart();
 
@@ -31,9 +32,9 @@ class OrderController extends Controller
 
         $cart->delete();
 
-        return back()->with([
+        return redirect()->back()->with([
             'order' => $order->load('products'),
-            'message' => 'success',
+            'message' => 'ui.order.success_confirmed',
         ]);
     }
 

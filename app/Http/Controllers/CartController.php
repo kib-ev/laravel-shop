@@ -16,6 +16,14 @@ class CartController extends Controller
         $this->cart = Cart::getFromSession();
     }
 
+    public function show() {
+        meta()->update([
+            'title' => __('ui.shopping_cart'),
+        ]);
+
+        return view('public.pages.product_summary');
+    }
+
     public function addProduct(Request $request, $productId) // api method
     {
         $product = Product::findOrFail($productId);

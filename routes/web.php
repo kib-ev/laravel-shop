@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\Admin\ParserController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
@@ -94,7 +94,7 @@ Route::name('products.')->prefix('products')->group(function () {
 
 // CARTS
 Route::name('carts.')->prefix('cart')->group(function () {
-    Route::get('/', [PageController::class, 'productSummaryPage'])->name('show');
+    Route::get('/', [CartController::class, 'show'])->name('show');
 });
 
 // ORDERS
@@ -124,7 +124,6 @@ Route::get('test', function () {
     $product = Product::first();
 
 //    $imageUri = $product->getImageUri();
-
 
 
 });

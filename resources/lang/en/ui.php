@@ -81,6 +81,9 @@ return [
         'cart_empty' => 'Cart Empty',
         'address' => 'Address',
         'comment' => 'Comment',
+    ],
+    'order' => [
+        'success_confirmed' => 'Your Order Confirmed Successfully!',
     ]
 
 ];

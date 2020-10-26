@@ -65,4 +65,14 @@ class Cart extends Model
         }
     }
 
+    public function isEmpty()
+    {
+       return $this->products->count() == 0;
+    }
+
+    public function isNotEmpty()
+    {
+        return ! $this->isEmpty();
+    }
+
 }

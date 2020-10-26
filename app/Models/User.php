@@ -26,6 +26,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+    ];
+
+    protected $required = [
+        'name',
+        'email',
+        'password',
+        'phone',
     ];
 
     /**

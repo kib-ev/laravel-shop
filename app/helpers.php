@@ -1,6 +1,6 @@
 <?php
 
-function cart()
+function cart():\App\Models\Cart
 {
     return \App\Models\Cart::getFromSession();
 }
