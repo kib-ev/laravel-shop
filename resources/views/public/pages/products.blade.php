@@ -6,10 +6,8 @@
 
 @section('content')
     <div class="span9">
-        <ul class="breadcrumb">
-            <li><a href="/">{{ __('ui.home') }}</a><span class="divider"> / </span></li>
-            <li class="active">{{ __('ui.products') }}</li>
-        </ul>
+
+        @include('public.pages.includes.breadcrumbs')
 
         <h3>
             <span class="page-title">{{ __('ui.products') }}</span>

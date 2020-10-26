@@ -28,7 +28,7 @@ function page_element($name)
     if ($name === 'sidebar-menu') {
         $seconds = 60 * 60 * 24;
         $categories = \Illuminate\Support\Facades\Cache::remember('sidebar', $seconds, function () {
-            return \App\Models\ProductCategory::with('products:id,category_id', 'childrenCategories:id,name,parent_id', 'childrenCategories.products:id,category_id')->get();
+            return \App\Models\ProductCategory::with('products:id,category_id', 'children:id,name,parent_id', 'children.products:id,category_id')->get();
         });
 
         $categoryCssClass = [];

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Classes\Parser\WebParserPostroykaBy;
+use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
@@ -45,11 +46,11 @@ class ProductCategoryController extends Controller
      * @param int $productCategoryId
      * @return \Illuminate\Http\Response
      */
-    public function show($productCategoryId)
+    public function show(int $productCategoryId)
     {
         $productCategory = ProductCategory::with('products')->findOrFail($productCategoryId);
 
-        if (!$productCategory->hasChildren() && $productCategory->products()->count() == 0) {
+        if (!$productCategory->hasChildren() && $productCategory->products->count() == 0) {
 
             $webParser = new WebParserPostroykaBy();
             $url = $webParser->site.$productCategory->parser_link;
@@ -65,9 +66,15 @@ class ProductCategoryController extends Controller
             'title' => $productCategory->name,
         ]);
 
+        $productsIds = $productCategory->products->pluck('id');
+        foreach($productCategory->children as $childrenCategory) {
+             $productsIds = $productsIds->merge($childrenCategory->products->pluck('id'));
+        }
+        $products = Product::whereIn('id', $productsIds)->paginate(config('site.products.per_page'));
+
         return view('public.pages.products', [
             'category' => $productCategory,
-            'products' => $productCategory->products()->paginate(config('site.products.per_page')),
+            'products' => $products,
         ]);
     }
 

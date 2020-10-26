@@ -7,17 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductCategory extends Model
 {
-
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    public function products($deep = 1)
+    public function products()
     {
         return $this->hasMany(Product::class, 'category_id', 'id');
     }
 
-    public function childrenCategories($deep = 1)
+    public function children()
     {
         return $this->hasMany(ProductCategory::class, 'parent_id', 'id');
     }
@@ -28,7 +27,7 @@ class ProductCategory extends Model
 
     public function hasChildren()
     {
-        return $this->childrenCategories->count();
+        return $this->children->count();
     }
 
     public function productsCount($deep = 1)
@@ -36,7 +35,7 @@ class ProductCategory extends Model
         $ownProductsCount = $this->products->count();
 
         if ($deep == 0) {
-            $childrenCatProductsCount = $this->childrenCategories->sum(function ($item) {
+            $childrenCatProductsCount = $this->children->sum(function ($item) {
                 return $item->products->count();
             });
             return $ownProductsCount + $childrenCatProductsCount;

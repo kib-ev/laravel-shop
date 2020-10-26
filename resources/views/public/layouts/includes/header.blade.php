@@ -12,7 +12,7 @@
                     <a href="{{ url('/login') }}"><strong>{{ __('ui.guest') }}</strong></a>
                 @else
 
-                    @if(auth()->id())
+                    @if(auth()->id() == 1)  {{ /** TODO role */ }}
                     <a href="{{ url('/admin') }}">
                         <strong>{{ auth()->user()->name }}</strong>
                     </a>

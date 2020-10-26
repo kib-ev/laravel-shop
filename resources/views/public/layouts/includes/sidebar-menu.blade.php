@@ -9,9 +9,9 @@
                 @endif
             </a>
 
-            @if($category->childrenCategories)
+            @if($category->children)
                 <ul style="display: {{ $categoryCssClass[$category->id] ? 'block' : 'none' }};">
-                    @foreach($category->childrenCategories as $childrenCategory)
+                    @foreach($category->children as $childrenCategory)
                         <li>
                             <a href="{{ route('products.categories.show', $childrenCategory->id) }}" class="">
                                 <i class="icon-chevron-right"></i>
