@@ -14,10 +14,8 @@
 
         <div class="row">
             <div id="gallery" class="span3">
-                <?php // TODO: large image ?>
-                <a href="{{ $product->image_path }}" title="">
-                    <img src="{{ $product->image_path }}"
-                         alt=""/>
+                <a href="{{ asset($product->image_path) }}" title="">
+                    <img src="{{ asset($product->image_path) }}" alt=""/>
                 </a>
 
                 <div id="differentview" class="moreOptopm carousel slide" style="display: none;">

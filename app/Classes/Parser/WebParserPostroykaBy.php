@@ -4,7 +4,9 @@ namespace App\Classes\Parser;
 
 use App\Models\Product;
 use App\Models\ProductCategory;
+use Faker\Provider\Image;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManager;
 use Pharse;
 
 class WebParserPostroykaBy
@@ -31,17 +33,21 @@ class WebParserPostroykaBy
         $data = [];
 
         $product = Product::find($productId);
-        if (Storage::disk('public')->has($product->image_path)) {
 
-        } else {
+        if (!Storage::disk('public')->has($product->image_path))
+        {
             $imgPath = $html('.img img', 0)->getAttribute('src');
 
-            $fileInfo = pathinfo($imgPath);
             $file = file_get_contents($imgPath);
-            $newFilePath = "images/{$productId}.{$fileInfo['extension']}";
-            Storage::disk('public')->put($newFilePath, $file);
+            $fileInfo = pathinfo($imgPath);
 
-            $data['image_path'] = Storage::url($newFilePath);
+            $newFileName = "{$productId}.{$fileInfo['extension']}";
+
+            // save original
+            $filePathOriginal = "images/products/original/$newFileName";
+            Storage::disk('public')->put($filePathOriginal, $file);
+
+            $data['image_path'] = $filePathOriginal;
         }
 
         $data['description'] = $html('.blk_body .tab', 0)->getInnerText();

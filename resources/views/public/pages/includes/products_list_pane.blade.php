@@ -2,7 +2,7 @@
     <div class="row">
         <div class="span2">
             <a href="{{ route('products.show', $product->id) }}">
-                <img src="{{ $product->image_path }}" alt=""/>
+                <img src="{{ asset($product->image_path) }}" alt=""/>
             </a>
         </div>
         <div class="span4">
