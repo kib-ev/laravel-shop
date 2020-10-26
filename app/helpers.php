@@ -35,9 +35,9 @@ function page_element($name)
         $categories->each(function ($item) use (&$categoryCssClass) {
             if (route('products.categories.show', $item->id) == request()->url()) {
                 $categoryCssClass[$item->id] = 'active';
-                $categoryCssClass[$item->parent_id] = 'active';
+                $categoryCssClass[$item->parent_id] = 'open';
             } else {
-                $categoryCssClass[$item->id] = '';
+                isset($categoryCssClass[$item->id]) ?: $categoryCssClass[$item->id]  = '';
             }
         });
 
