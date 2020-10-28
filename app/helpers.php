@@ -1,6 +1,6 @@
 <?php
 
-function cart():\App\Models\Cart
+function cart(): \App\Models\Cart
 {
     return \App\Models\Cart::getFromSession();
 }
@@ -15,7 +15,7 @@ function set_currency_url($locale)
     return \App\Http\Middleware\SetCurrency::set_currency_url($locale);
 }
 
-function meta()
+function meta():\App\Models\Meta
 {
     // meta added in \App\Http\Middleware\AddMeta.php
     return request()->meta;
@@ -26,10 +26,7 @@ function page_element($name)
     $element = null;
 
     if ($name === 'sidebar-menu') {
-        $seconds = 60 * 60 * 24;
-        $categories = \Illuminate\Support\Facades\Cache::remember('sidebar', $seconds, function () {
-            return \App\Models\ProductCategory::with('products:id,category_id', 'children:id,name,parent_id', 'children.products:id,category_id')->get();
-        });
+        $categories = \App\Models\ProductCategory::with('products:id,category_id', 'children:id,name,parent_id', 'children.products')->get();
 
         $categoryCssClass = [];
         $categories->each(function ($item) use (&$categoryCssClass) {
@@ -37,7 +34,7 @@ function page_element($name)
                 $categoryCssClass[$item->id] = 'active';
                 $categoryCssClass[$item->parent_id] = 'open';
             } else {
-                isset($categoryCssClass[$item->id]) ?: $categoryCssClass[$item->id]  = '';
+                isset($categoryCssClass[$item->id]) ?: $categoryCssClass[$item->id] = '';
             }
         });
 

@@ -43,7 +43,7 @@
         <hr class="soft"/>
 
         @if(!auth()->id() && cart()->isNotEmpty())
-            <table class="table table-bordered">
+            <table class="table table-bordered" style="display: none;">
                 <tr>
                     <th>@lang('ui.already_registered')</th>
                 </tr>

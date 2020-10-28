@@ -118,12 +118,3 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
     return view('admin.index');
 });
-
-Route::get('test', function () {
-    /** @var Product $product */
-    $product = Product::first();
-
-//    $imageUri = $product->getImageUri();
-
-
-});

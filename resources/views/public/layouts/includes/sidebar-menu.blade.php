@@ -24,3 +24,11 @@
         </li>
     @endforeach
 </ul>
+<ul>
+    <select name="" id="">
+        <option value=""></option>
+            @foreach($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+    </select>
+</ul>
