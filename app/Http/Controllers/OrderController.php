@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OrderRequest;
+use App\Jobs\SendEmailToAdminWhenNewOrderAddedJob;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -32,9 +33,12 @@ class OrderController extends Controller
 
         $cart->delete();
 
+        $job = new SendEmailToAdminWhenNewOrderAddedJob($order);
+        $this->dispatch($job);
+
         return redirect()->back()->with([
             'order' => $order->load('products'),
-            'message' => 'ui.order.success_confirmed',
+            'message' => 'ui._order.success_confirmed',
         ]);
     }
 

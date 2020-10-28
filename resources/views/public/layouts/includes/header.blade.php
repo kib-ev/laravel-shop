@@ -1,6 +1,68 @@
 <div id="header">
     <div class="container">
-        <div id="logoArea" class="navbar mt-10">
+        <div id="welcomeLine" class="row">
+            <div class="span6">
+                @lang('ui.welcome')
+
+                @php
+                    //dump(auth()->logout());
+                @endphp
+
+                @if(is_null(auth()->id()))
+                    <a href="{{ url('/login') }}"><strong>{{ __('ui.guest') }}</strong></a>
+                @else
+
+                    @if(auth()->id() == 1) {{-- TODO add role --}}
+                    <a href="{{ url('/admin') }}">
+                        <strong>{{ optional(auth()->user())->name }}</strong>
+                    </a>
+                    @else
+                        <strong>{{ optional(auth()->user())->name }}</strong>
+                    @endif
+
+                    <a class="btn btn-mini btn-primary"  href="{{ route('auth.logout') }}">{{ __('ui.logout') }}</a>
+                @endif
+            </div>
+            <div class="span6">
+                <div class="pull-right" style="font-size: 12px;">
+
+                    @foreach(config('app.available_locales') as $locale)
+                        @if(app()->getLocale() == $locale)
+                            <span class="btn btn-mini btn-primary">{{ strtoupper($locale) }}</span>
+                        @else
+                            <a href="{{ set_locale_url($locale) }}">
+                                <span class="btn btn-mini">{{ strtoupper($locale) }}</span>
+                            </a>
+                        @endif
+                    @endforeach
+
+                    <?php /**
+                    <span>&nbsp;</span>
+                    @foreach(['byn', 'rub', 'usd'] as $currency)
+                        @if(session()->get('currency') == $currency)
+                            <span class="btn btn-mini btn-primary">{{ strtoupper($currency) }}</span>
+                        @else
+                            <a href="{{ set_currency_url($currency) }}">
+                                <span class="btn btn-mini">{{ strtoupper($currency) }}</span>
+                            </a>
+                        @endif
+                    @endforeach
+
+                    <span>&nbsp;</span>
+                     */ ?>
+
+                <!--<a href="{{ route('carts.show') }}">
+                        <span class="btn btn-mini btn-primary">
+                            <i class="icon-shopping-cart icon-white"></i> [ {{ cart()->products->count() }} ] Items in your cart
+                        </span>
+
+                        <span class="alert-danger">cart_id:{{ cart()->id }}</span>
+                    </a>-->
+                </div>
+            </div>
+        </div>
+        <!-- Navbar ================================================== -->
+        <div id="logoArea" class="navbar">
             <a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
