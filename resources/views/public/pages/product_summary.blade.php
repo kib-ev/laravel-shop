@@ -142,10 +142,10 @@
                                 </form>
                             </div>
                         </td>
-                        <td>{{ $product->summary_price > 0 ? number_format($product->summary_price, 2, '.', '') : '--' }}</td>
-                        <td>{{ $product->summary_discount > 0 ? number_format($product->summary_discount, 2, '.', '') : '--' }}</td>
-                        <td>{{ $product->summary_tax > 0 ? number_format($product->summary_tax, 2, '.', '') : '--' }}</td>
-                        <td>{{ $product->summary_total > 0 ? number_format($product->summary_total, 2, '.', '') : '--' }}</td>
+                        <td>{{ $product->pivot->summary_price > 0 ? number_format($product->pivot->summary_price, 2, '.', '') : '--' }}</td>
+                        <td>{{ $product->pivot->summary_discount > 0 ? number_format($product->pivot->summary_discount, 2, '.', '') : '--' }}</td>
+                        <td>{{ $product->pivot->summary_tax > 0 ? number_format($product->pivot->summary_tax, 2, '.', '') : '--' }}</td>
+                        <td>{{ $product->pivot->summary_total > 0 ? number_format($product->pivot->summary_total, 2, '.', '') : '--' }}</td>
                     </tr>
                 @endforeach
 

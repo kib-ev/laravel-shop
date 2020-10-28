@@ -1,1 +1,0 @@
-@extends('public.layouts.isolux')

@@ -88,6 +88,10 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'admin' => [
+        'address' => env('APP_ADMIN_EMAIL', ''),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings

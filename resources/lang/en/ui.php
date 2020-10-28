@@ -82,8 +82,11 @@ return [
         'address' => 'Address',
         'comment' => 'Comment',
     ],
-    'order' => [
+    '_order' => [
         'success_confirmed' => 'Your Order Confirmed Successfully!',
-    ]
+    ],
+    '_email' => [
+        'new_order_subject' => 'New Order :id',
+    ],
 
 ];

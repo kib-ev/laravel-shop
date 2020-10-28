@@ -52,16 +52,16 @@ class Cart extends Model
 
     public function updateSummary() {
         foreach ($this->products as $product) {
-            $product->summary_price = $product->pivot->price * $product->pivot->count;
-            $product->summary_discount = $product->pivot->discount * $product->pivot->count;
-            $product->summary_tax = $product->pivot->tax * $product->pivot->count;
-            $product->summary_total = ($product->pivot->price - $product->pivot->discount + $product->pivot->tax)
+            $product->pivot->summary_price = $product->pivot->price * $product->pivot->count;
+            $product->pivot->summary_discount = $product->pivot->discount * $product->pivot->count;
+            $product->pivot->summary_tax = $product->pivot->tax * $product->pivot->count;
+            $product->pivot->summary_total = ($product->pivot->price - $product->pivot->discount + $product->pivot->tax)
                 * $product->pivot->count;
 
-            $this->summary_price += $product->summary_price;
-            $this->summary_discount += $product->summary_discount;
-            $this->summary_tax += $product->summary_tax;
-            $this->summary_total += $product->summary_total;
+            $this->summary_price += $product->pivot->summary_price;
+            $this->summary_discount += $product->pivot->summary_discount;
+            $this->summary_tax += $product->pivot->summary_tax;
+            $this->summary_total += $product->pivot->summary_total;
         }
     }
 
