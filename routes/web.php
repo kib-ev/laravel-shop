@@ -3,11 +3,10 @@
 use App\Http\Controllers\Admin\ParserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\LangController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
-use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,14 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', [LoginController::class, 'login'])->name('auth.login');
 Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
 
-Route::get('/', function () {
-    meta()->update([
-        'title' => config('site.name'),
-    ]);
-
-    $products = Product::inRandomOrder()->limit(6)->get();
-    return view('public.pages.index', compact('products'));
-})->name('home');
+Route::get('/', [PageController::class, 'showHomePage'])->name('home');
 
 // default pages
 Route::get('contacts', function () {
