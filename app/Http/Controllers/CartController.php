@@ -29,12 +29,21 @@ class CartController extends Controller
         $product = Product::findOrFail($productId);
         $discount = 0.00;
 
-        $this->cart->products()->attach($product, [
-            'count' => $request->get('count') ?? 1,
-            'price' => $product->price,
-            'discount' => $discount,
-            'tax' => ($product->price - $discount) * 0.00 // TODO tax
-        ]);
+        $existsProduct = $this->cart->products()->find($productId);
+        if ($existsProduct) { // update exists product id
+            $existsProductPivot = $existsProduct->pivot;
+            $existsProductPivot->update([
+                'count' => $existsProductPivot->count + ($request->get('count') ?? 1)
+            ]);
+        } else {
+            $this->cart->products()->attach($product, [
+                'count' => $request->get('count') ?? 1,
+                'price' => $product->price,
+                'discount' => $discount,
+                'tax' => ($product->price - $discount) * 0.00 // TODO tax
+            ]);
+        }
+
         return $this->cart;
     }
 
