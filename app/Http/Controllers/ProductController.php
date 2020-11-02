@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Parser\WebParser;
+use App\Classes\Parser\WebParserInterface;
 use App\Classes\Parser\WebParserPostroykaBy;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -60,8 +62,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        if (!$product->description || request()->has('update')) {
-            WebParserPostroykaBy::updateProductData($product);
+        if (request()->has('update')) {
+            WebParser::updateProductData($product);
         }
 
         meta()->update([
