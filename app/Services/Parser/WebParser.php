@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Classes\Parser;
+namespace App\Services\Parser;
 
 use App\Models\Product;
 use App\Models\ProductCategory;

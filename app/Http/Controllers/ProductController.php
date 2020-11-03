@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Classes\Parser\WebParser;
+use App\Services\Parser\WebParser;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
