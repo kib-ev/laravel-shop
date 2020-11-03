@@ -94,12 +94,6 @@ Route::resource('orders', OrderController::class)->only([
     'show', 'store'
 ]);
 
-// PARSER
-Route::prefix('admin/parser/')->group(function () {
-    Route::get('parse/categories', [ParserController::class, 'parseCategories']);
-    Route::get('parse/products', [ParserController::class, 'parseProducts']);
-});
-
 // ??
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return redirect()->to('/');
