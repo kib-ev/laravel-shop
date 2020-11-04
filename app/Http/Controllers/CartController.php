@@ -36,11 +36,13 @@ class CartController extends Controller
                 'count' => $existsProductPivot->count + ($request->get('count') ?? 1)
             ]);
         } else {
+            $productPrice = $product->price != "" ? $product->price : 0.00;
+
             $this->cart->products()->attach($product, [
-                'count' => $request->get('count') ?? 1,
-                'price' => $product->price,
+                'count' => $request->get('count') ?: 1,
+                'price' => $productPrice,
                 'discount' => $discount,
-                'tax' => ($product->price - $discount) * 0.00 // TODO tax
+                'tax' => ($productPrice - $discount) * 0.00 // TODO tax
             ]);
         }
 

@@ -15,10 +15,26 @@ function set_currency_url($locale)
     return \App\Http\Middleware\SetCurrency::set_currency_url($locale);
 }
 
-function meta():\App\Models\Meta
+function meta($value = null)
 {
-    // meta added in \App\Http\Middleware\AddMeta.php
-    return request()->meta;
+    $locale = app()->getLocale();
+
+    $meta = \App\Models\Meta::where([
+        'uri' => request()->path() != '/' ? '/' . request()->path() : '/',
+        'lang' => $locale,
+    ])->first();
+
+    if(isset($value)) {
+         return optional($meta)->$value;
+    }
+
+    return $meta ?: \App\Models\Meta::make([
+        'title' => null,
+        'uri' => request()->getRequestUri(),
+        'lang' => $locale,
+    ]);
+
+    return $result;
 }
 
 function page_element($name)

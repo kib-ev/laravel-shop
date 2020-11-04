@@ -11,4 +11,12 @@ class Meta extends Model
 
     protected $guarded = ['id'];
 
+    public static function setTitleIfEmpty($title) {
+        meta()->firstOrCreate([
+            'uri' => request()->getRequestUri(),
+            'lang' => app()->getLocale(),
+        ], [
+            'title' => $title,
+        ]);
+    }
 }

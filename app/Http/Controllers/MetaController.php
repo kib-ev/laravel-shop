@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PageMeta;
+use App\Models\Meta;
 use Illuminate\Http\Request;
 
 class MetaController extends Controller
@@ -22,22 +22,26 @@ class MetaController extends Controller
         //
     }
 
-    public function show(PageMeta $pageMeta)
+    public function show(Meta $meta)
     {
         //
     }
 
-    public function edit(PageMeta $pageMeta)
+    public function edit(Meta $meta)
     {
         //
     }
 
-    public function update(Request $request, PageMeta $pageMeta)
+    public function update(Request $request, Meta $meta)
     {
-        //
+        $data = $request->except(['_token', '_method']);
+
+        $meta->update($data);
+
+        return back();
     }
 
-    public function destroy(PageMeta $pageMeta)
+    public function destroy(Meta $meta)
     {
         //
     }

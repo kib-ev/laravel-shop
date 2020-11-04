@@ -34,7 +34,7 @@ class SetLocale
 
     protected function removeLocaleParamFromUrlAndRedirect(Request $request, Closure $next)
     {
-        if ($request->has(SetLocale::$parameterName)) {
+        if ($request->method() == 'GET' && $request->has(SetLocale::$parameterName)) {
             // remove ?lang=xx parameter from url
             $params = $request->all();
             unset($params[SetLocale::$parameterName]);

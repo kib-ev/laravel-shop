@@ -2,7 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
-    <title>{!! isset($meta) ? $meta->title : __('ui.error')  !!} </title>
+    <title>{!! meta('title') ?: __('ui.error')  !!} </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -34,6 +34,9 @@
     <style type="text/css" id="enject"></style>
 </head>
 <body>
+@if(request()->has('meta'))
+    @include('public.layouts.includes.meta')
+@endif
 @include('public.layouts.includes.header')
 <!-- Header End====================================================================== -->
 

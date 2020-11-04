@@ -40,9 +40,7 @@ class ProductController extends Controller
             WebParser::updateProductData($product);
         }
 
-        meta()->update([
-            'title' => $product->name,
-        ]);
+        meta()->setTitleIfEmpty($product->name);
 
         $products = $product->category
             ->products()

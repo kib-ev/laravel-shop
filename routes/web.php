@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ParserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\MetaController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductCategoryController;
@@ -20,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::view('welcome', 'welcome');
+
 Route::post('login', [LoginController::class, 'login'])->name('auth.login');
 Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
 
@@ -32,9 +35,11 @@ Route::get('contacts', function () {
 Route::get('about', function () {
     return view('public.pages.about');
 });
-Route::get('delivery', function () {
-    return view('public.pages.delivery');
-});
+
+//Route::get('delivery', function () {
+//    return view('public.pages.delivery');
+//});
+
 Route::get('payment', function () {
     return view('public.pages.payment');
 });
@@ -94,6 +99,12 @@ Route::resource('orders', OrderController::class)->only([
     'show', 'store'
 ]);
 
+Route::name('admin.')->group(function () {
+    Route::patch('metas/{meta}/update', [MetaController::class, 'update'])->name('metas.update');
+    Route::patch('metas/store', [MetaController::class, 'store'])->name('metas.store');
+});
+
+
 // ??
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return redirect()->to('/');
@@ -104,3 +115,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
     return view('admin.index');
 });
+
+Route::fallback([\App\Http\Controllers\PageController::class, 'show']);
