@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Meta;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
@@ -27,9 +28,9 @@ class ProductCategoryController extends Controller
     {
         $productCategory = ProductCategory::with('products')->findOrFail($productCategoryId);
 
-        meta()->update([
-            'title' => $productCategory->name,
-        ]);
+        /** @var Meta $meta */
+        $meta = meta();
+        $meta->setTitleIfEmpty($productCategory->name);
 
         $productsIds = $productCategory->products->pluck('id');
         foreach($productCategory->children as $childrenCategory) {

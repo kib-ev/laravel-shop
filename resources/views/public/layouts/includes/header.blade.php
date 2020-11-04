@@ -81,6 +81,9 @@
                         <a href="{{ route('products.index', ['only_discounted' => '1']) }}">{{ __('ui.special_offer') }}</a>
                     </li>
                     <li class="">
+                        <a href="{{ url('/payment') }}">{{ __('ui.payment') }}</a>
+                    </li>
+                    <li class="">
                         <a href="{{ url('/delivery') }}">{{ __('ui.delivery') }}</a>
                     </li>
                     <li class="">

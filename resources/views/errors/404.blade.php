@@ -1,6 +1,5 @@
 @extends('public.layouts.default')
 
-
 @section('content-full')
     <div class="span15">
         <ul class="breadcrumb">

@@ -35,9 +35,7 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        meta()->update([
-            'title' => $product->name,
-        ]);
+        meta()->setTitleIfEmpty($product->name);
 
         $products = $product->category
             ->products()
