@@ -38,7 +38,7 @@ class PageController extends Controller
         if (view()->exists('public.pages'.$pageName)) {
             return view('public.pages'.$pageName);
         } else {
-            $page = $this->getCurrentPage($meta);
+            $page = $this->getPageByMeta($meta);
             return view('public.templates.single', compact('page'));
         }
     }
@@ -49,11 +49,11 @@ class PageController extends Controller
         if(!$meta) {
             abort(404);
         }
-        $page = $this->getCurrentPage($meta);
+        $page = $this->getPageByMeta($meta);
         return view('public.templates.single-edit', compact('page'));
     }
 
-    protected function getCurrentPage($meta)
+    protected function getPageByMeta($meta)
     {
         $page = Page::firstOrCreate([
             'lang' => app()->getLocale(),
@@ -71,7 +71,7 @@ class PageController extends Controller
         $page->fill($request->all());
         $page->update();
 
-        return back();
+        return redirect()->route('pages.show', $page->slug);
     }
 
     public function store() {

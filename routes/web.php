@@ -29,16 +29,9 @@ Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
 Route::get('/', [PageController::class, 'index'])->name('home');
 
 // default pages
-Route::get('about', function () {
-    return view('public.pages.about');
-});
 
 Route::get('products', function () {
     return view('public.pages.products');
-});
-
-Route::get('legal_notice.html', function () {
-    return view('public.pages.legal_notice');
 });
 
 Route::get('product_details.html', function () {
@@ -86,8 +79,6 @@ Route::name('admin.')->group(function () {
 
     // METAS
     Route::resource('metas', MetaController::class);
-//    Route::patch('metas/{meta}/update', [MetaController::class, 'update'])->name('metas.update');
-//    Route::patch('metas/store', [MetaController::class, 'store'])->name('metas.store');
 
     // PAGES
     Route::resource('pages', PageController::class);
@@ -105,4 +96,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
     return view('admin.index');
 });
 
-Route::fallback([PageController::class, 'show']);
+Route::fallback([PageController::class, 'show'])->name('pages.show');

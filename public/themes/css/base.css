@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+}
 #mainBody {/* background: url(../images/seperator.png) repeat-x 0 0;  border-top:2px solid #dedede;*/ padding-top: 18px;}
 #carouselBlk,#header{background: url(../images/headerRepeat.png) repeat-x 0 0 #f7f7f7;}
 #carouselBlk{padding-bottom:20px;}
