@@ -17,10 +17,7 @@ class CartController extends Controller
     }
 
     public function show() {
-        meta()->update([
-            'title' => __('ui.shopping_cart'),
-        ]);
-
+        meta()->setTitleIfEmpty(__('ui.shopping_cart'));
         return view('public.pages.product_summary');
     }
 

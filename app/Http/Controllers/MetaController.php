@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class MetaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('show');
+    }
+
     public function index()
     {
         //
@@ -19,7 +24,9 @@ class MetaController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $data = $request->except(['_token', '_method']);
+        $meta = Meta::create($data);
+        return back();
     }
 
     public function show(Meta $meta)
@@ -35,9 +42,7 @@ class MetaController extends Controller
     public function update(Request $request, Meta $meta)
     {
         $data = $request->except(['_token', '_method']);
-
         $meta->update($data);
-
         return back();
     }
 

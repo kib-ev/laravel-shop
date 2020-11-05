@@ -3,28 +3,79 @@
 namespace App\Http\Controllers;
 
 use App\Models\Meta;
+use App\Models\Page;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('show', 'index');
+    }
+
+    public function index()
+    {
+        $count = config('site.products.home_page_count');
+        $products = Product::inRandomOrder()->limit($count)->get();
+        return view('public.pages.index', compact('products'));
+    }
+
     public function show()
     {
-        $uri = request()->getRequestUri();
-        $pageName = str_replace('.','', $uri);
+        if(request()->has('edit')) {
+            return $this->edit();
+        }
+
+        $uri = '/'. request()->path();
+        $pageName = str_replace('/','.', $uri);
 
         $meta = Meta::where('uri', $uri)->first();
         if(!$meta) {
             abort(404);
         }
 
-        return view('public.pages'.$pageName);
+        if (view()->exists('public.pages'.$pageName)) {
+            return view('public.pages'.$pageName);
+        } else {
+            $page = $this->getCurrentPage($meta);
+            return view('public.templates.single', compact('page'));
+        }
     }
 
-    public function showHomePage()
+    public function edit()
     {
-        $count = config('site.products.home_page_count');
-        $products = Product::inRandomOrder()->limit($count)->get();
-        return view('public.pages.index', compact('products'));
+        $meta = meta();
+        if(!$meta) {
+            abort(404);
+        }
+        $page = $this->getCurrentPage($meta);
+        return view('public.templates.single-edit', compact('page'));
+    }
+
+    protected function getCurrentPage($meta)
+    {
+        $page = Page::firstOrCreate([
+            'lang' => app()->getLocale(),
+            'slug' => $meta->uri,
+        ], [
+            'name' => $meta->title,
+        ]);
+
+        return $page;
+    }
+
+    public function update(Request $request, $id)
+    {
+        $page = Page::findOrFail($id);
+        $page->fill($request->all());
+        $page->update();
+
+        return back();
+    }
+
+    public function store() {
+        dump(__METHOD__);
     }
 
     public function productSummaryPage()

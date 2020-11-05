@@ -30,7 +30,7 @@ function meta($value = null)
 
     return $meta ?: \App\Models\Meta::make([
         'title' => null,
-        'uri' => request()->getRequestUri(),
+        'uri' => '/' . request()->path(),
         'lang' => $locale,
     ]);
 

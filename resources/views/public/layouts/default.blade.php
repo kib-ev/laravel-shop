@@ -34,8 +34,8 @@
     <style type="text/css" id="enject"></style>
 </head>
 <body>
-@if(request()->has('meta'))
-    @include('public.layouts.includes.meta')
+@if(auth()->check() && request()->has('meta'))
+    @include('public.layouts.includes.metas')
 @endif
 @include('public.layouts.includes.header')
 <!-- Header End====================================================================== -->
