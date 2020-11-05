@@ -17,6 +17,7 @@ return [
     'home' => 'Главная',
     'delivery' => 'Доставка',
     'contacts' => 'Контакты',
+    'payment' => 'Оплата',
     'special_offer' => 'Скидки',
     'error' => 'Ошибка',
     'error_404' => 'Ошибка 404',

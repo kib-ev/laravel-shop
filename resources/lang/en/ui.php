@@ -18,7 +18,8 @@ return [
     'delivery' => 'Delivery',
     'contacts' => 'Contacts',
     'special_offer' => 'Special offer',
-    'error' => 'Ошибка',
+    'payment' => 'Payment',
+    'error' => 'Error',
     'error_404' => 'Error 404',
     'page_not_found' => 'Page Not Found!',
     // Search

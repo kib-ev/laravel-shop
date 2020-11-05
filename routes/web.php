@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ParserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\MetaController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductCategoryController;
@@ -20,37 +21,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::view('welcome', 'welcome');
+
 Route::post('login', [LoginController::class, 'login'])->name('auth.login');
 Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
 
-Route::get('/', [PageController::class, 'showHomePage'])->name('home');
+Route::get('/', [PageController::class, 'index'])->name('home');
 
 // default pages
-Route::get('contacts', function () {
-    return view('public.pages.contact');
-});
-Route::get('about', function () {
-    return view('public.pages.about');
-});
-Route::get('delivery', function () {
-    return view('public.pages.delivery');
-});
-Route::get('payment', function () {
-    return view('public.pages.payment');
-});
-Route::get('blog', function () {
-    return view('public.pages.blog');
-});
 
 Route::get('products', function () {
     return view('public.pages.products');
-});
-Route::get('faq.html', function () {
-    return view('public.pages.faq');
-});
-
-Route::get('legal_notice.html', function () {
-    return view('public.pages.legal_notice');
 });
 
 Route::get('product_details.html', function () {
@@ -94,11 +75,15 @@ Route::resource('orders', OrderController::class)->only([
     'show', 'store'
 ]);
 
-// PARSER
-Route::prefix('admin/parser/')->group(function () {
-    Route::get('parse/categories', [ParserController::class, 'parseCategories']);
-    Route::get('parse/products', [ParserController::class, 'parseProducts']);
+Route::name('admin.')->group(function () {
+
+    // METAS
+    Route::resource('metas', MetaController::class);
+
+    // PAGES
+    Route::resource('pages', PageController::class);
 });
+
 
 // ??
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -110,3 +95,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
     return view('admin.index');
 });
+
+Route::fallback([PageController::class, 'show'])->name('pages.show');
