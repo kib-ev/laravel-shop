@@ -31,7 +31,7 @@ class OrderController extends Controller
         $cart->delete();
 
         $job = new SendEmailToAdminWhenNewOrderAddedJob($order);
-        $this->dispatch($job);
+        $this->dispatchNow($job);
 
         return redirect()->back()->with([
             'order' => $order->load('products'),
