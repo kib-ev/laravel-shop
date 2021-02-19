@@ -35,6 +35,7 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
+            \App\Http\Middleware\IsIpAllowed::class,
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Laravel\Jetstream\Http\Middleware\AuthenticateSession::class,
@@ -69,5 +70,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'redirect' => \App\Http\Middleware\RedirectIfHasParameter::class,
+        'ip_allowed' => \App\Http\Middleware\IsIpAllowed::class,
     ];
 }
