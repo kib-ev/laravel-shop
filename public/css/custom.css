@@ -1,0 +1,9 @@
+body {
+    background: url('/img/c8f0cc6afba99a7a869058d75bb546d9.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.breadcrumb {
+    background: none;
+}
