@@ -97,3 +97,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
 });
 
 Route::fallback([PageController::class, 'show'])->name('pages.show');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

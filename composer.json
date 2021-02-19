@@ -16,6 +16,7 @@
         "laravel/jetstream": "^1.1",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0",
+        "laravel/ui": "^3.2",
         "livewire/livewire": "^2.0",
         "lorisleiva/laravel-deployer": "^0.3.4",
         "ressio/pharse": "^0.2.0"
