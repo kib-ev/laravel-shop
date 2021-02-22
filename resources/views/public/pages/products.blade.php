@@ -1,4 +1,4 @@
-@extends('public.layouts.default')
+@extends('public.layouts.common')
 
 @section('sidebar')
     @include('public.layouts.includes.sidebar')
