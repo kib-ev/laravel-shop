@@ -18,7 +18,12 @@ class CreateBrandsTable extends Migration
             $table->bigInteger('parent_id')->nullable()->default(null);
             $table->string('slug', 255)->unique();
             $table->string('name', 255)->nullable()->default('');
+            $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('products', function (Blueprint $table) {
+            $table->bigInteger('brand_id')->after('category_id')->nullable();
         });
     }
 
@@ -30,5 +35,9 @@ class CreateBrandsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('brands');
+
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('brand_id');
+        });
     }
 }

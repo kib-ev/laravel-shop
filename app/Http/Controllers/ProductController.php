@@ -31,7 +31,8 @@ class ProductController extends Controller
 
             if ($remoteProduct->brand->name) {
                 $brand = Brand::firstOrCreate([
-                    'name' => $remoteProduct->brand->name
+                    'name' => $remoteProduct->brand->name,
+                    'slug' => $remoteProduct->brand->slug,
                 ]);
                 $product->brand_id = $brand->id;
             }

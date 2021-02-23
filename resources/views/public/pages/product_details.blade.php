@@ -30,7 +30,7 @@
                             <div class="product__title">
                                 <p class="product__num">{{ $product->name }}</p>
                                 <p class="product__name">{{ $product->category->name }}</p>
-                                <p class="product__brand">ALLISON</p>
+                                <p class="product__brand">{{ $product->brand->name }}</p>
                             </div>
                             <div class="tags__block d-flex justify-content-start align-items-center">
                                 <h3 class="tags">Tags:</h3>
@@ -80,11 +80,11 @@
                                 <div class="product__block">
                                     <div class="active__txt active__txt2 d-flex">
                                         <strong>Brand:</strong>
-                                        <span>Allison</span>
+                                        <span>{{ $product->brand->name }}</span>
                                     </div><br/>
                                     <div class="active__txt active__txt2 d-flex">
-                                        <strong>Manufacturer:</strong>
-                                        <span>Original </span>
+                                        <strong>Country:</strong>
+                                        <span>...</span>
                                     </div>
                                 </div>
                             </div>
