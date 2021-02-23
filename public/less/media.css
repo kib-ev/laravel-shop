@@ -91,7 +91,47 @@
         height: 550px;
     }
 }
+@media screen and (max-width: 1098px) {
+    #full--page #catalog .catalog__container .catalog__products .categoryBlock {
+        width: 175px;
+    }
+    #full--page #catalog .catalog__container .catalog__products .categoryBlock .product__card {
+        height: 120px;
+    }
+}
 @media screen and (max-width: 991px) {
+    #full--page #catalog .catalog__container .catalog__products .cataog__title {
+        display: none;
+    }
+    .catalog__title__mobile {
+        display: flex !important;
+        padding: 30px;
+    }
+    #full--page #catalog .catalog__container .catalog__accordeon.activeAcc {
+        margin: 10px;
+        width: -webkit-fill-available;
+    }
+    #full--page #catalog .catalog__container .catalog__products {
+        padding: 20px;
+    }
+    #full--page #catalog .catalog__container .cataog__title {
+        margin-bottom: 0;
+        margin-left: 20px !important;
+    }
+    .catalog__accordeon {
+        display: none;
+    }
+    #search .catalog__accordeon {
+        display: block !important;
+        margin: 10px;
+        width: -webkit-fill-available !important;
+    }
+    #full--page #catalog .catalog__container .catalog__accordeon .catalog__item {
+        width: 100%;
+    }
+    .catalog__container {
+        flex-direction: column;
+    }
     #full--page #product .product__cont .product__title .product__num {
         padding-top: 20px;
     }
@@ -548,6 +588,9 @@
     }
 }
 @media screen and (max-width: 539px) {
+    #full--page #catalog .catalog__container .catalog__products .xs__num {
+        font-size: 16px !important;
+    }
     .categoryBlock  {
         width: 170px;
         margin: 7px;
@@ -573,6 +616,19 @@
     .categoryBlock .categoryBtn {
         font-size: 14px;
         height: 34px;
+    }
+    .catalog__title__mobile {
+        padding: 20px 10px;
+    }
+    #full--page #catalog .catalog__container .cataog__title {
+        font-size: 17px;
+        margin-left: 10px !important;
+    }
+    #full--page #catalog .catalog__container #search__title .cataog__title {
+        font-size: 24px;
+    }
+    #full--page #catalog .catalog__container .catalog__accordeon.activeAcc {
+        margin: 10px;
     }
 }
 @media screen and (max-width: 450px) {
@@ -654,6 +710,15 @@
     }
 }
 @media screen and (max-width: 400px) {
+    #full--page #catalog .catalog__container .catalog__products .categoryBlock {
+        width: 140px;
+    }
+    #full--page #catalog .catalog__container .catalog__products .categoryBlock .product__card {
+        height: 100px;
+    }
+    #full--page #catalog .catalog__container .catalog__products .categoryBlock .productCard__name .productCard__price {
+        font-size: 12px;
+    }
     #full--page #categories .categories__container .categories__block .catgories__block__title {
         font-size: 16px;
         line-height: 18px;

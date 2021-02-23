@@ -130,4 +130,14 @@ $(document).ready(function() {
     $('.quoteModalBtn').click(function() {
         $('.quoteModal').removeClass('showModal');
     });
+// Страница 'Catalog':
+    $('.catalog__item').click(function() {
+        $(this).next().slideToggle('slow', function() {
+            $(this).next().toggleClass('active');
+        });
+        $(this).find('.line2').toggleClass('active');
+    });
+    $('.filterBtn').click(function() {
+        $('.catalog__accordeon').toggleClass('activeAcc');
+    });
 });

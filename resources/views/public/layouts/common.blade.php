@@ -30,10 +30,10 @@
 
 </div>
 
-<script src="libs/jquery/3.5.0/jquery.js"></script>
-<script src="libs/slick/slick.js/slick.min.js"></script>
-<script src="libs/less.js/4.1.1/less.js"></script>
-<script src="libs/main.js"></script>
+<script src="{{ asset('/libs/jquery/3.5.0/jquery.js') }}"></script>
+<script src="{{ asset('/libs/slick/slick.js/slick.min.js') }}"></script>
+<script src="{{ asset('/libs/less.js/4.1.1/less.js') }}"></script>
+<script src="{{ asset('/libs/main.js') }}"></script>
 </body>
 
 </html>

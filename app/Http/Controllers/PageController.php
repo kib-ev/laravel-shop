@@ -16,6 +16,10 @@ class PageController extends Controller
 
     public function index()
     {
+        if (request()->has('sync')) {
+            (new ProductController())->syncProducts();
+        }
+
         $count = config('site.products.home_page_count');
         $products = Product::inRandomOrder()->limit($count)->get();
         return view('public.pages.index', compact('products'));

@@ -11,6 +11,8 @@ class Brand extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $guarded = ['id'];
+
     public function parent()
     {
         return $this->hasOne($this->getMorphClass(), 'id', 'parent_id');
