@@ -10,15 +10,17 @@
     <link rel="stylesheet" href="{{ asset('/libs/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/libs/slick/slick.css/slick-theme.css') }}">
     <link rel="stylesheet" href="{{ asset('/libs/slick/slick.css/slick.css') }}">
-    <link rel="stylesheet" href="{{ asset('/less/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('/less/media.css') }}">
+    <link rel="stylesheet/less" type="text/css" href="{{ asset('/less/style.less') }}">
+    <script src="{{ asset('/libs/less.js/4.1.1/less.js') }}"></script>
     <title>PERIPARTS</title>
 </head>
 
 <body>
+
 @if(auth()->check() && request()->has('meta'))
     @include('public.layouts.includes.metas')
 @endif
+
 <div id="full--page">
     @include('public.layouts.includes.header')
 
@@ -27,7 +29,6 @@
     @yield('content')
 
     @include('public.layouts.includes.footer')
-
 </div>
 
 <script src="{{ asset('/libs/jquery/3.5.0/jquery.js') }}"></script>

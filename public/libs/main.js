@@ -62,6 +62,16 @@ $(document).ready(function() {
         $('body').css('overflow', 'auto');
     });
 
+    $('.sign__up__window').click(function() {
+        $('.sign__in__content').css('display', 'none');
+        $('.registr__content').css('display', 'block');
+    });
+
+    $('.sign__in__window').click(function() {
+        $('.registr__content').css('display', 'none');
+        $('.sign__in__content').css('display', 'block');
+    });
+
 // Hover to blocks:
     $('.categories__block').hover(function() {
         $(this).find('.catgories__block__title').css('background', 'rgba(0, 0, 0, 0.5)');

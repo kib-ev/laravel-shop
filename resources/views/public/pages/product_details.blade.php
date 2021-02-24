@@ -41,7 +41,7 @@
                         <div class="product__content">
                             <div class="product__price">
                                 <strong>Price:</strong>
-                                <span>$ 102</span>
+                                <span style="font-size: 1.2em;">On Request</span>
                             </div>
                             <div class="product__button d-flex justify-content-start align-items-center">
                                 <div class="productBlock d-flex justify-content-start align-items-center">

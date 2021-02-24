@@ -248,8 +248,8 @@
         display: -ms-flexbox;
         display: flex;
         -webkit-box-pack: end;
-            -ms-flex-pack: end;
-                justify-content: flex-end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
     }
     .header__nav  {
         -ms-flex-wrap: wrap;
@@ -304,7 +304,7 @@
         grid-area: 2 / 5 / 3 / 7;
     }
     .block6 {
-        grid-area: 3 / 1 / 4 / 3; 
+        grid-area: 3 / 1 / 4 / 3;
     }
     .block7 {
         grid-area: 3 / 3 / 4 / 4;
@@ -365,12 +365,12 @@
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-               -webkit-box-pack: start;
-                   -ms-flex-pack: start;
-                       justify-content: flex-start;
-               -webkit-box-align: start;
-                   -ms-flex-align: start;
-                       align-items: flex-start;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
     }
     .categories__container {
         grid-template-columns: 1fr 1fr !important;
@@ -391,7 +391,7 @@
         grid-area: 3 / 2 / 4 / 3 !important;
     }
     .block6 {
-        grid-area: 5 / 2 / 6 / 3 !important; 
+        grid-area: 5 / 2 / 6 / 3 !important;
     }
     .block7 {
         grid-area: 5 / 1 / 6 / 2 !important;
@@ -454,6 +454,11 @@
     #full--page .quoteModal .quoteContent {
         width: 400px;
         padding: 30px 10px;
+    }
+    #modalBlockLink {
+        flex-direction: column;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
     }
 }
 @media screen and (max-width: 576px) {
