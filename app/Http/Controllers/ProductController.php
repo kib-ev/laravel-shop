@@ -43,7 +43,7 @@ class ProductController extends Controller
             ->inRandomOrder()
             ->paginate(config('site.products.related_count'));
 
-        return view('public.pages.product_details', compact('product', 'products'));
+        return view('public.pages.product', compact('product', 'products'));
     }
 
     public function edit(Product $product)
