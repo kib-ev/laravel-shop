@@ -13,14 +13,18 @@ class ProductController extends Controller
 {
     public function syncProducts()
     {
-        $remoteProducts = SyncProduct::limit(10)->get();
+//        $ids  = Product::select('id')->get();
+
+        $remoteProducts = SyncProduct::limit(10000)->get();
 
         foreach ($remoteProducts as $remoteProduct) {
             $product = Product::firstOrCreate([
                 'id' => $remoteProduct->id
+            ], [
+                'name' => $remoteProduct->name
             ]);
 
-            $product->name = $remoteProduct->name;
+//            $product->name = $remoteProduct->name;
 
             if ($remoteProduct->group->name) {
                 $remoteBrand = ProductCategory::firstOrCreate([

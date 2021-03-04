@@ -97,37 +97,50 @@
                 <div class="header__btns">
                     <!-- <button id="request__btn" class="header__btn">Request a Quote</button> -->
                     <div id="quote__btn">
-                        <span>1</span>
-                        <button class="header__btn">Quote</button>
-                        <div class="korzina__container">
-                            <div class="korzina__modal">
-                                <h4 class="korzina__title">Recently added items</h4>
-                                <div class="product__info d-flex justify-content-between align-items-center">
-                                    <div class="d-flex">
-                                        <div>
-                                            <img src="img/placeholder_categoy.png" alt="" class="product__infoImg">
+                        @if(cart()->isNotEmpty())
+                            <span>{{ cart()->products->count() }}</span>
+                        @endif
+                        <form action="/cart" method="get">
+                            <button type="submit" class="header__btn">Quote</button>
+                        </form>
+
+                        @if(cart()->isNotEmpty())
+                            <div class="korzina__container">
+                                <div class="korzina__modal">
+                                    <h4 class="korzina__title">Recently added items</h4>
+
+                                    @foreach(cart()->products as $cartProduct)
+                                    <div class="product__info d-flex justify-content-between align-items-center">
+                                        <div class="d-flex">
+                                            <div>
+                                                <img src="img/placeholder_categoy.png" alt="" class="product__infoImg">
+                                            </div>
+                                            <div class="korzina__product__name d-flex align-items-center">
+                                                {{ $cartProduct->name }} {{ $cartProduct->brand->name }}
+                                            </div>
                                         </div>
-                                        <div class="korzina__product__name d-flex align-items-center">
-                                            2323 GENUINE ALLIANT P...
+                                        <div class="korzina__btns d-flex justify-content-end align-items-center">
+                                            <div class="korzina__cancle d-flex d-flex align-items-center">
+                                                &times;&nbsp;<p>{{ $cartProduct->pivot->count }}</p>
+                                            </div>
+                                            <div class="korzina__delete d-flex align-items-center">
+                                                <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="delete" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"></path>
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="korzina__btns d-flex justify-content-end align-items-center">
-                                        <div class="korzina__cancle d-flex d-flex align-items-center">
-                                            &times;&nbsp;<p>1</p>
-                                        </div>
-                                        <div class="korzina__delete d-flex align-items-center">
-                                            <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="delete" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"></path>
-                                            </svg>
-                                        </div>
+                                    @endforeach
+
+                                    <div class="goto__btn">
+                                        <form action="/cart" method="get">
+                                            <button type="submit" class="go__to__quote">Go to Quote</button>
+                                        </form>
                                     </div>
-                                </div>
-                                <div class="goto__btn">
-                                    <button class="go__to__quote">Go to Quote</button>
                                 </div>
                             </div>
-                        </div>
-                        <svg viewBox="0 0 1024 1024" focusable="false" class="korzina" data-icon="shopping-cart" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M922.9 701.9H327.4l29.9-60.9 496.8-.9c16.8 0 31.2-12 34.2-28.6l68.8-385.1c1.8-10.1-.9-20.5-7.5-28.4a34.99 34.99 0 0 0-26.6-12.5l-632-2.1-5.4-25.4c-3.4-16.2-18-28-34.6-28H96.5a35.3 35.3 0 1 0 0 70.6h125.9L246 312.8l58.1 281.3-74.8 122.1a34.96 34.96 0 0 0-3 36.8c6 11.9 18.1 19.4 31.5 19.4h62.8a102.43 102.43 0 0 0-20.6 61.7c0 56.6 46 102.6 102.6 102.6s102.6-46 102.6-102.6c0-22.3-7.4-44-20.6-61.7h161.1a102.43 102.43 0 0 0-20.6 61.7c0 56.6 46 102.6 102.6 102.6s102.6-46 102.6-102.6c0-22.3-7.4-44-20.6-61.7H923c19.4 0 35.3-15.8 35.3-35.3a35.42 35.42 0 0 0-35.4-35.2zM305.7 253l575.8 1.9-56.4 315.8-452.3.8L305.7 253zm96.9 612.7c-17.4 0-31.6-14.2-31.6-31.6 0-17.4 14.2-31.6 31.6-31.6s31.6 14.2 31.6 31.6a31.6 31.6 0 0 1-31.6 31.6zm325.1 0c-17.4 0-31.6-14.2-31.6-31.6 0-17.4 14.2-31.6 31.6-31.6s31.6 14.2 31.6 31.6a31.6 31.6 0 0 1-31.6 31.6z"></path>
-                        </svg>
+                        @endif
+{{--                        <svg viewBox="0 0 1024 1024" focusable="false" class="korzina" data-icon="shopping-cart" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M922.9 701.9H327.4l29.9-60.9 496.8-.9c16.8 0 31.2-12 34.2-28.6l68.8-385.1c1.8-10.1-.9-20.5-7.5-28.4a34.99 34.99 0 0 0-26.6-12.5l-632-2.1-5.4-25.4c-3.4-16.2-18-28-34.6-28H96.5a35.3 35.3 0 1 0 0 70.6h125.9L246 312.8l58.1 281.3-74.8 122.1a34.96 34.96 0 0 0-3 36.8c6 11.9 18.1 19.4 31.5 19.4h62.8a102.43 102.43 0 0 0-20.6 61.7c0 56.6 46 102.6 102.6 102.6s102.6-46 102.6-102.6c0-22.3-7.4-44-20.6-61.7h161.1a102.43 102.43 0 0 0-20.6 61.7c0 56.6 46 102.6 102.6 102.6s102.6-46 102.6-102.6c0-22.3-7.4-44-20.6-61.7H923c19.4 0 35.3-15.8 35.3-35.3a35.42 35.42 0 0 0-35.4-35.2zM305.7 253l575.8 1.9-56.4 315.8-452.3.8L305.7 253zm96.9 612.7c-17.4 0-31.6-14.2-31.6-31.6 0-17.4 14.2-31.6 31.6-31.6s31.6 14.2 31.6 31.6a31.6 31.6 0 0 1-31.6 31.6zm325.1 0c-17.4 0-31.6-14.2-31.6-31.6 0-17.4 14.2-31.6 31.6-31.6s31.6 14.2 31.6 31.6a31.6 31.6 0 0 1-31.6 31.6z"></path>--}}
+{{--                        </svg>--}}
                     </div>
                 </div>
             </div>

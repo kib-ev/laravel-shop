@@ -59,3 +59,14 @@ function page_element($name)
 
     return $element;
 }
+
+function get_image_url_by_product_id($productId)
+{
+    $url = 'https://agrofilter.by/filter/'.$productId;
+    $content = file_get_contents($url);
+    $html = Pharse::str_get_dom($content);
+
+    $imageDataBase64 = $html('.product-image', 0)->getAttribute('src');
+
+    return $imageDataBase64;
+}

@@ -5,63 +5,221 @@
 @endsection
 
 @section('content')
-    <div class="span9">
-
-        @include('public.pages.includes.breadcrumbs')
-
-        <h3>
-            <span class="page-title">{{ __('ui.products') }}</span>
-            <small class="pull-right">
-                @choice('ui.products_are_available', $products->total(), ['total' => $products->total()])
-            </small>
-        </h3>
-        <!--<hr class="soft"/>
-        <p>
-            Nowadays the lingerie industry is one of the most successful business spheres.We always stay in touch with
-            the latest fashion tendencies - that is why our goods are so popular and we have a great number of faithful
-            customers all over the country.
-        </p>-->
-        <hr class="soft"/>
-        <form class="form-horizontal span6"> {{-- TODO: add sort --}}
-          <div class="control-group">
-              <label class="control-label alignL">{{ __('ui.sort_by') }}</label>
-              <select>
-                  <option>По наименованию А - Я</option>
-                  <option>По наименованию Я - А</option>
-                  <option>По цене - сначала дешевые</option>
-                  <option>По цене - сначала дорогие</option>
-              </select>
-          </div>
-        </form>
-
-        <div id="myTab" class="pull-right">
-            <a href="#blockView" data-toggle="tab">
-                <span class="btn btn-large btn-primary"><i class="icon-th-large"></i></span>
-            </a>
-            <a href="#listView" data-toggle="tab">
-                <span class="btn btn-large"><i class="icon-list"></i></span>
-            </a>
-        </div>
-        <br class="clr"/>
-
-        <div class="tab-content">
-            <div class="tab-pane active" id="blockView">
-                @include('public.pages.includes.products_block_pane', ['products' => $products ?? []])
+    <section id="catalog">
+        <div class="catalog__container justify-content-start align-items-start">
+            <div class="catalog__title__mobile justify-content-start align-items-center">
+                <div class="filterBtn d-flex justify-content-center align-items-center">
+                    <svg viewBox="64 64 896 896" focusable="false" class="catalog__filter" data-icon="filter" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"></path>
+                    </svg>
+                </div>
+                <h1 class="cataog__title ">
+                    Results in Top Selling Brands
+                </h1>
             </div>
-            <div class="tab-pane" id="listView">
-                @include('public.pages.includes.products_list_pane', ['products' => $products ?? []])
+            <div class="catalog__accordeon">
+                <div class="catalog__item d-flex justify-content-between align-items-center">
+                    <div class="catalog__txt">Category</div>
+                    <div class="catalog__icon">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                    </div>
+                </div>
+                <div class="accordeon__hidden active">
+                    <a class="accordeon__link" href="#">Construction & Industrial</a><br/>
+                    <a class="accordeon__link" href="#">Mining & Drilling</a><br/>
+                    <a class="accordeon__link" href="#">Agricultural & Forestry</a><br/>
+                    <a class="accordeon__link" href="#">Gas & Oil Industry</a><br/>
+                    <a class="accordeon__link" href="#">Engines & Transmissions</a>
+                </div>
+                <div class="catalog__item d-flex justify-content-between align-items-center">
+                    <div class="catalog__txt">Brand</div>
+                    <div class="catalog__icon">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                    </div>
+                </div>
+                <div class="accordeon__hidden">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="accordeonLeft accordeon__link">
+                                <span>
+                                    <input type="checkbox" id="selectIt" class="selectInput">
+                                    <label class="labelCheck" for="selectIt">Case New <br/>Holland</label>
+                                </span>
+                        </div>
+                        <div class="accordeonRight accordeon__link">
+                            1000+
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="accordeonLeft accordeon__link">
+                                <span>
+                                    <input type="checkbox" id="selectIt" class="selectInput">
+                                    <label class="labelCheck" for="selectIt">Komatsu</label>
+                                </span>
+                        </div>
+                        <div class="accordeonRight accordeon__link">
+                            1000+
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="accordeonLeft accordeon__link">
+                                <span>
+                                    <input type="checkbox" id="selectIt" class="selectInput">
+                                    <label class="labelCheck" for="selectIt">Agco</label>
+                                </span>
+                        </div>
+                        <div class="accordeonRight accordeon__link">
+                            1000+
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="accordeonLeft accordeon__link">
+                                <span>
+                                    <input type="checkbox" id="selectIt" class="selectInput">
+                                    <label class="labelCheck" for="selectIt">Caterpillar</label>
+                                </span>
+                        </div>
+                        <div class="accordeonRight accordeon__link">
+                            1000+
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="accordeonLeft accordeon__link">
+                                <span>
+                                    <input type="checkbox" id="selectIt" class="selectInput">
+                                    <label class="labelCheck" for="selectIt">John Deere</label>
+                                </span>
+                        </div>
+                        <div class="accordeonRight accordeon__link">
+                            1000+
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="accordeonLeft accordeon__link">
+                                <span>
+                                    <input type="checkbox" id="selectIt" class="selectInput">
+                                    <label class="labelCheck" for="selectIt">Jcb</label>
+                                </span>
+                        </div>
+                        <div class="accordeonRight accordeon__link">
+                            1000+
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="accordeonLeft accordeon__link">
+                                <span>
+                                    <input type="checkbox" id="selectIt" class="selectInput">
+                                    <label class="labelCheck" for="selectIt">Bobcat</label>
+                                </span>
+                        </div>
+                        <div class="accordeonRight accordeon__link">
+                            1000+
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="accordeonLeft accordeon__link">
+                                <span>
+                                    <input type="checkbox" id="selectIt" class="selectInput">
+                                    <label class="labelCheck" for="selectIt">Claas</label>
+                                </span>
+                        </div>
+                        <div class="accordeonRight accordeon__link">
+                            1000+
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="accordeonLeft accordeon__link">
+                                <span>
+                                    <input type="checkbox" id="selectIt" class="selectInput">
+                                    <label class="labelCheck" for="selectIt">Volvo Ce</label>
+                                </span>
+                        </div>
+                        <div class="accordeonRight accordeon__link">
+                            1000+
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="accordeonLeft accordeon__link">
+                                <span>
+                                    <input type="checkbox" id="selectIt" class="selectInput">
+                                    <label class="labelCheck" for="selectIt">Mtu Detroit Diesel</label>
+                                </span>
+                        </div>
+                        <div class="accordeonRight accordeon__link">
+                            1000+
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog__item d-flex justify-content-between align-items-center">
+                    <div class="catalog__txt">Manufacturer</div>
+                    <div class="catalog__icon">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                    </div>
+                </div>
+                <div class="accordeon__hidden">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="accordeonLeft accordeon__link">
+                                <span>
+                                    <input type="checkbox" id="selectIt33" class="selectInput">
+                                    <label class="labelCheck" for="selectIt33">Genuine</label>
+                                </span>
+                        </div>
+                        <div class="accordeonRight accordeon__link">
+                            1000+
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog__item d-flex justify-content-between align-items-center">
+                    <div class="catalog__txt">Condition</div>
+                    <div class="catalog__icon">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                    </div>
+                </div>
+                <div class="accordeon__hidden">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="accordeonLeft accordeon__link">
+                                <span>
+                                    <input type="checkbox" id="selectIt34" class="selectInput">
+                                    <label class="labelCheck" for="selectIt34">New</label>
+                                </span>
+                        </div>
+                        <div class="accordeonRight accordeon__link">
+                            1000+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__products">
+                <h1 class="cataog__title">Results in Top Selling Brands</h1>
+                <div class="row justify-content-center align-items-center">
+                    @foreach($products as $product)
+                    <div class="categoryBlock">
+                        <a href="{{ route('products.show', $product->id) }}" class="productCard__link">
+                            <div class="product__card">
+                                <div class="productCard__header" style="display: none;">CENUINE</div>
+                                <div>
+                                    <img style="padding: 30px;" class="img-fluid productCard__img" src="{{ get_image_url_by_product_id($product->id) }}" alt="category">
+                                </div>
+                                <div class="productCard__num">{{ $product->name }}</div>
+                            </div>
+                            <div class="productCard__name">
+                                <p class="productCard__txt1">{{ @$product->brand->name }}</p>
+                                <p class="productCard__txt2">{{ @$product->category->name }}</p>
+                                <p class="productCard__price">Price on Request</p>
+                            </div>
+                        </a>
+                        <button class="categoryBtn">Add to Quote</button>
+                    </div>
+                    @endforeach
+
+                </div>
+                <div class="productBtns d-flex justify-content-between align-items-center">
+                    <a href="#" class="prevBtn text-center">Previous</a>
+                    <a href="#" class="nextBtn text-center">Next</a>
+                </div>
             </div>
         </div>
-
-        <hr class="soft"/>
-
-        <!-- <a href="/compair.html" class="btn btn-large pull-right">Compare Product</a> -->
-
-        <div class="pagination">
-            {{ @$products->withQueryString()->onEachSide(2)->links() }}
-        </div>
-
-
-        <br class="clr"/>
-    </div>
+    </section>
 @endsection

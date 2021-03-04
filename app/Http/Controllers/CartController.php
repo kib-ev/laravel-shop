@@ -16,7 +16,8 @@ class CartController extends Controller
         $this->cart = Cart::getFromSession();
     }
 
-    public function show() {
+    public function show()
+    {
         meta()->setTitleIfEmpty(__('ui.shopping_cart'));
         return view('public.pages.product_summary');
     }

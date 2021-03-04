@@ -96,6 +96,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
     return view('admin.index');
 });
 
+Route::get('/sync', [ProductController::class, 'syncProducts'])->name('products.sync');
+
 Route::fallback([PageController::class, 'show'])->name('pages.show');
 
 Auth::routes();
