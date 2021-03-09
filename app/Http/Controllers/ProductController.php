@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Brand;
+use App\Jobs\SyncProductsJob;
 use App\Models\Product;
-use App\Models\ProductCategory;
-use App\Models\SyncProduct;
 use App\Services\Parser\Sites\WebParserAgrofilterBy;
 use Illuminate\Http\Request;
 
@@ -13,37 +11,7 @@ class ProductController extends Controller
 {
     public function syncProducts()
     {
-//        $ids  = Product::select('id')->get();
-
-        $remoteProducts = SyncProduct::limit(10000)->get();
-
-        foreach ($remoteProducts as $remoteProduct) {
-            $product = Product::firstOrCreate([
-                'id' => $remoteProduct->id
-            ], [
-                'name' => $remoteProduct->name
-            ]);
-
-//            $product->name = $remoteProduct->name;
-
-            if ($remoteProduct->group->name) {
-                $remoteBrand = ProductCategory::firstOrCreate([
-                    'name' => $remoteProduct->group->type
-                ]);
-                $product->category_id = $remoteBrand->id;
-            }
-
-            if ($remoteProduct->brand->name) {
-                $brand = Brand::firstOrCreate([
-                    'name' => $remoteProduct->brand->name,
-                    'slug' => $remoteProduct->brand->slug,
-                ]);
-                $product->brand_id = $brand->id;
-            }
-
-            $product->update();
-        }
-
+        dd(Product::count());
     }
 
     public function index(Request $request)
