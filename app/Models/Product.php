@@ -11,7 +11,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $guarded = [];
     protected $metaTitle;
 
     public function category()
@@ -44,6 +44,8 @@ class Product extends Model
         if ($search) {
             return $query->where('name', 'like', '%' . $search . '%')
                 ->orWhere('description', 'like', '%' . $search . '%');
+        } else {
+            return $query;
         }
     }
 

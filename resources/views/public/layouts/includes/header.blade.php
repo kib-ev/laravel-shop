@@ -50,15 +50,15 @@
                 <span class="line"></span>
             </div>
             <a href="./" class="logo">
-                <img src="img/logo.png" alt="" class="img-fluid">
+                <img src="{{ asset('/img/logo.png') }}" alt="" class="img-fluid">
             </a>
-            <a href="#" class="shop__categories">Shop categories
-                <svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em"
-                     height="1em" fill="currentColor" aria-hidden="true">
-                    <path
-                        d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z">
-                    </path>
-                </svg>
+            <a href="{{ route('products.index') }}" class="shop__categories">{{ __('ui.catalog') }}
+{{--                <svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em"--}}
+{{--                     height="1em" fill="currentColor" aria-hidden="true">--}}
+{{--                    <path--}}
+{{--                        d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z">--}}
+{{--                    </path>--}}
+{{--                </svg>--}}
             </a>
         </div>
 
@@ -146,333 +146,333 @@
             </div>
         </div>
     </div>
-    <div class="hidden__menu">
-        <div class="drop__down">
-            <div class="dropdown__menu dropdown__menu222">
-                <a href="#" class="dropdown__link dropdown__link11">
-                    Top Selling Brands
-                </a>
-                <svg viewBox="64 64 896 896" focusable="false" class="dropdown__subBtn dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
-                </svg>
-            </div>
-            <div id="dropdown__sub" class="dropdown__sub dropdown__subExtra">
-                <div class="dropdown__sub__block">
-                    <div>
-                        <div class="dropdown__menu">
-                            <a href="#" class="dropdown__link">
-                                Construction & <br/>Industrial
-                            </a>
-                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
-                            </svg>
-                        </div>
-                        <div class="dropdown__sub__link">
-                            <a href="#" class="dropdown__link2">
-                                Caterpillar
-                            </a></br/>
-                            <a href="#" class="dropdown__link2">
-                                Komatsu
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Hitachi
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Volvo CE
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                JCB
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Bobcat
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="dropdown__menu">
-                            <a href="#" class="dropdown__link">
-                                Minning & Drilling
-                            </a>
-                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
-                            </svg>
-                        </div>
-                        <div class="dropdown__sub__link">
-                            <a href="#" class="dropdown__link2">
-                                Atlas Corco
-                            </a></br/>
-                            <a href="#" class="dropdown__link2">
-                                Sandvik
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Liebherr
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Terex
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Boart Longyear
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Gradall
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="dropdown__menu">
-                            <a href="#" class="dropdown__link">
-                                Agrycultureral & <br/>Forestry
-                            </a>
-                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
-                            </svg>
-                        </div>
-                        <div class="dropdown__sub__link">
-                            <a href="#" class="dropdown__link2">
-                                CNH
-                            </a></br/>
-                            <a href="#" class="dropdown__link2">
-                                John Deere
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Tigercat
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Buhler Versatile
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Agco
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Claas
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="dropdown__menu">
-                            <a href="#" class="dropdown__link">
-                                Gas & Oil<br/> Industry
-                            </a>
-                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
-                            </svg>
-                        </div>
-                        <div class="dropdown__sub__link">
-                            <a href="#" class="dropdown__link2">
-                                Waukesha
-                            </a></br/>
-                            <a href="#" class="dropdown__link2">
-                                JSON
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Dresser-Rand
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Generac
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Arrow
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="dropdown__menu">
-                            <a href="#" class="dropdown__link">
-                                Engines &<br/> Transmissions
-                            </a>
-                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
-                            </svg>
-                        </div>
-                        <div class="dropdown__sub__link">
-                            <a href="#" class="dropdown__link2">
-                                Cummins
-                            </a></br/>
-                            <a href="#" class="dropdown__link2">
-                                MTU
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Detroit diesel
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Kubota
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Perkins
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Allison
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="drop__down">
-            <div class="dropdown__menu dropdown__menu222">
-                <a href="#" class="dropdown__link dropdown__link22">
-                    Other Brands
-                </a>
-                <svg id="dropdown2" viewBox="64 64 896 896" focusable="false" class="dropdown__subBtn dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
-                </svg>
-            </div>
-            <div id="other__sub" class="dropdown__sub dropdown__subExtra">
-                <div class="dropdown__sub__block">
-                    <div>
-                        <div class="dropdown__menu">
-                            <a href="#" class="dropdown__link">
-                                Forklift Parts
-                            </a>
-                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
-                            </svg>
-                        </div>
-                        <div class="dropdown__sub__link">
-                            <a href="#" class="dropdown__link2">
-                                Manitou
-                            </a></br/>
-                            <a href="#" class="dropdown__link2">
-                                Yale
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Genie
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                JLG
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Doosan
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Top Selling Brands
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="dropdown__menu">
-                            <a href="#" class="dropdown__link">
-                                Crane Parts
-                            </a>
-                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
-                            </svg>
-                        </div>
-                        <div class="dropdown__sub__link">
-                            <a href="#" class="dropdown__link2">
-                                Kato
-                            </a></br/>
-                            <a href="#" class="dropdown__link2">
-                                Tadano
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Grove
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                LINK-BELT
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Broderson
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Manitowok
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="dropdown__menu">
-                            <a href="#" class="dropdown__link">
-                                Marine Parts
-                            </a>
-                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
-                            </svg>
-                        </div>
-                        <div class="dropdown__sub__link">
-                            <a href="#" class="dropdown__link2">
-                                Volvo Penta
-                            </a></br/>
-                            <a href="#" class="dropdown__link2">
-                                Yanmar
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                YAMAHA
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Mercury
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                OMC
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Johnsone Evinrude
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="dropdown__menu">
-                            <a href="#" class="dropdown__link">
-                                Truck Parts
-                            </a>
-                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
-                            </svg>
-                        </div>
-                        <div class="dropdown__sub__link">
-                            <a href="#" class="dropdown__link2">
-                                Navistar<br/>International
-                            </a></br/>
-                            <a href="#" class="dropdown__link2">
-                                Freightliner
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Isuzu Trucks
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Mack
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Kenworth
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Volvo Trucks
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="dropdown__menu">
-                            <a href="#" class="dropdown__link">
-                                More...
-                            </a>
-                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
-                            </svg>
-                        </div>
-                        <div class="dropdown__sub__link">
-                            <a href="#" class="dropdown__link2">
-                                Denso
-                            </a></br/>
-                            <a href="#" class="dropdown__link2">
-                                Delphy
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Bosch
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                DEUTZ
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                NEXIQ
-                            </a><br/>
-                            <a href="#" class="dropdown__link2">
-                                Linkcoln Industrial
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="drop__down">
-            <div class="dropdown__menu">
-                <a href="#" class="dropdown__link">
-                    Aftermarket Parts
-                </a>
-            </div>
-        </div>
-        <div class="drop__down">
-            <div class="dropdown__menu">
-                <a href="#" class="dropdown__link">
-                    Special offers
-                </a>
-            </div>
-        </div>
-    </div>
+{{--    <div class="hidden__menu">--}}
+{{--        <div class="drop__down">--}}
+{{--            <div class="dropdown__menu dropdown__menu222">--}}
+{{--                <a href="#" class="dropdown__link dropdown__link11">--}}
+{{--                    Top Selling Brands--}}
+{{--                </a>--}}
+{{--                <svg viewBox="64 64 896 896" focusable="false" class="dropdown__subBtn dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>--}}
+{{--                </svg>--}}
+{{--            </div>--}}
+{{--            <div id="dropdown__sub" class="dropdown__sub dropdown__subExtra">--}}
+{{--                <div class="dropdown__sub__block">--}}
+{{--                    <div>--}}
+{{--                        <div class="dropdown__menu">--}}
+{{--                            <a href="#" class="dropdown__link">--}}
+{{--                                Construction & <br/>Industrial--}}
+{{--                            </a>--}}
+{{--                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>--}}
+{{--                            </svg>--}}
+{{--                        </div>--}}
+{{--                        <div class="dropdown__sub__link">--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Caterpillar--}}
+{{--                            </a></br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Komatsu--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Hitachi--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Volvo CE--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                JCB--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Bobcat--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div>--}}
+{{--                        <div class="dropdown__menu">--}}
+{{--                            <a href="#" class="dropdown__link">--}}
+{{--                                Minning & Drilling--}}
+{{--                            </a>--}}
+{{--                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>--}}
+{{--                            </svg>--}}
+{{--                        </div>--}}
+{{--                        <div class="dropdown__sub__link">--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Atlas Corco--}}
+{{--                            </a></br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Sandvik--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Liebherr--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Terex--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Boart Longyear--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Gradall--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div>--}}
+{{--                        <div class="dropdown__menu">--}}
+{{--                            <a href="#" class="dropdown__link">--}}
+{{--                                Agrycultureral & <br/>Forestry--}}
+{{--                            </a>--}}
+{{--                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>--}}
+{{--                            </svg>--}}
+{{--                        </div>--}}
+{{--                        <div class="dropdown__sub__link">--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                CNH--}}
+{{--                            </a></br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                John Deere--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Tigercat--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Buhler Versatile--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Agco--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Claas--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div>--}}
+{{--                        <div class="dropdown__menu">--}}
+{{--                            <a href="#" class="dropdown__link">--}}
+{{--                                Gas & Oil<br/> Industry--}}
+{{--                            </a>--}}
+{{--                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>--}}
+{{--                            </svg>--}}
+{{--                        </div>--}}
+{{--                        <div class="dropdown__sub__link">--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Waukesha--}}
+{{--                            </a></br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                JSON--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Dresser-Rand--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Generac--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Arrow--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div>--}}
+{{--                        <div class="dropdown__menu">--}}
+{{--                            <a href="#" class="dropdown__link">--}}
+{{--                                Engines &<br/> Transmissions--}}
+{{--                            </a>--}}
+{{--                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>--}}
+{{--                            </svg>--}}
+{{--                        </div>--}}
+{{--                        <div class="dropdown__sub__link">--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Cummins--}}
+{{--                            </a></br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                MTU--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Detroit diesel--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Kubota--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Perkins--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Allison--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="drop__down">--}}
+{{--            <div class="dropdown__menu dropdown__menu222">--}}
+{{--                <a href="#" class="dropdown__link dropdown__link22">--}}
+{{--                    Other Brands--}}
+{{--                </a>--}}
+{{--                <svg id="dropdown2" viewBox="64 64 896 896" focusable="false" class="dropdown__subBtn dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>--}}
+{{--                </svg>--}}
+{{--            </div>--}}
+{{--            <div id="other__sub" class="dropdown__sub dropdown__subExtra">--}}
+{{--                <div class="dropdown__sub__block">--}}
+{{--                    <div>--}}
+{{--                        <div class="dropdown__menu">--}}
+{{--                            <a href="#" class="dropdown__link">--}}
+{{--                                Forklift Parts--}}
+{{--                            </a>--}}
+{{--                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>--}}
+{{--                            </svg>--}}
+{{--                        </div>--}}
+{{--                        <div class="dropdown__sub__link">--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Manitou--}}
+{{--                            </a></br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Yale--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Genie--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                JLG--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Doosan--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Top Selling Brands--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div>--}}
+{{--                        <div class="dropdown__menu">--}}
+{{--                            <a href="#" class="dropdown__link">--}}
+{{--                                Crane Parts--}}
+{{--                            </a>--}}
+{{--                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>--}}
+{{--                            </svg>--}}
+{{--                        </div>--}}
+{{--                        <div class="dropdown__sub__link">--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Kato--}}
+{{--                            </a></br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Tadano--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Grove--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                LINK-BELT--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Broderson--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Manitowok--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div>--}}
+{{--                        <div class="dropdown__menu">--}}
+{{--                            <a href="#" class="dropdown__link">--}}
+{{--                                Marine Parts--}}
+{{--                            </a>--}}
+{{--                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>--}}
+{{--                            </svg>--}}
+{{--                        </div>--}}
+{{--                        <div class="dropdown__sub__link">--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Volvo Penta--}}
+{{--                            </a></br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Yanmar--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                YAMAHA--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Mercury--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                OMC--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Johnsone Evinrude--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div>--}}
+{{--                        <div class="dropdown__menu">--}}
+{{--                            <a href="#" class="dropdown__link">--}}
+{{--                                Truck Parts--}}
+{{--                            </a>--}}
+{{--                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>--}}
+{{--                            </svg>--}}
+{{--                        </div>--}}
+{{--                        <div class="dropdown__sub__link">--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Navistar<br/>International--}}
+{{--                            </a></br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Freightliner--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Isuzu Trucks--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Mack--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Kenworth--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Volvo Trucks--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div>--}}
+{{--                        <div class="dropdown__menu">--}}
+{{--                            <a href="#" class="dropdown__link">--}}
+{{--                                More...--}}
+{{--                            </a>--}}
+{{--                            <svg viewBox="64 64 896 896" focusable="false" class="vektor__down dropdown__arrow" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>--}}
+{{--                            </svg>--}}
+{{--                        </div>--}}
+{{--                        <div class="dropdown__sub__link">--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Denso--}}
+{{--                            </a></br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Delphy--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Bosch--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                DEUTZ--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                NEXIQ--}}
+{{--                            </a><br/>--}}
+{{--                            <a href="#" class="dropdown__link2">--}}
+{{--                                Linkcoln Industrial--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="drop__down">--}}
+{{--            <div class="dropdown__menu">--}}
+{{--                <a href="#" class="dropdown__link">--}}
+{{--                    Aftermarket Parts--}}
+{{--                </a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="drop__down">--}}
+{{--            <div class="dropdown__menu">--}}
+{{--                <a href="#" class="dropdown__link">--}}
+{{--                    Special offers--}}
+{{--                </a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 </header>

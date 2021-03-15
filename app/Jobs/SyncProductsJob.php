@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\RemoteProduct;
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -17,14 +18,16 @@ class SyncProductsJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    protected $syncCount;
+
     /**
      * Create a new job instance.
      *
-     * @return void
+     * @param int $syncCount
      */
-    public function __construct()
+    public function __construct($syncCount = 100)
     {
-        //
+        $this->syncCount = $syncCount;
     }
 
     /**
@@ -44,14 +47,20 @@ class SyncProductsJob implements ShouldQueue
 
         if ($remoteProductsCount > $productsCount) {
 
-            $ids = Product::select('id')->get()->pluck('id');
+            $lastProduct = Product::orderBy('id', 'desc')->first();
+            $lastId = $lastProduct ? $lastProduct->id : 0;
 
-            $remoteProducts = RemoteProduct::whereNotIn('id', $ids)
-                ->limit(500)
+            $remoteProducts = RemoteProduct::where('id', '>', $lastId)
+                ->limit($this->syncCount)
                 ->get();
 
             $this->syncProducts($remoteProducts);
         }
+
+//        $updatedRemoteProducts = RemoteProduct::whereDate('updated_at', '=', Carbon::today()->toDateString())->get();
+//        if ($updatedRemoteProducts->count()) {
+//            $this->syncProducts($updatedRemoteProducts);
+//        }
     }
 
     protected function syncProducts($remoteProducts)

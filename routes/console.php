@@ -19,5 +19,5 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 
 Artisan::command('sync-products-command', function () {
-    dispatch_now(new \App\Jobs\SyncProductsJob());
+    dispatch_now(new \App\Jobs\SyncProductsJob(1000));
 });

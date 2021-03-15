@@ -19,7 +19,7 @@ class ProductController extends Controller
         $discounted = (boolean)$request->get('only_discounted');
         $search = $request->get('search');
 
-        $products = Product::discounted($discounted)
+        $products = Product::with(['category', 'brand'])->discounted($discounted)
             ->search($search)
             ->paginate(config('site.products.per_page'));
 
@@ -47,6 +47,8 @@ class ProductController extends Controller
             $content = $wp->getPageContent('/filter/' . $product->id);
 
         }
+
+        $product->_remote = get_remote_product_data($product->id);
 
         meta()->setTitleIfEmpty($product->name);
 

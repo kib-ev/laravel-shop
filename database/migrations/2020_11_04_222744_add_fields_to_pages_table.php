@@ -31,10 +31,10 @@ class AddFieldsToPagesTable extends Migration
     public function down()
     {
         Schema::table('pages', function (Blueprint $table) {
-            $table->drop('content');
-            $table->drop('name');
-            $table->drop('slug');
-            $table->drop('lang');
+            $table->dropColumn('content');
+            $table->dropColumn('name');
+            $table->dropColumn('slug');
+            $table->dropColumn('lang');
         });
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Storage;
 
-class SyncBrand extends Model
+class RemoteBrand extends Model
 {
     use HasFactory;
 

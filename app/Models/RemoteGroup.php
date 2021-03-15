@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Storage;
 
-class SyncGroup extends Model
+class RemoteGroup extends Model
 {
     use HasFactory;
 

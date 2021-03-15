@@ -62,11 +62,19 @@ function page_element($name)
 
 function get_image_url_by_product_id($productId)
 {
-    $url = 'https://agrofilter.by/filter/'.$productId;
-    $content = file_get_contents($url);
-    $html = Pharse::str_get_dom($content);
+    $data = get_remote_product_data($productId);
+    return $data->image;
+}
 
-    $imageDataBase64 = $html('.product-image', 0)->getAttribute('src');
+function get_remote_product_data($productId)
+{
+    $url = 'https://agrofilter.by/api/products/'. $productId;
 
-    return $imageDataBase64;
+    try {
+        $json = json_decode(file_get_contents($url), false);
+    } catch (Exception $exception) {
+        $json = [];
+    }
+
+    return $json;
 }

@@ -12,5 +12,4 @@
         </a>
     </div>
 
-    {!! page_element('sidebar-menu') !!}
 </div>

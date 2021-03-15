@@ -19,12 +19,12 @@ class RemoteProduct extends Model
 
     public function group()
     {
-        return $this->belongsTo(SyncGroup::class, 'group_name', 'name');
+        return $this->belongsTo(RemoteGroup::class, 'group_name', 'name');
     }
 
     public function brand()
     {
-        return $this->belongsTo(SyncBrand::class, 'brand_id');
+        return $this->belongsTo(RemoteBrand::class, 'brand_id');
     }
 
     public function category()

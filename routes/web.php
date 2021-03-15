@@ -32,7 +32,7 @@ Route::get('/', [PageController::class, 'index'])->name('home');
 
 Route::get('products', function () {
     return view('public.pages.products');
-});
+})->name('products.index');
 
 Route::get('product_details.html', function () {
     return view('public.pages.product_details');
@@ -44,6 +44,10 @@ Route::get('forgetpass.html', function () {
 
 Route::get('compair.html', function () {
     return view('public.pages.compare');
+});
+
+Route::get('contact', function () {
+    return view('public.pages.contact');
 });
 
 // temp
