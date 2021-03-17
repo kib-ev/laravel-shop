@@ -74,6 +74,9 @@ return [
     'article' => 'Article',
     'brand' => 'Brand',
     'catalog' => 'Catalog',
+    'submit' => 'Submit',
+    'message' => 'Message',
+    'checkout' => 'Checkout',
     'cart' => [
         'product' => 'Product',
         'products_count' => ':count item|:count items|:count items',

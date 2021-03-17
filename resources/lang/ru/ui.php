@@ -74,6 +74,9 @@ return [
     'article' => 'Артикул',
     'brand' => 'Бренд',
     'catalog' => 'Каталог',
+    'submit' => 'Отправить',
+    'message' => 'Сообщение',
+    'checkout' => 'Оформить заказ',
     'cart' => [
         'product' => 'Товар',
         'products_count' => ':count товар|:count товара|:count товаров',

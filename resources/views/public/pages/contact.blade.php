@@ -12,12 +12,12 @@
                     <div class="d-flex justify-content-between contact__container">
                         <div class="contact__input">
                             <form id="contact__form" action="">
-                                <h1 class="contacts__title">Contact us</h1>
-                                <input required type="text" oninvalid="setCustomValidity('Fill in all the fields')" placeholder="Name" class="search__input" value="">
-                                <input required type="email" oninvalid="setCustomValidity('Fill in all the fields')" placeholder="Email" class="search__input" value="">
-                                <input required type="tel" oninvalid="setCustomValidity('Fill in all the fields')" placeholder="Phone" class="search__input" value="">
-                                <textarea required name="" oninvalid="setCustomValidity('Fill in all the fields')" placeholder="Message" id="" class="search__input contactTextarea" cols="30"></textarea>
-                                <button class="sendFormBtn">Submit</button>
+                                <h1 class="contacts__title">{{ __('ui.contacts') }}</h1>
+                                <input required type="text" oninvalid="setCustomValidity('Fill in all the fields')" placeholder="{{ __('ui.name') }}" class="search__input" value="">
+                                <input required type="email" oninvalid="setCustomValidity('Fill in all the fields')" placeholder="{{ __('ui.email') }}" class="search__input" value="">
+                                <input required type="tel" oninvalid="setCustomValidity('Fill in all the fields')" placeholder="{{ __('ui.phone') }}" class="search__input" value="">
+                                <textarea required name="" oninvalid="setCustomValidity('Fill in all the fields')" placeholder="{{ __('ui.message') }}" id="" class="search__input contactTextarea" cols="30"></textarea>
+                                <button class="sendFormBtn">{{ __('ui.submit') }}</button>
                             </form>
                         </div>
                         <div class="contact__address">
@@ -32,7 +32,9 @@
                                             </svg>
                                         </span>
                                     <div>
-                                        <div class="contactBold">PeriParts</div>155 48th Street<br />Brooklyn, NY, 11232
+                                        <div class="contactBold">ООО "Евродеталь"</div>
+                                        РФ, г. Смоленск, <br />ул. НовоМосковская, 2/8, офис 218/1
+
                                     </div>
                                 </div><br/>
                                 <div class="d-flex contact__link contact__link2">
@@ -44,7 +46,7 @@
                                                 </path>
                                             </svg>
                                         </span>
-                                    info@peri-parts.com
+                                    info@agrofilter.ru
                                 </div>
                                 <div class="d-flex contact__link contact__link2">
                                         <span>
@@ -56,7 +58,7 @@
                                                 </path>
                                             </svg>
                                         </span>
-                                    +1 (718) 717-2524
+                                    +7 (499) 490-79-56
                                 </div>
                             </div>
                         </div>
@@ -64,9 +66,7 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="maps">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.045089972347!2d-74.01866698509755!3d40.65093644928695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25ab075b5b629%3A0x7b373eb2224c3cb1!2s155%2048th%20St%2C%20Brooklyn%2C%20NY%2011232%2C%20USA!5e0!3m2!1sen!2skg!4v1613769911630!5m2!1sen!2skg"
-                                frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
-                        </iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4600.396246138353!2d32.055115095384586!3d54.794061397635396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46cef7f3cf9f4f95%3A0xcbe3b8aba215d8fe!2z0J3QvtCy0L4t0JzQvtGB0LrQvtCy0YHQutCw0Y8g0YPQuy4sIDIvOCwg0L7RhNC40YEgMjE4LzEsINCh0LzQvtC70LXQvdGB0LosINCh0LzQvtC70LXQvdGB0LrQsNGPINC-0LHQuy4sINCg0L7RgdGB0LjRjywgMjE0MDAw!5e0!3m2!1sru!2sby!4v1615813080395!5m2!1sru!2sby" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>

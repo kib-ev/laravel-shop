@@ -8,15 +8,23 @@
     <section id="product">
 
         <div class="product__header d-flex justify-content-start align-items-center">
-            <a href="/" class="product__links">Home</a>
+            <a href="/" class="product__links">{{ __('ui.home') }}</a>
             <span>/</span>
-            <a href="#" class="product__links">Top Selling Brands</a>
+            <a href="{{ route('products.index') }}" class="product__links">Каталог фильтров</a>
             <span>/</span>
-            <a href="#" class="product__links">Engines & Transmissions</a>
+            <a href="#" class="product__links">
+                @if($product->category->name == 'OIL FILTER')
+                    Маслянные фильтры
+                @else
+                    Другие
+                @endif
+            </a>
             <span>/</span>
-            <a href="#" class="product__links">Allison</a>
+            <a href="#" class="product__links">
+                {{ $product->brand->name }}
+            </a>
             <span>/</span>
-            <p class="product__links">103319 ALLISON ORIGINAL WASHER- LOCK 1/4</p>
+            <p class="product__links">{{ $product->name }}</p>
         </div>
 
         <div class="col-lg-11 m-auto">
@@ -50,7 +58,7 @@
                             <div class="product__price">
                                 <strong>{{ __('ui.price') }}: </strong>
                                 <span style="font-size: 1.2em;">
-                                    @if($product->_remote->price)
+                                    @if($product->_remote->price != '0.00')
                                         {{ $product->_remote->price }} {{ $product->_remote->currency }}
                                     @else
                                         {{ __('ui.on_request') }}
@@ -91,15 +99,25 @@
                                 <div class="productBlock productBlock2">
                                     <div class="active__txt active__txt2 d-flex">
                                         <strong>{{ __('ui.article') }}:</strong>
-                                        <span>103319</span>
+                                        <span>{{ $product->name }}</span>
                                     </div><br/>
                                     <div class="active__txt active__txt2 d-flex">
                                         <strong>{{ __('ui.weight') }}:</strong>
-                                        <span>{{ $remoteProduct->group->weight }}</span>
+
+                                        @if($product->_remote->weight != '0.000')
+                                            <span>{{ $remoteProduct->group->weight }}</span>
+                                        @else
+                                            <span>...</span>
+                                        @endif
+
                                     </div><br/>
                                     <div class="active__txt active__txt2 d-flex">
                                         <strong>{{ __('ui.volume') }}:</strong>
-                                        <span>{{ $product->_remote->volume }}</span>
+                                        @if($product->_remote->volume != '0.000000')
+                                            <span>{{ $product->_remote->volume }}</span>
+                                        @else
+                                            <span>...</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="product__block">
@@ -109,7 +127,15 @@
                                     </div><br/>
                                     <div class="active__txt active__txt2 d-flex">
                                         <strong>{{ __('ui.country') }}:</strong>
-                                        <span>{{ $product->_remote->brand_country_code }}</span>
+
+                                        @if($product->_remote->brand_country_code)
+                                            <span>
+                                                <span class="flag-icon flag-icon-{{ strtolower($product->_remote->brand_country_code) }}"></span>
+                                                {{ $product->_remote->brand_country_code }}
+                                            </span>
+                                        @else
+                                            <span>...</span>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -142,19 +168,22 @@
             </div>
             <div class="product__cont product__info">
                 <div class="productInfo__header d-flex justify-content-start align-items-center">
-                    <div class="info__txt info__txt1 activeInfo">Description</div>
-                    <div class="info__txt info__txt2">Application</div>
-                    <div class="info__txt info__txt3">Reviews</div>
+                    <div class="info__txt info__txt1 activeInfo">Опиание</div>
+                    <div class="info__txt info__txt2">Применяемость</div>
+
                 </div>
                 <div class="info__content">
                     <p class="desc__content desc__content1 activeInfo">
-                        If your engine or transmission needs a replacement part, PERIPARTS is your place. We carry engines, transmissions and power equipment parts including flywheels, cylinder blocks, camshafts, clutches, overhaul rebuild kits, oil pans, injectors, nozzles, spark plugs, bearing kits, gearboxes, air filters, mower blades, oil filters, etc.<br/><br/>
-                        Engine is the power source of any machine. Engine is designed to convert fuel energy into useful mechanical motion, and it’s power is the maximum power that an engine can put out. It can be expressed in kilowatts or horsepower. The power output depends on the size and design of the engine, but also on the speed at which it is running and the load or torque. Our diverse engine lineup and full range of Cummins, Deutz, MTU & Detroit Diesel, Kubota and Perkins replacement parts will cover all your repair needs.<br/><br/>
-                        The mechanism that transmits the power developed by the engine of an automobile to the driving wheels is called the power transmission system. The transmission system in the machine helps to transmit mechanical power derived from the engine to give out the kinetic energy to the wheels. It is an interconnected chained system of gears, shafts, and other electrical parts that form a bridge to transfer power and energy. PERIPARTS has been a leader in the distribution of high quality aftermarket and genuine parts for Allison, David Brown Santasalo and ZF transmissions. We have the most complete line of transmission parts and transmission rebuild kits.<br/><br/>
-                        Contact us today and save on your parts order for all maintenance and service for your engines and transmissions for the industrial, agricultural, power generation, and marine markets.
+                        @if($product->category->description)
+                            {!! $product->category->description !!}
+                        @else
+                            Нет информации
+                        @endif
                     </p>
-                    <p class="desc__content desc__content2">No data</p>
-                    <p class="desc__content desc__content3">No reviews</p>
+                    <p class="desc__content desc__content2">
+                        Нет информации
+                    </p>
+
                 </div>
             </div>
 

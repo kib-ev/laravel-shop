@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="shortcut icon" href="{{ asset('/img/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('/img/favicon.png?2') }}">
     <link rel="stylesheet" href="{{ asset('/libs/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/libs/slick/slick.css/slick-theme.css') }}">
     <link rel="stylesheet" href="{{ asset('/libs/slick/slick.css/slick.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
     <link rel="stylesheet/less" type="text/css" href="{{ asset('/less/style.less') }}">
     <script src="{{ asset('/libs/less.js/4.1.1/less.js') }}"></script>
     <title>PERIPARTS</title>

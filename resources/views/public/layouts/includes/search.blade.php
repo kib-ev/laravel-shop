@@ -3,7 +3,7 @@
     <form method="get" action="{{ route('products.index') }}">
 
 
-        <input class="search__header" name="search" type="text" placeholder="Search by a part number or keyword...">
+        <input class="search__header" name="search" type="text" placeholder="Поиск фильтра по номеру" autocomplete="off" value="{{ request('search') ?: '' }}">
 
             <span>
                 <button type="submit" id="submitButton" style="background: none; border: none; width: 40px; height: 40px;">

@@ -63,7 +63,11 @@ function page_element($name)
 function get_image_url_by_product_id($productId)
 {
     $data = get_remote_product_data($productId);
-    return $data->image;
+    if ($data) {
+        return $data->image;
+    } else {
+        return 'https://agrofilter.by/img/no-image.jpg';
+    }
 }
 
 function get_remote_product_data($productId)
@@ -74,6 +78,15 @@ function get_remote_product_data($productId)
         $json = json_decode(file_get_contents($url), false);
     } catch (Exception $exception) {
         $json = [];
+    }
+
+    if ($json->status == 'not_found') {
+        $product = \App\Models\Product::find($productId);
+        if ($product) {
+           $product->delete();
+        }
+
+        return null;
     }
 
     return $json;

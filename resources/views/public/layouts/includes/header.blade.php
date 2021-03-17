@@ -35,10 +35,10 @@
             </div>
             <div class="search--extra txt col-lg-4 text-center">Бесплатная доставка при заказе от 50 000 рублей!</div>
             <ul class="search--extra col-lg-4 d-flex justify-content-end align-items-center">
-                <li><a href="#" class="nav__menu">About us</a></li>
-                <li><a href="#" class="nav__menu">Contact us</a></li>
-                <li><a href="#" class="nav__menu">Customer service</a></li>
-                <li><a href="#" class="nav__menu">Payment</a></li>
+{{--                <li><a href="#" class="nav__menu">About us</a></li>--}}
+                <li><a href="/contact" class="nav__menu">{{ __('ui.contacts') }}</a></li>
+{{--                <li><a href="#" class="nav__menu">Customer service</a></li>--}}
+{{--                <li><a href="#" class="nav__menu">Payment</a></li>--}}
             </ul>
         </div>
     </div>
@@ -52,7 +52,7 @@
             <a href="./" class="logo">
                 <img src="{{ asset('/img/logo.png') }}" alt="" class="img-fluid">
             </a>
-            <a href="{{ route('products.index') }}" class="shop__categories">{{ __('ui.catalog') }}
+            <a href="{{ route('products.index') }}" class="shop__categories">Каталог фильтров
 {{--                <svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-down" width="1em"--}}
 {{--                     height="1em" fill="currentColor" aria-hidden="true">--}}
 {{--                    <path--}}
@@ -101,13 +101,13 @@
                             <span>{{ cart()->products->count() }}</span>
                         @endif
                         <form action="/cart" method="get">
-                            <button type="submit" class="header__btn">Quote</button>
+                            <button type="submit" class="header__btn">{{ __('ui.shopping_cart') }}</button>
                         </form>
 
                         @if(cart()->isNotEmpty())
                             <div class="korzina__container">
                                 <div class="korzina__modal">
-                                    <h4 class="korzina__title">Recently added items</h4>
+                                    <h4 class="korzina__title">{{ __('ui.cart.products_count', ['count' => cart()->products->count()]) }}</h4>
 
                                     @foreach(cart()->products as $cartProduct)
                                     <div class="product__info d-flex justify-content-between align-items-center">
@@ -133,7 +133,7 @@
 
                                     <div class="goto__btn">
                                         <form action="/cart" method="get">
-                                            <button type="submit" class="go__to__quote">Go to Quote</button>
+                                            <button type="submit" class="go__to__quote">{{ __('ui.checkout') }}</button>
                                         </form>
                                     </div>
                                 </div>

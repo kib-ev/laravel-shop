@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    $('a[href="#"]').on('click', function (e) {
+        e.preventDefault();
+    });
+
 // Slider:
     $("#content").slick({
         infinite: true,
@@ -20,7 +24,7 @@ $(document).ready(function() {
         $('.hidden__menu').css('display', 'none');
         $('.hidden__menu').toggleClass('hiddenActive')
     });
-    
+
     $('.dropdown__sub').hover(function() {
         $(this).css('display', 'block');
     }, function() {
@@ -35,7 +39,7 @@ $(document).ready(function() {
             $(this).next().css('display', 'none');
         });
     }
- 
+
 // Click burger menu:
     $('.burger__menu').click(function() {
         $('.hidden__menu').toggleClass('activeClass');
@@ -84,7 +88,7 @@ $(document).ready(function() {
     }, function() {
         $('.korzina__container').removeClass('korzina__modal__show');
     });
-    
+
     $('.korzina').hover(function() {
         $('.korzina__container').addClass('korzina__modal__show');
     }, function() {
@@ -106,7 +110,7 @@ $(document).ready(function() {
         nextArrow: '<div class="testArrows__right"><svg viewBox="64 64 896 896" focusable="false" class="right__test" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></div>',
     });
 
-// Страница "pay.html" 
+// Страница "pay.html"
     $('.card__block').hover(function() {
         $(this).parent().css('border-bottom', '3px solid #ffa235');
     }, function() {

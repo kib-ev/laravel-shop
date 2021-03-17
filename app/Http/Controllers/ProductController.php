@@ -16,12 +16,24 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        $discounted = (boolean)$request->get('only_discounted');
+        $discounted = (boolean) $request->get('only_discounted');
         $search = $request->get('search');
 
-        $products = Product::with(['category', 'brand'])->discounted($discounted)
-            ->search($search)
-            ->paginate(config('site.products.per_page'));
+        $products = Product::with(['category', 'brand']);
+
+        if ($discounted) {
+            $products = $products->discounted($discounted);
+        }
+
+        if ($search) {
+            $products = $products->search($search);
+        }
+
+        if(!$search && !$discounted) {
+            $products = $products->inRandomOrder();
+        }
+
+        $products = $products->paginate(config('site.products.per_page'));
 
         meta()->update([
             'title' => __('ui.products'),
