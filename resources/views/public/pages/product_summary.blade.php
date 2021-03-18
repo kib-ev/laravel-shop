@@ -24,28 +24,28 @@
         <div class="col-lg-9 m-auto">
             <div class="quote__container">
                 <h1 class="quote__title">Quote Request</h1>
-                <input id="choose__file" type="file" style="display: none;">
-                <label for="choose__file">
-                    <div class="upload__block">
-                        <div class="ubload__file text-center">
-                            <div class="d-flex justify-content-center align-items-center">
-                                <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="file-add" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0 0 42 42h216v494zM544 472c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v108H372c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h108v108c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V644h108c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V472z"></path>
-                                </svg>
-                                <strong>Click or drag file to this area to upload</strong>
-                            </div>
-                            <span>Supported formats: CSV, TSV, TXT</span>
-                        </div>
-                        <a href="javascript:void(0)" class="file__format">
-                            <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="info-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 336a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"></path>
-                            </svg>
-                            <span>File format</span>
-                        </a>
-                    </div>
-                </label>
-                <div class="select__all d-flex justify-content-start align-items-center">
-                    <input type="checkbox" id="selectAll" class="selectInput">
-                    <label class="labelCheck" for="selectAll">Select all</label>
-                </div>
+{{--                <input id="choose__file" type="file" style="display: none;">--}}
+{{--                <label for="choose__file" >--}}
+{{--                    <div class="upload__block">--}}
+{{--                        <div class="ubload__file text-center">--}}
+{{--                            <div class="d-flex justify-content-center align-items-center">--}}
+{{--                                <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="file-add" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0 0 42 42h216v494zM544 472c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v108H372c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h108v108c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V644h108c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V472z"></path>--}}
+{{--                                </svg>--}}
+{{--                                <strong>Click or drag file to this area to upload</strong>--}}
+{{--                            </div>--}}
+{{--                            <span>Supported formats: CSV, TSV, TXT</span>--}}
+{{--                        </div>--}}
+{{--                        <a href="javascript:void(0)" class="file__format">--}}
+{{--                            <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="info-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 336a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"></path>--}}
+{{--                            </svg>--}}
+{{--                            <span>File format</span>--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
+{{--                </label>--}}
+{{--                <div class="select__all d-flex justify-content-start align-items-center">--}}
+{{--                    <input type="checkbox" id="selectAll" class="selectInput">--}}
+{{--                    <label class="labelCheck" for="selectAll">Select all</label>--}}
+{{--                </div>--}}
                 <div>
                     <ul class="add__product">
                         @foreach(cart()->products as $product)
@@ -53,29 +53,28 @@
                             <div class="product__field__item d-flex justify-content-start align-items-center">
                                 <input type="checkbox" id="selectAll2" class="selectInput">
                                 <label class="labelCheck" for="selectAll2"></label>
-                                <img src="img/placeholder_category.webp" class="img-fluid product__field__img" alt="">
-                                <input type="text" placeholder="Part number" class="productInput" value="{{ $product->name }} {{ @$product->brand->name }}" disabled>
+                                <img src="{{ $product->remote->image }}" class="img-fluid product__field__img" alt="" style="max-width: 50px; max-height: 50px;">
+                                <input type="text" placeholder="Part number" class="productInput" value="{{ $product->name }} " disabled>
                                 <span class="quote__x">&times;</span>
                                 <input type="number" placeholder="1" class="productInput productInput__num" min="1" value="{{ $product->pivot->count }}">
                             </div>
                             <div class="product__field__item d-flex justify-content-start align-items-center">
-                                <select class="productInput productInput_select" name="" id="">
-                                    <option class="productInput" value="">ANY</option>
-                                    <option class="productInput" value="">GENUINE / OEM</option>
+                                <select class="productInput productInput_select" name="" id="" disabled>
+                                    <option class="productInput" value="">{{ @$product->category->name }}</option>
                                 </select>
-                                <select class="productInput productInput_select" name="" id="">
-                                    <option value="">Select Brand</option>
-                                    <option value="">AGCO</option>
-                                    <option value="">AJAX</option>
-                                    <option value="">ALLIANT POWER</option>
-                                    <option value="">ALLISON</option>
-                                    <option value="">ARROW ENGINE</option>
-                                    <option value="">BENDIX</option>
-                                    <option value="">BOART LONGYEAR</option>
-                                    <option value="">BOBCAT</option>
-                                    <option value="">BOSCH</option>
-                                    <option value="">BOSCH PEXROTH</option>
-                                    <option value="">BRODERSON BMC</option>
+                                <select class="productInput productInput_select" name="" id="" disabled>
+                                    <option value="">{{ @$product->brand->name }}</option>
+{{--                                    <option value="">AGCO</option>--}}
+{{--                                    <option value="">AJAX</option>--}}
+{{--                                    <option value="">ALLIANT POWER</option>--}}
+{{--                                    <option value="">ALLISON</option>--}}
+{{--                                    <option value="">ARROW ENGINE</option>--}}
+{{--                                    <option value="">BENDIX</option>--}}
+{{--                                    <option value="">BOART LONGYEAR</option>--}}
+{{--                                    <option value="">BOBCAT</option>--}}
+{{--                                    <option value="">BOSCH</option>--}}
+{{--                                    <option value="">BOSCH PEXROTH</option>--}}
+{{--                                    <option value="">BRODERSON BMC</option>--}}
                                 </select>
                                 <span class="delete__product">
                                         <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="delete" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"></path>

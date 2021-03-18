@@ -60,16 +60,6 @@ function page_element($name)
     return $element;
 }
 
-function get_image_url_by_product_id($productId)
-{
-    $data = get_remote_product_data($productId);
-    if ($data) {
-        return $data->image;
-    } else {
-        return 'https://agrofilter.by/img/no-image.jpg';
-    }
-}
-
 function get_remote_product_data($productId)
 {
     $url = 'https://agrofilter.by/api/products/'. $productId;

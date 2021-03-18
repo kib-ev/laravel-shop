@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Pivots\GroupProduct;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use Storage;
 
 class Product extends Model
@@ -41,9 +42,13 @@ class Product extends Model
 
     public function scopeSearch($query, $search = null)
     {
+        $search = trim($search);
+        $search = str_replace([' ', '.', ',', '-'], '', $search);
+
         if ($search) {
-            return $query->where('name', 'like', '%' . $search . '%')
-                ->orWhere('description', 'like', '%' . $search . '%');
+            return $query->where('search', 'like', '%' . $search . '%');
+//            return $query->where('name', 'like', '%' . $search . '%')
+//                ->orWhere('description', 'like', '%' . $search . '%');
         } else {
             return $query;
         }
@@ -83,6 +88,13 @@ class Product extends Model
         $this->update();
 
         return $cleanDescription;
+    }
+
+    public function getRemoteAttribute()
+    {
+        return Cache::remember('remote_product_'.$this->id, 2, function () {
+            return get_remote_product_data($this->id);
+        });
     }
 
     protected function temp_clearDescription($description) // TODO remove this method

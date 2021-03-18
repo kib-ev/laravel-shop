@@ -31,7 +31,7 @@
             <div class="product__cont">
                 <div class="prod__content d-flex justify-content-center">
                     <div class="col-lg-6 col-md-12 text-center">
-                        <img src="{{ get_image_url_by_product_id($product->id) }}" alt="Product image" class="img-fluid product__img" style="width: 300px; margin-top: 100px;">
+                        <img src="{{ @$product->_remote->image }}" alt="Product image" class="img-fluid product__img" style="width: 300px; margin-top: 100px;">
                     </div>
                     <div class="col-lg-6 col-md-12">
                         <div class="product__headerBlock">

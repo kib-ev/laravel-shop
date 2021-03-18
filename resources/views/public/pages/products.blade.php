@@ -212,7 +212,7 @@
                             <div class="product__card">
                                 <div class="productCard__header" style="display: none;">CENUINE</div>
                                 <div>
-                                    <img style="padding: 30px;" class="img-fluid productCard__img" src="{{ get_image_url_by_product_id($product->id) }}" alt="category">
+                                    <img style="padding: 30px;" class="img-fluid productCard__img" src="{{ @$product->_remote->image }}" alt="category">
                                 </div>
                                 <div class="productCard__num">{{ $product->name }}</div>
                             </div>
@@ -220,8 +220,8 @@
                                 <p class="productCard__txt1">{{ @$product->brand->name }}</p>
                                 <p class="productCard__txt2">{{ @$product->category->name != '' ? $product->category->name : '-' }}</p>
 
-                                @if($product->price)
-                                    <p class="productCard__price">{{ $product->_remote->price }}</p>
+                                @if(@$product->_remote->price && @$product->_remote->price != '0.00')
+                                    <p class="productCard__price">{{ $product->_remote->price }} {{ $product->_remote->currency }}</p>
                                 @else
                                     <p class="productCard__price">Цена: по запросу</p>
                                 @endif

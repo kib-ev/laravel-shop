@@ -54,14 +54,6 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        if (request()->has('update')) {
-            $wp = new WebParserAgrofilterBy();
-            $content = $wp->getPageContent('/filter/' . $product->id);
-
-        }
-
-        $product->_remote = get_remote_product_data($product->id);
-
         meta()->setTitleIfEmpty($product->name);
 
         $products = $product->category
