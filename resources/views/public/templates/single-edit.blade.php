@@ -14,6 +14,7 @@
                 <li><a href="/">{{ __('ui.'.'home') }}</a><span class="divider"> / </span></li>
                 <li class="active">{{ $page->name }}</li>
             </ul>
+<<<<<<< HEAD
             <h3><input type="text" name="name" value="{{ $page->name }}" style="width: 100%;"></h3>
             <hr class="soft"/>
             <div class="justify">
@@ -25,6 +26,15 @@
             </div>
 
             <input type="submit" value="save">
+=======
+            <h3><input type="text" name="name" value="{{ $page->name }}"></h3>
+            <hr class="soft"/>
+            <div class="justify">
+                <textarea name="content">{{ $page->content }}</textarea>
+            </div>
+
+            <input type="submit">
+>>>>>>> b8007dcd3fa91c6731b17105bbe88f0d1450f401
         </form>
     </div>
 @endsection

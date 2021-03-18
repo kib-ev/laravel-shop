@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Parser\WebParser;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -35,6 +36,10 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
+        if (request()->has('update')) {
+            WebParser::updateProductData($product);
+        }
+
         meta()->setTitleIfEmpty($product->name);
 
         $products = $product->category
