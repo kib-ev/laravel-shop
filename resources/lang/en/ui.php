@@ -77,6 +77,7 @@ return [
     'submit' => 'Submit',
     'message' => 'Message',
     'checkout' => 'Checkout',
+    'company' => 'Company',
     'cart' => [
         'product' => 'Product',
         'products_count' => ':count item|:count items|:count items',

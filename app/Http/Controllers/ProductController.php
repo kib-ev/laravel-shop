@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Jobs\SyncProductsJob;
 use App\Models\Product;
-use App\Services\Parser\Sites\WebParserAgrofilterBy;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     public function syncProducts()
     {
+        $this->dispatchNow(new SyncProductsJob());
+
         dd(Product::count());
     }
 
@@ -33,7 +34,7 @@ class ProductController extends Controller
             $products = $products->inRandomOrder();
         }
 
-        $products = $products->paginate(config('site.products.per_page'));
+        $products = $products->simplePaginate(config('site.products.per_page'));
 
         meta()->update([
             'title' => __('ui.products'),

@@ -112,11 +112,11 @@
         <div class="d-flex justify-content-between align-items-center">
             <div class="col-lg-9 col-8 no--pad">
                 <p class="last__footer__txt">
-                    © 2021 PERIPARTS. All Rights Reserved. All manufacturers' names, numbers, symbols and descriptions are for reference only.
+                    © {{ date('Y') }} Все права защищены.
                 </p>
             </div>
             <div class="col-lg-3 col-4 text-right">
-                <a href="#"><img src="/img/logo.png" class="footer__logo" alt="footer logo"></a>
+                <a href="/"><img src="/img/logo.png" class="footer__logo" alt="footer logo"></a>
             </div>
         </div>
     </div>

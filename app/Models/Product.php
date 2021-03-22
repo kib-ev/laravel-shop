@@ -92,7 +92,10 @@ class Product extends Model
 
     public function getRemoteAttribute()
     {
-        return Cache::remember('remote_product_'.$this->id, 2, function () {
+        if (request()->has('update')) {
+            Cache::forget('remote_product_'.$this->id);
+        }
+        return Cache::remember('remote_product_'.$this->id, 60*60*24*30, function () {
             return get_remote_product_data($this->id);
         });
     }

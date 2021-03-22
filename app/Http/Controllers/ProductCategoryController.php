@@ -26,17 +26,20 @@ class ProductCategoryController extends Controller
 
     public function show(int $productCategoryId)
     {
-        $productCategory = ProductCategory::with('products')->findOrFail($productCategoryId);
+        $productCategory = ProductCategory::findOrFail($productCategoryId);
+//        $productCategory = ProductCategory::with('products')->findOrFail($productCategoryId);
 
         /** @var Meta $meta */
         $meta = meta();
         $meta->setTitleIfEmpty($productCategory->name);
 
-        $productsIds = $productCategory->products->pluck('id');
-        foreach($productCategory->children as $childrenCategory) {
-             $productsIds = $productsIds->merge($childrenCategory->products->pluck('id'));
-        }
-        $products = Product::whereIn('id', $productsIds)->paginate(config('site.products.per_page'));
+//        $productsIds = $productCategory->products->pluck('id');
+//        foreach($productCategory->children as $childrenCategory) {
+//             $productsIds = $productsIds->merge($childrenCategory->products->pluck('id'));
+//        }
+        $products = Product::whereIn('category_id', [$productCategoryId])
+            ->inRandomOrder()
+            ->paginate(config('site.products.per_page'));
 
         return view('public.pages.products', [
             'category' => $productCategory,

@@ -79,5 +79,16 @@ function get_remote_product_data($productId)
         return null;
     }
 
+    if ($json->status == 'ok') {
+        $product = \App\Models\Product::find($productId);
+        $category = \App\Models\ProductCategory::where('name', $json->category_name)->first();
+        if ($category) {
+            $product->category_id = $category->id;
+        }
+        $product->name = $json->name;
+        $product->search = $json->search;
+        $product->update();
+    }
+
     return $json;
 }

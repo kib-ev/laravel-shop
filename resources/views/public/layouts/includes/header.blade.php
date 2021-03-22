@@ -107,7 +107,9 @@
                         @if(cart()->isNotEmpty())
                             <div class="korzina__container">
                                 <div class="korzina__modal">
-                                    <h4 class="korzina__title">{{ __('ui.cart.products_count', ['count' => cart()->products->count()]) }}</h4>
+                                    <h4 class="korzina__title">
+                                        @choice('ui.cart.products_count', cart()->products->count(), ['count' => cart()->products->count()])
+                                    </h4>
 
                                     @foreach(cart()->products as $cartProduct)
                                     <div class="product__info d-flex justify-content-between align-items-center">

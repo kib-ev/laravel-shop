@@ -172,6 +172,46 @@ a:hover {
     }
   }
 }
+.breadcrumb {
+    padding: 0px;
+    margin-bottom: 0px;
+
+    .breadcrumb__body {
+        width: 100%;
+        flex-wrap: wrap;
+        padding: 20px 15px;
+        background-color: #fff;
+
+        a {
+            margin: 0 7px;
+            font-size: 12px;
+            font-family: 'Montserrat-SemiBold';
+            color: #bdbdbd;
+        }
+
+        span {
+            margin: 0 4px;
+            font-size: 12px;
+            font-family: 'Montserrat-SemiBold';
+            color: #bdbdbd;
+        }
+
+        p {
+            margin: 0 7px;
+            font-size: 12px;
+            font-family: 'Montserrat-SemiBold';
+            color: #bdbdbd;
+        }
+    }
+}
+
+.page__content {
+    padding: 55px 0;
+    font-family: 'Montserrat-SemiBold';
+    padding-bottom: 40px;
+    background-color: #f2f2f2;
+}
+
 // Главная страница:
 #full--page {
   max-width: 1600px;
@@ -691,7 +731,7 @@ a:hover {
               border-top: 10px solid #fff;
             }
             .product__info {
-              padding: 20px 25px 20px 20px;
+              padding: 15px 25px 5px 20px;
             }
             .korzina__title {
               font-family: "Montserrat-Regular";
@@ -840,7 +880,7 @@ a:hover {
       z-index: 1;
       width: 100%;
       padding: 115px 0;
-      background-color: #cccccc;
+      background-color: #a7a6a1;
       background-image: none;
       &:before {
         position: inherit;
@@ -1872,7 +1912,6 @@ a:hover {
       }
       .add__product {
         .product__field {
-          background-color: rgb(254, 255, 229);
           border-bottom: 1px solid #e8e8e8;;
           padding: 12px 0;
           flex-wrap: wrap;
@@ -1908,7 +1947,7 @@ a:hover {
             margin-left: 20px;
           }
           .delete__product {
-            width: 24px;
+            width: 30px;
             height: 24px;
             font-size: 14px;
             border-radius: 4px;
@@ -1918,6 +1957,7 @@ a:hover {
             color: rgb(173, 173, 173);
             transition: .3s;
             cursor: pointer;
+              padding: 1px 5px;
             &:hover {
               border: 1px solid @gray;
             }

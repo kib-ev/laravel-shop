@@ -77,6 +77,7 @@ return [
     'submit' => 'Отправить',
     'message' => 'Сообщение',
     'checkout' => 'Оформить заказ',
+    'company' => 'Компания',
     'cart' => [
         'product' => 'Товар',
         'products_count' => ':count товар|:count товара|:count товаров',

@@ -45,7 +45,8 @@ class SyncProductsJob implements ShouldQueue
         $remoteProductsCount = RemoteProduct::count();
         $productsCount = Product::count();
 
-        if ($remoteProductsCount > $productsCount) {
+//        if ($remoteProductsCount > $productsCount) {
+
 
             $lastProduct = Product::orderBy('id', 'desc')->first();
             $lastId = $lastProduct ? $lastProduct->id : 0;
@@ -55,24 +56,27 @@ class SyncProductsJob implements ShouldQueue
                 ->get();
 
             $this->syncProducts($remoteProducts);
-        }
-
-//        $updatedRemoteProducts = RemoteProduct::whereDate('updated_at', '=', Carbon::today()->toDateString())->get();
-//        if ($updatedRemoteProducts->count()) {
-//            $this->syncProducts($updatedRemoteProducts);
 //        }
+
+        $productsIds = Product::select('id')->whereNull('search')->orWhere('search', '')->get()->pluck('id')->toArray();
+        if (count($productsIds)) {
+            $remoteProducts = RemoteProduct::whereIn('id', $productsIds)->get();
+            $this->syncProducts($remoteProducts);
+        }
     }
 
     protected function syncProducts($remoteProducts)
     {
+
         foreach ($remoteProducts as $remoteProduct) {
             $product = Product::firstOrCreate([
                 'id' => $remoteProduct->id
             ], [
-                'name' => $remoteProduct->name
+                'name' => $remoteProduct->name,
+                'search' => $remoteProduct->search,
             ]);
 
-//            $product->name = $remoteProduct->name;
+            $product->remote;
 
             if ($remoteProduct->group->name) {
                 $remoteBrand = ProductCategory::firstOrCreate([

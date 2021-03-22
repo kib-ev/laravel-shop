@@ -3,6 +3,24 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    // Cart
+    $('.quote__form button[type="submit"]').on('click', function (e) {
+
+        // e.preventDefault();
+
+        // $.ajax({
+        //     type: 'POST',
+        //     url: 'response.php?action=sample2',
+        //     data: 'name=Andrew&nickname=Aramis',
+        //     success: function(data){
+        //         $('.results').html(data);
+        //     }
+        // });
+
+
+    });
+
+
 // Slider:
     $("#content").slick({
         infinite: true,
@@ -138,12 +156,12 @@ $(document).ready(function() {
     });
 
 // Страница Quote:
-    $('.requestBtn').click(function() {
-        $('.quoteModal').addClass('showModal');
-    });
-    $('.quoteModalBtn').click(function() {
-        $('.quoteModal').removeClass('showModal');
-    });
+//     $('.requestBtn').click(function() {
+//         $('.quoteModal').addClass('showModal');
+//     });
+//     $('.quoteModalBtn').click(function() {
+//         $('.quoteModal').removeClass('showModal');
+//     });
 // Страница 'Catalog':
     $('.catalog__item').click(function() {
         $(this).next().slideToggle('slow', function() {
